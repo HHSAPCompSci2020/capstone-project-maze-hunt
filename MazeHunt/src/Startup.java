@@ -1,29 +1,17 @@
-import java.awt.Dimension;
-import java.io.IOException;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-import processing.awt.PSurfaceAWT;
-import processing.core.PApplet;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
-
 
 public class Startup {
-//test
 
-	
-	
-	
-	public static void main(String[] args) throws IOException {
-		
+	public static void main(String args[]) {
+
 		DrawingSurface drawing = new DrawingSurface();
-		PApplet.runSketch(new String[]{""}, drawing);
+		PApplet.runSketch(new String[] {""}, drawing);
 		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		JFrame window = (JFrame)canvas.getFrame();
@@ -34,5 +22,6 @@ public class Startup {
 		window.setResizable(true);
 
 		window.setVisible(true);
+		canvas.requestFocus();
 	}
 }
