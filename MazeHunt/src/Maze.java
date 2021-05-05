@@ -6,7 +6,7 @@ public class Maze {
 	int x;
 	
 	public Maze() {
-		x=0;
+		x = 0;
 
 	}
 
