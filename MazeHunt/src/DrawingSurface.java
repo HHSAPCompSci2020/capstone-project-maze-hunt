@@ -15,22 +15,29 @@ public class DrawingSurface extends PApplet {
 		
 	}
 	
-	// The statements in the setup() function 
-	// execute once when the program begins
+	/**The statements in the setup() function 
+	 execute once when the program begins
+	 **/
 	public void setup() {
 		
 	}
 	
-	// The statements in draw() are executed until the 
-	// program is stopped. Each statement is executed in 
-	// sequence and after the last line is read, the first 
-	// line is executed again.
+	 /**The statements in draw() are executed until the 
+	 program is stopped. Each statement is executed in 
+	 sequence and after the last line is read, the first 
+	 line is executed again.
+	 **/
 	public void draw() { 
 		background(255);   // Clear the screen with a white background
 		
-		textSize(12);
-		fill(0);
-		text("testing",0,15);
+		textSize(30);
+		fill(184);
+		text("Welcome to ",90,50);
+		text("the Maze Hunt",70,90);
+		
+		fill(255);
+		stroke(0);
+		rect(90,50,60,90);
 		
 		stroke(0);
 		curve.draw(this);		

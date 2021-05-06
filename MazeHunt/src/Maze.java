@@ -12,7 +12,6 @@ public class Maze {
 
 
 	public void draw(PApplet marker) {
-		marker.rect(20, 10, 20, 10);
-		System.out.println("test");
+		//marker.rect(20, 10, 20, 10);
 	}
 }
