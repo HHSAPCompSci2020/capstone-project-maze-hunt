@@ -31,13 +31,18 @@ public class DrawingSurface extends PApplet {
 		background(255);   // Clear the screen with a white background
 		
 		textSize(30);
-		fill(184);
+		fill(129,20,40);
 		text("Welcome to ",90,50);
 		text("the Maze Hunt",70,90);
 		
 		fill(255);
 		stroke(0);
-		rect(90,50,60,90);
+		rect(80,150,90,60);
+		
+		textSize(25);
+		fill(20,130,40);
+		text("Start ",93,190);
+
 		
 		stroke(0);
 		curve.draw(this);		
