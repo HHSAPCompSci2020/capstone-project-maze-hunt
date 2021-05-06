@@ -43,6 +43,13 @@ public class DrawingSurface extends PApplet {
 		fill(20,130,40);
 		text("Start ",93,190);
 
+		fill(255);
+		stroke(0);
+		rect(250,150,90,60);
+		
+		textSize(25);
+		fill(20,20,150);
+		text("Help ",270,190);
 		
 		stroke(0);
 		curve.draw(this);		
