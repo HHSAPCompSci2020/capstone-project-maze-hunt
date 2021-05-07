@@ -1,4 +1,4 @@
-AP Computer Science Final Project - README Template
+﻿AP Computer Science Final Project - README Template
 
 
 Instructions:
@@ -23,6 +23,17 @@ Talk with your group. Consider drawing some pictures of what you think your proj
 Maze Hunt
 Authors: Anika Ummukulsum, Faith Dominique, Saloni Nadarajan
 Revision: April 26, 2021
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,9 +101,13 @@ Class List:
 Credits:
 **Credits so far, might/will be changed once we start coding the project**
 * Anika
+   * Added javadoc comments
    * ReadMe, Maze class, clues class, end window class, Player 1 class, Player 2 class, Superboost class, diamond class, 
 * Faith
+   * Created Drawing Surface and Startup (and code)
+   * Created jar file and javadoc files
    * ReadMe, Maze class, clues class, help window class, Player 1 class, Player 2 class, Superboost class, organizing meetings, sound class
 * Saloni
+   * Created classes (and added fields, constructors, and methods)
    * ReadMe, Maze class, clues class, Player 1 class, Player 2 class, diamond class, startup window, sound class, pictures/art for characters
 * Outside resources: As of May 5th, there are no outside resources that have been used
