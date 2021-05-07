@@ -5,29 +5,43 @@ public class Player2 extends Maze {
 	int Clues;
 	int numSuperBoost;
 	int numDiamonds;
-
 	
-	//constructor
+	
+	/**
+	 * Constructs a player2.
+	 */
 	public Player2() {
 		
 	}
 	
 	
-	//methods
+	/**
+	 * Allows player to run around the maze.
+	 */
 	public void run() {
 		
 	}
 	
+	/**
+	 * Chooses the speed in which the player will run.
+	 */
 	public void speed() {
 		
 	}
 	
+	/**
+	 * Helps the player solve clues.
+	 */
 	public void solveClue() {
 		
 	}
 	
+	/**
+	 * Checks is if the player collided with the walls of the maze.
+	 */
 	public void mazeDetector() {
 		
 	}
-	
+
 }
+

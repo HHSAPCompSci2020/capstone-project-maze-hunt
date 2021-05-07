@@ -8,7 +8,9 @@ public class DrawingSurface extends PApplet {
 
 	private Maze curve;
 	
-	
+	/**
+	 * Constructs a maze
+	 */
 	public DrawingSurface() {
 		
 		curve = new Maze ();
