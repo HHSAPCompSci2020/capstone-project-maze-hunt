@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import jchoi182.shapes.Line;
+import java.awt.Color;
 
 public class Maze extends Screen{
 
@@ -26,16 +27,65 @@ public class Maze extends Screen{
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		surface.fill(0);
-		surface.textSize(10);
-		surface.text("This is where the maze will be "
-				+ "\n create lines using the template like in line 36 and make the maze",10,30);
+		surface.textSize(5);
+		surface.text("Maze Hunt Reminder: \nMove the mouse around to run from the cat and find the clues. "
+				+ "Remember you can only leave the maze once you have found all the clues. Good luck!", 5, 15);
 		
-		
+		//Line(x,y,angle,length)
 		//System.out.println("here");
-		//marker.background(255);
-		Line circle = new Line (100,300, 102, 200);
-		circle.draw(surface);
-		//circle.draw(marker);
-		//marker.rect(20, 10, 20, 10);
+		// marker.background(255);
+
+		// circle.draw(marker);
+		// marker.rect(20, 10, 20, 10);
+
+		int x, y, w, h, gap;
+		x = 50;
+		y = 60;
+		w = 300;
+		h = 200;
+		gap = 30;
+
+		
+		//top entry
+		Line tope = new Line(x, y, x+gap, y);
+		//color
+		surface.fill(255,255,255);
+		tope.draw(surface);
+		
+		//top line
+		Line top = new Line(x+gap, y, x+w, y);
+		top.draw(surface);
+
+		//right line
+		Line right = new Line(x + w, y, x + w, y + h);
+		right.draw(surface);
+
+		//bottom exit
+		Line bottome = new Line(x+w, y+h, x+w-gap, y+h);
+		//color
+		
+		bottome.draw(surface);
+
+		//bottom line
+		Line bottom = new Line(x+w-gap, y+h, x, y+h);
+		bottom.draw(surface);
+
+		//left line
+		Line left = new Line(x, y+h, x, y);
+		left.draw(surface);
+
+		//line1
+		Line line1 = new Line(x+gap, y, x+gap, y+gap);
+		line1.draw(surface);
+		
+		//line2
+		Line line2 = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
+		line2.draw(surface);
+		
+		
+		
+		
+
+
 	}
 }
