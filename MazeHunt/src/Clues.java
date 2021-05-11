@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Clues extends Maze{
+public class Clues {
 
 	
 	protected int clueNumber;

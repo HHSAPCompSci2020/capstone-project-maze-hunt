@@ -1,5 +1,5 @@
 
-public class Player2 extends Maze {
+public class Player2  {
 	
 	//fields
 	int Clues;
