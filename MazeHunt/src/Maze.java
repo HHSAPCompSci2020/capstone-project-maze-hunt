@@ -71,7 +71,7 @@ public class Maze extends Screen{
 		Line bottome = new Line(x+w, y+h, x+w-gap, y+h);
 		if (cluesFound==5)
 		{
-			exitRevel = Color.WHITE;
+			exitRevel = new Color(176,224,230);
 		}
 		else
 			exitRevel = Color.BLACK;
