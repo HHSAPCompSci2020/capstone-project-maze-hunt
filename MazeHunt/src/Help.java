@@ -36,7 +36,7 @@ public class Help extends Screen {
 		
 		
 		surface.fill(0);
-		surface.textSize(10);
+		surface.textSize(9);
 		surface.text("Maze Hunt is an interactive game where the users can control their players using keys." 
 				+ "\n The player is given clues along its way. Once the player finds all the clues the"
 				+ "\n the exit will be revealed and the game will end. You have the option to pause or"
