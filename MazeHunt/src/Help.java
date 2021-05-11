@@ -37,8 +37,15 @@ public class Help extends Screen {
 		
 		surface.fill(0);
 		surface.textSize(10);
-		surface.text("Write instructions here and at the end write a sentence saying like press the "
-				+ "\n button below to go back to the home screen and start the game",10,30);
+		surface.text("Maze Hunt is an interactive game where the users can control their players using keys." 
+				+ "\n The players are given clues along their way. Once the player finds all the clues the"
+				+ "\n the exit will be revealed and the game will end. You have the option to pause or"
+				+ "\n exit the during teh game. The players of the game includes a cat and a mouse. If your"
+				+ "\n charecter is a mouse your task is to find all the clues before the cat eat you."
+				+ "\n If you are a cat, you task is not catch the mouse and end the game. The cat can be"
+				+ "\n controlled usimg WASD keys and the mouse should be controlled using the arrow keys."
+				+ "\n You will also need to drag and click to view the menu options and to look at the clues."
+				+ "\n Please press the back button to return to the main menu.",10,30);
 		
 
 		surface.textSize(10);
