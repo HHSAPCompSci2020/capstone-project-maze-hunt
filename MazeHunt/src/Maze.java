@@ -6,6 +6,8 @@ public class Maze extends Screen{
 
 	private DrawingSurface surface;
 	int x;
+	private Color exitRevel;
+	private int cluesFound=0;
 	
 	/**
 	 * Constructs a maze 
@@ -50,6 +52,7 @@ public class Maze extends Screen{
 		Line tope = new Line(x, y, x+gap, y);
 		//color
 		surface.fill(255,255,255);
+		
 		tope.setStroke(Color.WHITE);
 		tope.draw(surface);
 		
@@ -65,7 +68,12 @@ public class Maze extends Screen{
 
 		//bottom exit
 		Line bottome = new Line(x+w, y+h, x+w-gap, y+h);
-		bottome.setStroke(Color.WHITE);
+		if (cluesFound==5)
+		{
+			exitRevel = Color.WHITE;
+		}
+		else
+			exitRevel = Color.BLACK;
 		//color
 		
 		bottome.draw(surface);
