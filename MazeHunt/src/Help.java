@@ -16,10 +16,7 @@ public class Help extends PApplet{
 	}
 	
 	public void draw() { 
-		background(255);   // Clear the screen with a white background
 		
-		textSize(30);
-		fill(129,20,40);
 		text("Help ",90,50);
 		text("Window",70,90);
 		
