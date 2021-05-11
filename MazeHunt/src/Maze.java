@@ -32,6 +32,7 @@ public class Maze extends Screen{
 		surface.textSize(5);
 		surface.text("Maze Hunt Reminder: \nMove the mouse around to run from the cat and find the clues. "
 				+ "Remember you can only leave the maze once you have found all the clues. Good luck!", 5, 15);
+		surface.background(176,224,230);
 		
 		//Line(x,y,angle,length)
 		//System.out.println("here");
@@ -53,7 +54,7 @@ public class Maze extends Screen{
 		//color
 		surface.fill(255,255,255);
 		
-		tope.setStroke(Color.WHITE);
+		tope.setStroke(new Color(176,224,230));
 		tope.draw(surface);
 		
 		//top line
