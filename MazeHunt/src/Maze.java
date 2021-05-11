@@ -28,7 +28,7 @@ public class Maze extends Screen{
 		surface.fill(0);
 		surface.textSize(10);
 		surface.text("This is where the maze will be "
-				+ "\n create lines using the template in line 36 and add it in",10,30);
+				+ "\n create lines using the template like in line 36 and make the maze",10,30);
 		
 		
 		//System.out.println("here");
