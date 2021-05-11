@@ -1,6 +1,7 @@
 import processing.core.PApplet;
+import jchoi182.shapes.Line;
 
-public class Maze {
+public class Maze extends PApplet{
 
 
 	int x;
@@ -18,6 +19,9 @@ public class Maze {
 	 * @param marker the place on with the maze and characters will be drawn on
 	 */
 	public void draw(PApplet marker) {
-		//marker.rect(20, 10, 20, 10);
+		
+		Line circle = new Line (20,10, 32, 40);
+		circle.draw(marker);
+		marker.rect(20, 10, 20, 10);
 	}
 }

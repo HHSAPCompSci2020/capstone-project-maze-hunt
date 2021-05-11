@@ -1,6 +1,8 @@
 import javax.swing.JButton;
 
-public class Help extends Startup{
+import processing.core.PApplet;
+
+public class Help extends PApplet{
 
 	
 	public JButton button;
@@ -13,6 +15,18 @@ public class Help extends Startup{
 		
 	}
 	
+	public void draw() { 
+		background(255);   // Clear the screen with a white background
+		
+		textSize(30);
+		fill(129,20,40);
+		text("Help ",90,50);
+		text("Window",70,90);
+		
+		
+		//stroke(0);
+		//curve.draw(this);		
+	}
 	/**
 	 * Checks when a button on the help screen is pressed and redirects the user accordingly
 	 */
