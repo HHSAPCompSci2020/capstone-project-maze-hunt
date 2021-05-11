@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.*;
 
+import javax.swing.JOptionPane;
+
 
 public class Help extends Screen {
 	
@@ -47,7 +49,6 @@ public class Help extends Screen {
 				+ "\n You will also need to drag and click to view the menu options and to look at the clues."
 				+ "\n Please press the back button to return to the main menu.",10,30);
 		
-
 		surface.textSize(10);
 		surface.fill(75,0,130);
 		String start = "Back";
