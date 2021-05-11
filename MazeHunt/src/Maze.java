@@ -50,6 +50,7 @@ public class Maze extends Screen{
 		Line tope = new Line(x, y, x+gap, y);
 		//color
 		surface.fill(255,255,255);
+		tope.setStroke(Color.WHITE);
 		tope.draw(surface);
 		
 		//top line
@@ -57,11 +58,14 @@ public class Maze extends Screen{
 		top.draw(surface);
 
 		//right line
+		
 		Line right = new Line(x + w, y, x + w, y + h);
+		
 		right.draw(surface);
 
 		//bottom exit
 		Line bottome = new Line(x+w, y+h, x+w-gap, y+h);
+		bottome.setStroke(Color.WHITE);
 		//color
 		
 		bottome.draw(surface);
@@ -76,6 +80,7 @@ public class Maze extends Screen{
 
 		//line1
 		Line line1 = new Line(x+gap, y, x+gap, y+gap);
+		
 		line1.draw(surface);
 		
 		//line2
