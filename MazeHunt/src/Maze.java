@@ -52,8 +52,6 @@ public class Maze extends Screen{
 		//top entry
 		Line tope = new Line(x, y, x+gap, y);
 		//color
-		surface.fill(255,255,255);
-		
 		tope.setStroke(new Color(176,224,230));
 		tope.draw(surface);
 		
