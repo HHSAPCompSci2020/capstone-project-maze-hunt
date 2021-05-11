@@ -60,9 +60,7 @@ public class Maze extends Screen{
 		top.draw(surface);
 
 		//right line
-		
 		Line right = new Line(x + w, y, x + w, y + h);
-		
 		right.draw(surface);
 
 		//bottom exit
@@ -74,7 +72,6 @@ public class Maze extends Screen{
 		else
 			exitRevel = Color.BLACK;
 		//color
-		
 		bottome.draw(surface);
 
 		//bottom line
@@ -87,12 +84,19 @@ public class Maze extends Screen{
 
 		//line1
 		Line line1 = new Line(x+gap, y, x+gap, y+gap);
-		
 		line1.draw(surface);
 		
 		//line2
-		Line line2 = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
+		Line line2 = new Line(x + gap * 2, y + gap, x + w, y + gap);
 		line2.draw(surface);
+
+		// line3
+		Line line3 = new Line(x + gap, y + gap * 2, x + w - gap, y + gap * 2);
+		line3.draw(surface);
+
+		//lastline
+		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
+		lastline.draw(surface);
 		
 		
 		
