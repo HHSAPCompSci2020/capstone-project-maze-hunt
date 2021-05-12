@@ -24,7 +24,7 @@ public class Maze extends Screen{
 
 
 	}
-	
+
 	/**
 	 * Place to draw the maze and characters on
 	 * @param marker the place on with the maze and characters will be drawn on
@@ -39,7 +39,7 @@ public class Maze extends Screen{
 		surface.text("Maze Hunt Reminder: \nMove the mouse around to run from the cat and find the clues. "
 				+ "Remember you can only leave the maze once you have found all the clues. Good luck!", 5, 15);
 		surface.background(176,224,230);
-		
+
 		//Line(x,y,angle,length)
 		//System.out.println("here");
 		// marker.background(255);
@@ -54,13 +54,13 @@ public class Maze extends Screen{
 		h = 200;
 		gap = 30;
 
-		
+
 		//top entry
 		Line tope = new Line(x, y, x+gap, y);
 		//color
 		tope.setStroke(new Color(176,224,230));
 		tope.draw(surface);
-		
+
 		//top line
 		Line top = new Line(x+gap, y, x+w, y);
 		top.draw(surface);
@@ -91,7 +91,7 @@ public class Maze extends Screen{
 		//line1
 		Line line1 = new Line(x+gap, y, x+gap, y+gap);
 		line1.draw(surface);
-		
+
 		//line2
 		Line line2 = new Line(x+gap*2, y+gap, x+w, y+gap);
 		line2.draw(surface);
@@ -131,114 +131,132 @@ public class Maze extends Screen{
 		//line11
 		Line line11 = new Line(x+gap*5, y+gap*4, x+gap*6, y+gap*4);
 		line11.draw(surface);
-		
+
 		//line12
 		Line line12 = new Line(x+gap*7, (((y+gap*4)+(y+gap*5))/2)-gap/5, x+w-gap*2, (((y+gap*4)+(y+gap*5))/2)-gap/5);
 		line12.draw(surface);
-		
+
 		//line13
 		Line line13 = new Line(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+gap*5);
 		line13.draw(surface);
-		
+
 		//line14
 		Line line14 = new Line(x+w-gap, y+gap*3, x+w-gap, y+gap*4);
 		line14.draw(surface);
-		
+
 		//line15
 		Line line15 = new Line(x+w-gap, y+(gap*5-gap/6), x+w, y+(gap*5-gap/6));
 		line15.draw(surface);
-		
+
 		//line16
 		Line line16 = new Line(x+gap, y+gap*4, x+gap, y+(gap*5+gap/2));
 		line16.draw(surface);
-		
+
 		//line17
 		Line line17 = new Line(x+gap*2, y+(gap*5-gap/6), x+gap*3, y+(gap*5-gap/6));
 		line17.draw(surface);
-		
+
 		//line18
 		Line line18 = new Line(x+gap*4, y+gap*5, x+gap*6, y+gap*5);
 		line18.draw(surface);
-		
+
 		//line19
 		Line line19 = new Line(x+gap*6, y+gap*4, x+gap*6, y+gap*5);
 		line19.draw(surface);
-		
+
 		//line20
 		Line line20 = new Line(x, y+(gap*5+gap/2), x+gap,y+(gap*5+gap/2));
 		line20.draw(surface);
-		
+
 		//line21
 		Line line21 = new Line(((x+gap*2)+(x+gap*3))/2, y+h-gap, ((x+gap*2)+(x+gap*3))/2, y+h);
 		line21.draw(surface);
-		
+
 		//line22
 		Line line22 = new Line(x+(gap*4-gap/2), y+h-gap+gap/4, x+gap*5, y+h-gap+gap/4);
 		line22.draw(surface);
-		
+
 		//line23
 		Line line23 = new Line(x+gap*5, y+gap*5, x+gap*5, y+h-gap+gap/4);
 		line23.draw(surface);
-		
+
 		//line24
 		Line line24 = new Line(x+gap*6, y+h-(gap-gap/4), x+gap*6, y+h);
 		line24.draw(surface);
-		
+
 		//line25
 		Line line25 = new Line(x+gap*7, y+h-gap, x+w-gap, y+h-gap);
 		line25.draw(surface);
-		
+
 		//lastline
 		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
 		lastline.draw(surface);
-		
-		
-		
-		
+
+
+
+
 
 		player.draw(surface);
 		player.act();
 		shapesInteraction();
-		
-		
-		if (surface.isPressed(KeyEvent.VK_LEFT))
-			keyPressed();
-		if (surface.isPressed(KeyEvent.VK_RIGHT))
-		{
-		z += 3;
-		shapesInteraction();
 
-		player.accelerate(-1.1,0);
+
+		if (surface.isPressed(KeyEvent.VK_LEFT))
+		{
+			z += 3;
+			shapesInteraction();
+
+			player.accelerate(1.1,0);
 
 		}
-		if (surface.isPressed(KeyEvent.VK_UP))
-			keyPressed();
-		if (surface.isPressed(KeyEvent.VK_DOWN))
-			keyPressed();
-		
-
-
-	}
-	
-	public void keyPressed()
-	{
-		
-		if (surface.isPressed(KeyEvent.VK_LEFT))
-			z -= 3;
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
-			{
+		{
 			z += 3;
 			shapesInteraction();
 
 			player.accelerate(-1.1,0);
 
-			}
+		}
+		if (surface.isPressed(KeyEvent.VK_UP))
+		{
+
+			shapesInteraction();
+
+			player.accelerate(0,-1);
+
+		}
+		if (surface.isPressed(KeyEvent.VK_DOWN))
+		{
+
+			shapesInteraction();
+
+			player.accelerate(0,1);
+
+		}
+
+
+
+	}
+
+	public void keyPressed()
+	{
+
+		if (surface.isPressed(KeyEvent.VK_LEFT))
+			z -= 3;
+		if (surface.isPressed(KeyEvent.VK_RIGHT))
+		{
+			z += 3;
+			shapesInteraction();
+
+			player.accelerate(-1.1,0);
+
+		}
 		if (surface.isPressed(KeyEvent.VK_UP))
 			m -= 3;
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 			m += 3;
 	}	
-	
+
 
 	public void shapesInteraction()
 	{
@@ -254,7 +272,7 @@ public class Maze extends Screen{
 		h = 200;
 		gap = 30;
 		//drawing the bounding lines for the rectangle and circle
-		
+
 
 		Line botRect = new Line (x1, y1+50, x1+50,y1+50);
 		Line top = new Line(x+gap, y, x+w, y);
@@ -274,15 +292,15 @@ public class Maze extends Screen{
 		if ( botRectangle)
 		{
 			System.out.println("here");
-//			shape.bounceOff();
-//			shape.changeColor();
-//			shape2.bounceOff();
+			//			shape.bounceOff();
+			//			shape.changeColor();
+			//			shape2.bounceOff();
 
 
 		}
 
 	}
-	
-	
+
+
 
 }
