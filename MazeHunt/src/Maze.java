@@ -294,7 +294,7 @@ public class Maze extends Screen{
 		if ( botRectangle)
 		{
 			System.out.println("here");
-			clue.clueNumber1();
+			//clue.clueNumber1();
 			//			shape.bounceOff();
 			//			shape.changeColor();
 			//			shape2.bounceOff();
