@@ -97,9 +97,9 @@ public class StartWindow extends Screen{
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (helpButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN2); //switch to help screen
+			surface.switchScreen(ScreenSwitcher.SCREEN1); //switch to help screen
 		
 		if (startButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to help screen
+			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to start screen
 	}
 }

@@ -17,6 +17,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	private StartWindow helpWindow;
 	
 	private Maze maze;
+	
+	
 
 	/**
 	 * Constructs a maze
@@ -35,6 +37,18 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		
 		Maze screen3 = new Maze(this);
 		screens.add(screen3);
+		
+		Clue1 clue1 = new Clue1(this);
+		screens.add(clue1);
+		
+		Clue2 clue2 = new Clue2(this);
+		screens.add(clue2);
+		
+		Clue3 clue3 = new Clue3(this);
+		screens.add(clue3);
+		
+		Clue4 clue4 = new Clue4(this);
+		screens.add(clue4);
 		
 		activeScreen = screens.get(0);
 
