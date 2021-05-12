@@ -33,16 +33,16 @@ public class Player1  {
 		//checks for whether a shape is hitting the window and should bounce off when it does
 		Rectangle window = new Rectangle (0,0,350,250) ;
 		if (!window.isPointInside(s.getx(), s.gety())) {
-			vx= -vx;
-			s.translate(vx,vy);
+//			vx= -vx;
+//			s.translate(vx,vy);
 		}
 
 		s.translate(vx,vy);
 
 		if (!window.isPointInside(s.getx(), s.gety()))
 		{
-			vy= -vy;
-			s.translate(vx,vy);
+//			vy= -vy;
+//			s.translate(vx,vy);
 		}
 
 

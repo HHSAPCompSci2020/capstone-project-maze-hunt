@@ -206,7 +206,7 @@ public class Maze extends Screen{
 			z += 3;
 			shapesInteraction();
 
-			player.accelerate(1.1,0);
+			player.accelerate(-1.1,0);
 
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
@@ -214,7 +214,7 @@ public class Maze extends Screen{
 			z += 3;
 			shapesInteraction();
 
-			player.accelerate(-1.1,0);
+			player.accelerate(1.1,0);
 
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
