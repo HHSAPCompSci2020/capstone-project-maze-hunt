@@ -66,7 +66,7 @@ public class Maze extends Screen{
 		top.draw(surface);
 
 		//right line
-		Line right = new Line(x + w, y, x + w, y + h);
+		Line right = new Line(x+w, y, x+w, y+h);
 		right.draw(surface);
 
 		//bottom exit
