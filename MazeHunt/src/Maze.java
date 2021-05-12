@@ -1,10 +1,13 @@
-import processing.core.PApplet;
-import fdominique576.shapes.Line;
-import fdominique576.shapes.Rectangle;
-
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import processing.core.PApplet;
+
+import fdominique576.shapes.Line;
+import fdominique576.shapes.Rectangle;
+import g4p_controls.GAlign;
+import g4p_controls.GButton;
+import g4p_controls.GLabel;
 
 //import fdominique576.physicsshapedemo.PhysicsShape;
 
@@ -195,7 +198,7 @@ public class Maze extends Screen{
 		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
 		lastline.draw(surface);
 		
-
+		selectClue();
 
 
 		player.draw(surface);
@@ -309,6 +312,20 @@ public class Maze extends Screen{
 		//System.out.println(clued);
 		int k = (int) (Math.random()*clued.size());
 		return clued.get(k);
+	}
+	
+	public void selectClue() {
+		GButton b1, b2, b3;
+		GLabel lblOut;
+		long timer;
+		//PApplet marker = null;
+		b1 = new GButton(surface, 100, 60, 100, 40, "Button 1");
+		b2 = new GButton(surface, 100, 120, 100, 40, "Button 2");
+		b3 = new GButton(surface, 100, 180, 100, 40, "Button 3");
+
+		lblOut = new GLabel(surface, 10, 190, 560, 20, "");
+		lblOut.setTextAlign(GAlign.CENTER, null);
+		lblOut.setText("CLICK ON A BUTTON");
 	}
 
 
