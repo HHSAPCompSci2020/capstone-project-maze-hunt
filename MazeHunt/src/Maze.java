@@ -204,7 +204,13 @@ public class Maze extends Screen{
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 			keyPressed();
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
-			keyPressed();
+		{
+		z += 3;
+		shapesInteraction();
+
+		player.accelerate(-1.1,0);
+
+		}
 		if (surface.isPressed(KeyEvent.VK_UP))
 			keyPressed();
 		if (surface.isPressed(KeyEvent.VK_DOWN))
