@@ -19,7 +19,7 @@ public class Player1  {
 	/**
 	 * Constructs a player1.
 	 */
-	public Player1(Shape s) {
+	public Player1() {
 		this.s = s;
 		vx=0;
 		vy=0;
