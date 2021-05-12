@@ -25,7 +25,7 @@ public class Startup {
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
 	            	parent.setVisible(false);
 	                String name = JOptionPane.showInputDialog(parent,
-	                        "What is your name?", null);
+	                        "Answer to the Clue", "Type your answer here");
 	            }
 	        });
 
