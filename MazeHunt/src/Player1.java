@@ -47,8 +47,8 @@ public class Player1  {
 
 
 
-		vx*=0.98;
-		vy*=0.98;
+		vx*=0;
+		vy*=0;
 	}
 	
 	public void draw(PApplet surface) {
