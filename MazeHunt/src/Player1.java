@@ -97,11 +97,7 @@ public class Player1  {
 		s.translate(vx,vy);
 
 		vx*=0.99;
-		vy*=0.99;
-
-
-
-
+		vy*=0.99;//velocity
 
 
 	}

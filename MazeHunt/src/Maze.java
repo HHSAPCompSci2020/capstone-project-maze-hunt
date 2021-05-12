@@ -142,16 +142,16 @@ public class Maze extends Screen{
 
 		surface.rect(z,m,30,30);
 		
-		
-		if (surface.isPressed(KeyEvent.VK_LEFT))
-			keyPressed();
-		if (surface.isPressed(KeyEvent.VK_RIGHT))
-			keyPressed();
-		if (surface.isPressed(KeyEvent.VK_UP))
-			keyPressed();
-		if (surface.isPressed(KeyEvent.VK_DOWN))
-			keyPressed();
-		
+//		
+//		if (surface.isPressed(KeyEvent.VK_LEFT))
+//			keyPressed();
+//		if (surface.isPressed(KeyEvent.VK_RIGHT))
+//			keyPressed();
+//		if (surface.isPressed(KeyEvent.VK_UP))
+//			keyPressed();
+//		if (surface.isPressed(KeyEvent.VK_DOWN))
+//			keyPressed();
+//		
 
 
 	}
