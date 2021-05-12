@@ -96,52 +96,97 @@ public class Maze extends Screen{
 		Line line2 = new Line(x+gap*2, y+gap, x+w, y+gap);
 		line2.draw(surface);
 
-		// line3
+		//line3
 		Line line3 = new Line(x+gap, y+gap*2, x+w-gap, y+gap*2);
 		line3.draw(surface);
 
-		// line4
+		//line4
 		Line line4 = new Line(x+gap, y+gap*2, x+gap, y+gap*3);
 		line4.draw(surface);
 
-		// line5
+		//line5
 		Line line5 = new Line(x+gap*2, y+gap*3, x+gap*2, y+gap*4);
 		line5.draw(surface);
 
-		// line6
+		//line6
 		Line line6 = new Line(x+gap*3, y+gap*2, x+gap*3, y+gap*3);
 		line6.draw(surface);
 
-		// line7
+		//line7
 		Line line7 = new Line(x+gap*4, y+gap*3, x+gap*6, y+gap*3);
 		line7.draw(surface);
 
-		// line8
+		//line8
 		Line line8 = new Line(x+gap*7, y+gap*3, x+w, y+gap*3);
 		line8.draw(surface);
 
-		// line9
+		//line9
 		Line line9 = new Line(x+gap, y+gap*4, x+gap*3, y+gap*4);
 		line9.draw(surface);
 
-		// line10
+		//line10
 		Line line10 = new Line(x+gap*4, y+gap*3, x+gap*4, y+gap*5);
 		line10.draw(surface);
 
-		// line11
+		//line11
 		Line line11 = new Line(x+gap*5, y+gap*4, x+gap*6, y+gap*4);
 		line11.draw(surface);
 		
 		//line12
-		Line line12 = new Line(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+(gap*4+gap/2));
+		Line line12 = new Line(x+gap*7, (((y+gap*4)+(y+gap*5))/2)-gap/5, x+w-gap*2, (((y+gap*4)+(y+gap*5))/2)-gap/5);
 		line12.draw(surface);
-				
+		
 		//line13
-		Line line13 = new Line(x+w-gap, y+gap*3, x+w-gap, y+gap*4);
+		Line line13 = new Line(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+gap*5);
 		line13.draw(surface);
 		
+		//line14
+		Line line14 = new Line(x+w-gap, y+gap*3, x+w-gap, y+gap*4);
+		line14.draw(surface);
 		
+		//line15
+		Line line15 = new Line(x+w-gap, y+(gap*5-gap/6), x+w, y+(gap*5-gap/6));
+		line15.draw(surface);
 		
+		//line16
+		Line line16 = new Line(x+gap, y+gap*4, x+gap, y+(gap*5+gap/2));
+		line16.draw(surface);
+		
+		//line17
+		Line line17 = new Line(x+gap*2, y+(gap*5-gap/6), x+gap*3, y+(gap*5-gap/6));
+		line17.draw(surface);
+		
+		//line18
+		Line line18 = new Line(x+gap*4, y+gap*5, x+gap*6, y+gap*5);
+		line18.draw(surface);
+		
+		//line19
+		Line line19 = new Line(x+gap*6, y+gap*4, x+gap*6, y+gap*5);
+		line19.draw(surface);
+		
+		//line20
+		Line line20 = new Line(x, y+(gap*5+gap/2), x+gap,y+(gap*5+gap/2));
+		line20.draw(surface);
+		
+		//line21
+		Line line21 = new Line(((x+gap*2)+(x+gap*3))/2, y+h-gap, ((x+gap*2)+(x+gap*3))/2, y+h);
+		line21.draw(surface);
+		
+		//line22
+		Line line22 = new Line(x+(gap*4-gap/2), y+h-gap+gap/4, x+gap*5, y+h-gap+gap/4);
+		line22.draw(surface);
+		
+		//line23
+		Line line23 = new Line(x+gap*5, y+gap*5, x+gap*5, y+h-gap+gap/4);
+		line23.draw(surface);
+		
+		//line24
+		Line line24 = new Line(x+gap*6, y+h-(gap-gap/4), x+gap*6, y+h);
+		line24.draw(surface);
+		
+		//line25
+		Line line25 = new Line(x+gap*7, y+h-gap, x+w-gap, y+h-gap);
+		line25.draw(surface);
 		
 		//lastline
 		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
