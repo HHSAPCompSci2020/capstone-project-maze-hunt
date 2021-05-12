@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import processing.core.PApplet;
 
-//import fdominique576.shapes.Line;
+//import fdominique576.shapes.Rectangle;
 //import fdominique576.shapes.Rectangle;
 import g4p_controls.GAlign;
 import g4p_controls.GButton;
@@ -50,7 +50,7 @@ public class Maze extends Screen{
 				+ "Remember you can only leave the maze once you have found all the clues. Good luck!", 5, 15);
 		surface.background(176,224,230);
 
-		//Line(x,y,angle,length)
+		//Rectangle(x,y,angle,length)
 		//System.out.println("here");
 		// marker.background(255);
 
@@ -67,21 +67,21 @@ public class Maze extends Screen{
 		player1 = new Rectangle(z,m,50,20);
 		tester = new Rectangle(100,203,50,20);
 		//top entry
-//		Line tope = new Line(x, y, x+gap, y);
+//		Rectangle tope = new Rectangle(x, y, x+gap, y);
 //		//color
 //		tope.setStrokeColor(new Color(176,224,230));
 //		tope.draw(surface);
 //
 //		//top line
-//		Line top = new Line(x+gap, y, x+w, y);
+//		Rectangle top = new Rectangle(x+gap, y, x+w, y);
 //		top.draw(surface);
 //
 //		//right line
-//		Line right = new Line(x+w, y, x+w, y+h);
+//		Rectangle right = new Rectangle(x+w, y, x+w, y+h);
 //		right.draw(surface);
 //
 //		//bottom exit
-//		Line bottome = new Line(x+w, y+h, x+w-gap, y+h);
+//		Rectangle bottome = new Rectangle(x+w, y+h, x+w-gap, y+h);
 		if (cluesFound==5)
 		{
 			exitRevel = new Color(176,224,230);
@@ -91,117 +91,118 @@ public class Maze extends Screen{
 		//color
 //		bottome.draw(surface);
 //
-//		//bottom line
-//		Line bottom = new Line(x+w-gap, y+h, x, y+h);
-//		bottom.draw(surface);
-//
-//		//left line
-//		Line left = new Line(x, y+h, x, y);
-//		left.draw(surface);
-//
-//		//line1
-//		Line line1 = new Line(x+gap, y, x+gap, y+gap);
-//		line1.draw(surface);
-//
-//		//line2
-//		Line line2 = new Line(x+gap*2, y+gap, x+w, y+gap);
-//		line2.draw(surface);
-//
-//		//line3
-//		Line line3 = new Line(x+gap, y+gap*2, x+w-gap, y+gap*2);
-//		line3.draw(surface);
-//
-//		//line4
-//		Line line4 = new Line(x+gap, y+gap*2, x+gap, y+gap*3);
-//		line4.draw(surface);
-//
-//		//line5
-//		Line line5 = new Line(x+gap*2, y+gap*3, x+gap*2, y+gap*4);
-//		line5.draw(surface);
-//
-//		//line6
-//		Line line6 = new Line(x+gap*3, y+gap*2, x+gap*3, y+gap*3);
-//		line6.draw(surface);
-//
-//		//line7
-//		Line line7 = new Line(x+gap*4, y+gap*3, x+gap*6, y+gap*3);
-//		line7.draw(surface);
-//
-//		//line8
-//		Line line8 = new Line(x+gap*7, y+gap*3, x+w, y+gap*3);
-//		line8.draw(surface);
-//
-//		//line9
-//		Line line9 = new Line(x+gap, y+gap*4, x+gap*3, y+gap*4);
-//		line9.draw(surface);
-//
-//		//line10
-//		Line line10 = new Line(x+gap*4, y+gap*3, x+gap*4, y+gap*5);
-//		line10.draw(surface);
-//
-//		//line11
-//		Line line11 = new Line(x+gap*5, y+gap*4, x+gap*6, y+gap*4);
-//		line11.draw(surface);
-//
-//		//line12
-//		Line line12 = new Line(x+gap*7, (((y+gap*4)+(y+gap*5))/2)-gap/5, x+w-gap*2, (((y+gap*4)+(y+gap*5))/2)-gap/5);
-//		line12.draw(surface);
-//
-//		//line13
-//		Line line13 = new Line(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+gap*5);
-//		line13.draw(surface);
-//
-//		//line14
-//		Line line14 = new Line(x+w-gap, y+gap*3, x+w-gap, y+gap*4);
-//		line14.draw(surface);
-//
-//		//line15
-//		Line line15 = new Line(x+w-gap, y+(gap*5-gap/6), x+w, y+(gap*5-gap/6));
-//		line15.draw(surface);
-//
-//		//line16
-//		Line line16 = new Line(x+gap, y+gap*4, x+gap, y+(gap*5+gap/2));
-//		line16.draw(surface);
-//
-//		//line17
-//		Line line17 = new Line(x+gap*2, y+(gap*5-gap/6), x+gap*3, y+(gap*5-gap/6));
-//		line17.draw(surface);
-//
-//		//line18
-//		Line line18 = new Line(x+gap*4, y+gap*5, x+gap*6, y+gap*5);
-//		line18.draw(surface);
-//
-//		//line19
-//		Line line19 = new Line(x+gap*6, y+gap*4, x+gap*6, y+gap*5);
-//		line19.draw(surface);
-//
-//		//line20
-//		Line line20 = new Line(x, y+(gap*5+gap/2), x+gap,y+(gap*5+gap/2));
-//		line20.draw(surface);
-//
-//		//line21
-//		Line line21 = new Line(((x+gap*2)+(x+gap*3))/2, y+h-gap, ((x+gap*2)+(x+gap*3))/2, y+h);
-//		line21.draw(surface);
-//
-//		//line22
-//		Line line22 = new Line(x+(gap*4-gap/2), y+h-gap+gap/4, x+gap*5, y+h-gap+gap/4);
-//		line22.draw(surface);
-//
-//		//line23
-//		Line line23 = new Line(x+gap*5, y+gap*5, x+gap*5, y+h-gap+gap/4);
-//		line23.draw(surface);
-//
-//		//line24
-//		Line line24 = new Line(x+gap*6, y+h-(gap-gap/4), x+gap*6, y+h);
-//		line24.draw(surface);
-//
-//		//line25
-//		Line line25 = new Line(x+gap*7, y+h-gap, x+w-gap, y+h-gap);
-//		line25.draw(surface);
-//
-//		//lastline
-//		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
-//		lastline.draw(surface);
+		//bottom line
+		Rectangle bottom = new Rectangle(x+w-gap, y+h, x, y+h);
+		surface.rect(bottom.x, bottom.y, bottom.width, bottom.height);
+		
+
+		//left line
+		Rectangle left = new Rectangle(x, y+h, x, y);
+		surface.rect(left.x, left.y, left.width, left.height);
+
+		//line1
+		Rectangle line1 = new Rectangle(x+gap, y, x+gap, y+gap);
+		surface.rect(line1.x, line1.y, line1.width, line1.height);
+
+		//line2
+		Rectangle line2 = new Rectangle(x+gap*2, y+gap, x+w, y+gap);
+		surface.rect(line2.x, line2.y, line2.width, line2.height);
+
+		//line3
+		Rectangle line3 = new Rectangle(x+gap, y+gap*2, x+w-gap, y+gap*2);
+		surface.rect(line3.x, line3.y, line3.width, line3.height);
+
+		//line4
+		Rectangle line4 = new Rectangle(x+gap, y+gap*2, x+gap, y+gap*3);
+		surface.rect(line4.x, line4.y, line4.width, line4.height);
+
+		//line5
+		Rectangle line5 = new Rectangle(x+gap*2, y+gap*3, x+gap*2, y+gap*4);
+		surface.rect(line5.x, line5.y, line5.width, line5.height);
+
+		//line6
+		Rectangle line6 = new Rectangle(x+gap*3, y+gap*2, x+gap*3, y+gap*3);
+		surface.rect(line6.x, line6.y, line6.width, line6.height);
+
+		//line7
+		Rectangle line7 = new Rectangle(x+gap*4, y+gap*3, x+gap*6, y+gap*3);
+		surface.rect(line7.x, line7.y, line7.width, line7.height);
+
+		//line8
+		Rectangle line8 = new Rectangle(x+gap*7, y+gap*3, x+w, y+gap*3);
+		surface.rect(line8.x, line8.y, line8.width, line8.height);
+
+		//line9
+		Rectangle line9 = new Rectangle(x+gap, y+gap*4, x+gap*3, y+gap*4);
+		surface.rect(line9.x, line9.y, line9.width, line9.height);
+
+		//line10
+		Rectangle line10 = new Rectangle(x+gap*4, y+gap*3, x+gap*4, y+gap*5);
+		surface.rect(line10.x, line10.y, line10.width, line10.height);
+
+		//line11
+		Rectangle line11 = new Rectangle(x+gap*5, y+gap*4, x+gap*6, y+gap*4);
+		surface.rect(line11.x, line11.y, line11.width, line11.height);
+
+		//line12
+		Rectangle line12 = new Rectangle(x+gap*7, (((y+gap*4)+(y+gap*5))/2)-gap/5, x+w-gap*2, (((y+gap*4)+(y+gap*5))/2)-gap/5);
+		surface.rect(line12.x, line12.y, line12.width, line12.height);
+
+		//line13
+		Rectangle line13 = new Rectangle(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+gap*5);
+		surface.rect(line13.x, line13.y, line13.width, line13.height);
+
+		//line14
+		Rectangle line14 = new Rectangle(x+w-gap, y+gap*3, x+w-gap, y+gap*4);
+		surface.rect(line14.x, line14.y, line14.width, line14.height);
+
+		//line15
+		Rectangle line15 = new Rectangle(x+w-gap, y+(gap*5-gap/6), x+w, y+(gap*5-gap/6));
+		surface.rect(line15.x, line15.y, line15.width, line15.height);
+
+		//line16
+		Rectangle line16 = new Rectangle(x+gap, y+gap*4, x+gap, y+(gap*5+gap/2));
+		surface.rect(line16.x, line16.y, line16.width, line16.height);
+
+		//line17
+		Rectangle line17 = new Rectangle(x+gap*2, y+(gap*5-gap/6), x+gap*3, y+(gap*5-gap/6));
+		surface.rect(line17.x, line17.y, line17.width, line17.height);
+
+		//line18
+		Rectangle line18 = new Rectangle(x+gap*4, y+gap*5, x+gap*6, y+gap*5);
+		surface.rect(line18.x, line18.y, line18.width, line18.height);
+
+		//line19
+		Rectangle line19 = new Rectangle(x+gap*6, y+gap*4, x+gap*6, y+gap*5);
+		surface.rect(line19.x, line19.y, line19.width, line19.height);
+
+		//line20
+		Rectangle line20 = new Rectangle(x, y+(gap*5+gap/2), x+gap,y+(gap*5+gap/2));
+		surface.rect(line20.x, line20.y, line20.width, line20.height);
+
+		//line21
+		Rectangle line21 = new Rectangle(((x+gap*2)+(x+gap*3))/2, y+h-gap, ((x+gap*2)+(x+gap*3))/2, y+h);
+		surface.rect(line21.x, line21.y, line21.width, line21.height);
+
+		//line22
+		Rectangle line22 = new Rectangle(x+(gap*4-gap/2), y+h-gap+gap/4, x+gap*5, y+h-gap+gap/4);
+		surface.rect(line22.x, line22.y, line22.width, line22.height);
+
+		//line23
+		Rectangle line23 = new Rectangle(x+gap*5, y+gap*5, x+gap*5, y+h-gap+gap/4);
+		surface.rect(line23.x, line23.y, line23.width, line23.height);
+
+		//line24
+		Rectangle line24 = new Rectangle(x+gap*6, y+h-(gap-gap/4), x+gap*6, y+h);
+		surface.rect(line24.x, line24.y, line24.width, line24.height);
+
+		//line25
+		Rectangle line25 = new Rectangle(x+gap*7, y+h-gap, x+w-gap, y+h-gap);
+		surface.rect(line25.x, line25.y, line25.width, line25.height);
+
+		//lastline
+		Rectangle lastline = new Rectangle(x+w-gap, y+h, x+w-gap, y+h-gap);
+		surface.rect(lastline.x, lastline.y, lastline.width, lastline.height);
 		
 		//selectClue();
 
@@ -293,8 +294,8 @@ public class Maze extends Screen{
 		//drawing the bounding lines for the rectangle and circle
 
 
-//		Line botRect = new Line (x1, y1+50, x1+50,y1+50);
-//		Line top = new Line(x+gap, y, x+w, y);
+//		Rectangle botRect = new Rectangle (x1, y1+50, x1+50,y1+50);
+//		Rectangle top = new Rectangle(x+gap, y, x+w, y);
 		//checks if circle lines intersects with rect
 		//boolean leftRect = circle.intersects(rect); //CH vs RLH
 
