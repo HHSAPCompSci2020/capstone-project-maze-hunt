@@ -23,6 +23,7 @@ public class Startup {
 	        button.addActionListener(new java.awt.event.ActionListener() {
 	            @Override
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            	parent.setVisible(false);
 	                String name = JOptionPane.showInputDialog(parent,
 	                        "What is your name?", null);
 	            }
