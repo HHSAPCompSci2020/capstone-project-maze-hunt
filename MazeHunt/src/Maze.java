@@ -132,7 +132,13 @@ public class Maze extends Screen{
 		Line line11 = new Line(x+gap*5, y+gap*4, x+gap*6, y+gap*4);
 		line11.draw(surface);
 		
-		
+		//line12
+		Line line12 = new Line(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+(gap*4+gap/2));
+		line12.draw(surface);
+				
+		//line13
+		Line line13 = new Line(x+w-gap, y+gap*3, x+w-gap, y+gap*4);
+		line13.draw(surface);
 		
 		
 		
