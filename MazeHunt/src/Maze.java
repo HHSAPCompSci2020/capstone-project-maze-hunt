@@ -195,7 +195,6 @@ public class Maze extends Screen{
 		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
 		lastline.draw(surface);
 		
-		showClues();
 
 
 
@@ -305,11 +304,11 @@ public class Maze extends Screen{
 		}
 	}
 	
-	public void showClues() {
+	public String showClues() {
 		ArrayList<String> clued = c.getClues();
 		//System.out.println(clued);
 		int k = (int) (Math.random()*clued.size());
-		System.out.println(clued.get(k));
+		return clued.get(k);
 	}
 
 
