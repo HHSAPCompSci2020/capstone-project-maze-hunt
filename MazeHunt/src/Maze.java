@@ -1,6 +1,6 @@
 import processing.core.PApplet;
-import jchoi182.shapes.Line;
-import jchoi182.shapes.Rectangle;
+import fdominique576.shapes.Line;
+import fdominique576.shapes.Rectangle;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -14,6 +14,7 @@ public class Maze extends Screen{
 	private Color exitRevel;
 	private int cluesFound=0;
 	private Player1 player;
+	private Clues clue;
 	/**
 	 * Constructs a maze 
 	 */
@@ -21,7 +22,7 @@ public class Maze extends Screen{
 		super(400,300);
 		this.surface = surface;
 		player = new Player1(new Rectangle(z,m,50,50));
-
+		clue = new Clues();
 
 	}
 
@@ -58,7 +59,7 @@ public class Maze extends Screen{
 		//top entry
 		Line tope = new Line(x, y, x+gap, y);
 		//color
-		tope.setStroke(new Color(176,224,230));
+		tope.setStrokeColor(new Color(176,224,230));
 		tope.draw(surface);
 
 		//top line
@@ -203,7 +204,6 @@ public class Maze extends Screen{
 
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
-			z += 3;
 			shapesInteraction();
 
 			player.accelerate(-1.1,0);
@@ -211,10 +211,10 @@ public class Maze extends Screen{
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
 		{
-			z += 3;
 			shapesInteraction();
 
 			player.accelerate(1.1,0);
+
 
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
@@ -224,6 +224,7 @@ public class Maze extends Screen{
 
 			player.accelerate(0,-1);
 
+
 		}
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
@@ -232,30 +233,31 @@ public class Maze extends Screen{
 
 			player.accelerate(0,1);
 
+
 		}
 
 
 
 	}
 
-	public void keyPressed()
-	{
-
-		if (surface.isPressed(KeyEvent.VK_LEFT))
-			z -= 3;
-		if (surface.isPressed(KeyEvent.VK_RIGHT))
-		{
-			z += 3;
-			shapesInteraction();
-
-			player.accelerate(-1.1,0);
-
-		}
-		if (surface.isPressed(KeyEvent.VK_UP))
-			m -= 3;
-		if (surface.isPressed(KeyEvent.VK_DOWN))
-			m += 3;
-	}	
+//	public void keyPressed()
+//	{
+//
+//		if (surface.isPressed(KeyEvent.VK_LEFT))
+//			z -= 3;
+//		if (surface.isPressed(KeyEvent.VK_RIGHT))
+//		{
+//			z += 3;
+//			shapesInteraction();
+//
+//			//player.translate()
+//
+//		}
+//		if (surface.isPressed(KeyEvent.VK_UP))
+//			m -= 3;
+//		if (surface.isPressed(KeyEvent.VK_DOWN))
+//			m += 3;
+//	}	
 
 
 	public void shapesInteraction()
@@ -292,6 +294,7 @@ public class Maze extends Screen{
 		if ( botRectangle)
 		{
 			System.out.println("here");
+			clue.clueNumber1();
 			//			shape.bounceOff();
 			//			shape.changeColor();
 			//			shape2.bounceOff();

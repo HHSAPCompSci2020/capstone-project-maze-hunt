@@ -1,7 +1,7 @@
 import java.awt.Color;
 
-import jchoi182.shapes.Rectangle;
-import jchoi182.shapes.Shape;
+import fdominique576.shapes.Rectangle;
+import fdominique576.shapes.Shape;
 import processing.core.PApplet;
 
 public class Player1  {
@@ -26,20 +26,22 @@ public class Player1  {
 	}
 
 
+	
+	
 	public void act() {
 
 		s.translate(vx, vy);
 
 		//checks for whether a shape is hitting the window and should bounce off when it does
 		Rectangle window = new Rectangle (0,0,350,250) ;
-		if (!window.isPointInside(s.getx(), s.gety())) {
+		if (!window.isPointInside(s.getX(), s.getY())) {
 //			vx= -vx;
 //			s.translate(vx,vy);
 		}
 
 		s.translate(vx,vy);
 
-		if (!window.isPointInside(s.getx(), s.gety()))
+		if (!window.isPointInside(s.getX(), s.getY()))
 		{
 //			vy= -vy;
 //			s.translate(vx,vy);
@@ -58,7 +60,7 @@ public class Player1  {
 
 	public double getCX()
 	{
-		return s.getx();
+		return s.getX();
 	}
 
 	/**This method gets the y value of the shape and returns it
@@ -67,30 +69,10 @@ public class Player1  {
 	 */
 	public double getCY()
 	{
-		return s.gety();
+		return s.getY();
 	}
 
-	/**change the color of the shape when it bounces against another shape
-	 * @post the color value is changed each time the method is called
-	 */
-	public void changeColor()
-	{
-		Color bouncer = new Color (R,G,B);
-
-		s.setFilled(true);
-		s.setFill(bouncer);
-
-		//change the color values each time this method is called
-		R+=80;
-		G+=150;
-		B+=90;
-
-
-		if (R>254) R=40;
-		if (G>254) G=60;
-		if (B>254) B=80;
-
-	}
+	
 
 	/**This method bounces makes it so that when a shape interacts with another shape it bounces off
 	 */
