@@ -4,12 +4,14 @@ import fdominique576.shapes.Rectangle;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 //import fdominique576.physicsshapedemo.PhysicsShape;
 
 public class Maze extends Screen{
 
 	private DrawingSurface surface;
+	private Clues c = new Clues();
 	int z,m;
 	private Color exitRevel;
 	private int cluesFound=0;
@@ -192,8 +194,8 @@ public class Maze extends Screen{
 		//lastline
 		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
 		lastline.draw(surface);
-
-
+		
+		showClues();
 
 
 
@@ -301,9 +303,14 @@ public class Maze extends Screen{
 
 
 		}
-
 	}
-
+	
+	public void showClues() {
+		ArrayList<String> clued = c.getClues();
+		//System.out.println(clued);
+		int k = (int) (Math.random()*clued.size());
+		System.out.println(clued.get(k));
+	}
 
 
 }

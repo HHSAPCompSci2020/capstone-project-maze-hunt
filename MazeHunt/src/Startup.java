@@ -28,6 +28,8 @@ public class Startup {
 	                        "Answer to the Clue", "Type your answer here");
 	            }
 	        });
+	        
+	        
 
 		DrawingSurface drawing = new DrawingSurface();
 		PApplet.runSketch(new String[] {""}, drawing);
