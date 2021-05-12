@@ -88,19 +88,59 @@ public class Maze extends Screen{
 		line1.draw(surface);
 		
 		//line2
-		Line line2 = new Line(x + gap * 2, y + gap, x + w, y + gap);
+		Line line2 = new Line(x+gap*2, y+gap, x+w, y+gap);
 		line2.draw(surface);
 
 		// line3
-		Line line3 = new Line(x + gap, y + gap * 2, x + w - gap, y + gap * 2);
+		Line line3 = new Line(x+gap, y+gap*2, x+w-gap, y+gap*2);
 		line3.draw(surface);
 
+		// line4
+		Line line4 = new Line(x+gap, y+gap*2, x+gap, y+gap*3);
+		line4.draw(surface);
+
+		// line5
+		Line line5 = new Line(x+gap*2, y+gap*3, x+gap*2, y+gap*4);
+		line5.draw(surface);
+
+		// line6
+		Line line6 = new Line(x+gap*3, y+gap*2, x+gap*3, y+gap*3);
+		line6.draw(surface);
+
+		// line7
+		Line line7 = new Line(x+gap*4, y+gap*3, x+gap*6, y+gap*3);
+		line7.draw(surface);
+
+		// line8
+		Line line8 = new Line(x+gap*7, y+gap*3, x+w, y+gap*3);
+		line8.draw(surface);
+
+		// line9
+		Line line9 = new Line(x+gap, y+gap*4, x+gap*3, y+gap*4);
+		line9.draw(surface);
+
+		// line10
+		Line line10 = new Line(x+gap*4, y+gap*3, x+gap*4, y+gap*5);
+		line10.draw(surface);
+
+		// line11
+		Line line11 = new Line(x+gap*5, y+gap*4, x+gap*6, y+gap*4);
+		line11.draw(surface);
+		
+		
+		
+		
+		
+		
 		//lastline
 		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
 		lastline.draw(surface);
 		
+		
+		
+		
 
-		surface.rect(z,m,30,30); //
+		surface.rect(z,m,30,30);
 		
 		
 		if (surface.isPressed(KeyEvent.VK_LEFT))
@@ -128,6 +168,8 @@ public class Maze extends Screen{
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 			m += 3;
 	}	
+	
+
 	
 	
 
