@@ -1,11 +1,12 @@
 import processing.core.PApplet;
 import jchoi182.shapes.Line;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 public class Maze extends Screen{
 
 	private DrawingSurface surface;
-	int x;
+	int z,m;
 	private Color exitRevel;
 	private int cluesFound=0;
 	
@@ -15,7 +16,7 @@ public class Maze extends Screen{
 	public Maze(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-		x = 0;
+		
 
 	}
 	
@@ -98,10 +99,36 @@ public class Maze extends Screen{
 		Line lastline = new Line(x+w-gap, y+h, x+w-gap, y+h-gap);
 		lastline.draw(surface);
 		
+
+		surface.rect(z,m,30,30); //
 		
 		
+		if (surface.isPressed(KeyEvent.VK_LEFT))
+			keyPressed();
+		if (surface.isPressed(KeyEvent.VK_RIGHT))
+			keyPressed();
+		if (surface.isPressed(KeyEvent.VK_UP))
+			keyPressed();
+		if (surface.isPressed(KeyEvent.VK_DOWN))
+			keyPressed();
 		
 
 
 	}
+	
+	public void keyPressed()
+	{
+		
+		if (surface.isPressed(KeyEvent.VK_LEFT))
+			z -= 3;
+		if (surface.isPressed(KeyEvent.VK_RIGHT))
+			z += 3;
+		if (surface.isPressed(KeyEvent.VK_UP))
+			m -= 3;
+		if (surface.isPressed(KeyEvent.VK_DOWN))
+			m += 3;
+	}	
+	
+	
+
 }
