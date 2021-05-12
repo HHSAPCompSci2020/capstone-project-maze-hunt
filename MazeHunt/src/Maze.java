@@ -1,7 +1,11 @@
 import processing.core.PApplet;
 import jchoi182.shapes.Line;
+import jchoi182.shapes.Rectangle;
+
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+
+//import fdominique576.physicsshapedemo.PhysicsShape;
 
 public class Maze extends Screen{
 
@@ -9,14 +13,15 @@ public class Maze extends Screen{
 	int z,m;
 	private Color exitRevel;
 	private int cluesFound=0;
-	
+	private Player1 player;
 	/**
 	 * Constructs a maze 
 	 */
 	public Maze(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-		
+		player = new Player1(new Rectangle(z,m,50,50));
+
 
 	}
 	
@@ -140,18 +145,20 @@ public class Maze extends Screen{
 		
 		
 
-		surface.rect(z,m,30,30);
+		player.draw(surface);
+		player.act();
+		shapesInteraction();
 		
-//		
-//		if (surface.isPressed(KeyEvent.VK_LEFT))
-//			keyPressed();
-//		if (surface.isPressed(KeyEvent.VK_RIGHT))
-//			keyPressed();
-//		if (surface.isPressed(KeyEvent.VK_UP))
-//			keyPressed();
-//		if (surface.isPressed(KeyEvent.VK_DOWN))
-//			keyPressed();
-//		
+		
+		if (surface.isPressed(KeyEvent.VK_LEFT))
+			keyPressed();
+		if (surface.isPressed(KeyEvent.VK_RIGHT))
+			keyPressed();
+		if (surface.isPressed(KeyEvent.VK_UP))
+			keyPressed();
+		if (surface.isPressed(KeyEvent.VK_DOWN))
+			keyPressed();
+		
 
 
 	}
@@ -162,7 +169,13 @@ public class Maze extends Screen{
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 			z -= 3;
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
+			{
 			z += 3;
+			shapesInteraction();
+
+			player.accelerate(2,5);
+
+			}
 		if (surface.isPressed(KeyEvent.VK_UP))
 			m -= 3;
 		if (surface.isPressed(KeyEvent.VK_DOWN))
@@ -170,6 +183,48 @@ public class Maze extends Screen{
 	}	
 	
 
+	public void shapesInteraction()
+	{
+		double x1;
+		x1 = player.getCX();
+		double y1;
+		y1 = player.getCY();
+
+		int x, y, w, h, gap;
+		x = 50;
+		y = 60;
+		w = 300;
+		h = 200;
+		gap = 30;
+		//drawing the bounding lines for the rectangle and circle
+		
+
+		Line botRect = new Line (x1, y1+50, x1+50,y1+50);
+		Line top = new Line(x+gap, y, x+w, y);
+		//checks if circle lines intersects with rect
+		//boolean leftRect = circle.intersects(rect); //CH vs RLH
+
+		//checks circle's vertical line
+		//boolean circ = circleVert.intersects(rect);
+
+		//checks rect bounding lines against the circle's bounding lines
+		//boolean rectTop = circleVert.intersects(topRect); // CV vs RTopH
+		boolean botRectangle = top.intersects(botRect); // CV vs RBotH
+		//boolean rightRectangle = circle.intersects(rightRect); // CV vs RBotH
+		//System.out.println("here");
+
+
+		if ( botRectangle)
+		{
+			System.out.println("here");
+//			shape.bounceOff();
+//			shape.changeColor();
+//			shape2.bounceOff();
+
+
+		}
+
+	}
 	
 	
 

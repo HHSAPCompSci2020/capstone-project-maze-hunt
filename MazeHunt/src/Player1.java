@@ -2,6 +2,7 @@ import java.awt.Color;
 
 import jchoi182.shapes.Rectangle;
 import jchoi182.shapes.Shape;
+import processing.core.PApplet;
 
 public class Player1  {
 
@@ -49,6 +50,12 @@ public class Player1  {
 		vx*=0.98;
 		vy*=0.98;
 	}
+	
+	public void draw(PApplet surface) {
+		s.draw(surface);
+
+	}
+
 	public double getCX()
 	{
 		return s.getx();
