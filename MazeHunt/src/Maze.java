@@ -314,19 +314,19 @@ public class Maze extends Screen{
 		return clued.get(k);
 	}
 	
-	public void selectClue() {
-		GButton b1, b2, b3;
-		GLabel lblOut;
-		long timer;
-		//PApplet marker = null;
-		b1 = new GButton(surface, 100, 60, 100, 40, "Button 1");
-		b2 = new GButton(surface, 100, 120, 100, 40, "Button 2");
-		b3 = new GButton(surface, 100, 180, 100, 40, "Button 3");
-
-		lblOut = new GLabel(surface, 10, 190, 560, 20, "");
-		lblOut.setTextAlign(GAlign.CENTER, null);
-		lblOut.setText("CLICK ON A BUTTON");
-	}
+//	public void selectClue() {
+//		GButton b1, b2, b3;
+//		GLabel lblOut;
+//		long timer;
+//		//PApplet marker = null;
+//		b1 = new GButton(surface, 100, 60, 100, 40, "Button 1");
+//		b2 = new GButton(surface, 100, 120, 100, 40, "Button 2");
+//		b3 = new GButton(surface, 100, 180, 100, 40, "Button 3");
+//
+//		lblOut = new GLabel(surface, 10, 190, 560, 20, "");
+//		lblOut.setTextAlign(GAlign.CENTER, null);
+//		lblOut.setText("CLICK ON A BUTTON");
+//	}
 
 
 }
