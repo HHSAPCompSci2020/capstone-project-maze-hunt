@@ -295,7 +295,7 @@ public class Maze extends Screen{
 		{
 			System.out.println("here");
 			//clue.clueNumber1();
-			//			shape.bounceOff();
+						player.bounceOff();
 			//			shape.changeColor();
 			//			shape2.bounceOff();
 
