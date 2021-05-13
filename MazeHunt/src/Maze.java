@@ -70,7 +70,7 @@ public class Maze extends Screen{
 		//top entry
 		Line2D tope = new Line2D.Float(x, y, x+gap, y);
 		//color
-		tope.setStroke(new Color(176,224,230));
+		//tope.setStroke(new Color(176,224,230));
 		float tex1 = (float) tope.getX1();
 		float tey1 = (float) tope.getY1();
 		float tex2 = (float) tope.getX2();
@@ -347,7 +347,6 @@ public class Maze extends Screen{
 
 
 		surface.rect(player1.x, player1.y,player1.width, player1.height);
-		surface.rect(tester.x, tester.y, tester.width, tester.height);
 		
 		//player.act();
 		//shapesInteraction();
@@ -388,12 +387,12 @@ public class Maze extends Screen{
 		}
 
 
-		if (player1.intersects(tester))
-		{
-			System.out.println("intersects");
-			m= (int) (m-0.5);
-			z= (int) (z-0.5);		
-		}
+//		if (player1.intersects(tester))
+//		{
+//			System.out.println("intersects");
+//			m= (int) (m-0.5);
+//			z= (int) (z-0.5);		
+//		}
 
 	}
 
