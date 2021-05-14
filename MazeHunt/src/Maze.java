@@ -2,9 +2,6 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-
-import javax.sound.sampled.Line;
-
 import processing.core.PApplet;
 import java.awt.geom.Line2D;
 
@@ -22,7 +19,8 @@ public class Maze extends Screen{
 	private Clues c = new Clues();
 	int z,m;
 	private Color exitRevel;
-	private int cluesFound=0;
+	public int cluesFound=1;
+	public boolean clue1Found = false;
 
 	private Clues clue;
 	private Rectangle player1;
@@ -35,8 +33,8 @@ public class Maze extends Screen{
 	public Maze(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-		clue = new Clues();
-		
+	
+
 	}
 
 	/**
@@ -44,15 +42,16 @@ public class Maze extends Screen{
 	 * @param marker the place on with the maze and characters will be drawn on
 	 */
 	public void draw() {
+		int clues=0;
 		surface.pushStyle();
-		surface.background(255);   // Clear the screen with a white background
+		surface.background(176,224,230);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		surface.fill(0);
 		surface.textSize(5);
 		surface.text("Maze Hunt Reminder: \nMove the mouse around to run from the cat and find the clues. "
 				+ "Remember you can only leave the maze once you have found all the clues. Good luck!", 5, 15);
-		surface.background(176,224,230);
+//		surface.background(176,224,230);
 
 		//Rectangle(x,y,angle,length)
 		//System.out.println("here");
@@ -60,7 +59,6 @@ public class Maze extends Screen{
 
 		// circle.draw(marker);
 		// marker.rect(20, 10, 20, 10);
-
 
 		int x, y, w, h, gap;
 		x = 50;
@@ -70,6 +68,7 @@ public class Maze extends Screen{
 		gap = 30;
 
 		player1 = new Rectangle(z,m,15,15);
+		
 		tester = new Rectangle(100,203,50,20);
 		//top entry
 		Line2D tope = new Line2D.Float(x, y, x+gap, y);//clue
@@ -99,18 +98,13 @@ public class Maze extends Screen{
 
 		//bottom exit
 		Line2D bottome = new Line2D.Float(x+w, y+h, x+w-gap, y+h); //clue
-		if (cluesFound==5)
-		{
-			exitRevel = new Color(176,224,230);
-		}
-		else
-			exitRevel = Color.BLACK;
+		
 		//color
 		float bex1 = (float) bottome.getX1();
 		float bey1 = (float) bottome.getY1();
 		float bex2 = (float) bottome.getX2();
 		float bey2 = (float) bottome.getY2();
-
+		
 		surface.line(bex1, bey1, bex2, bey2);
 		//bottom line
 		Line2D bottom = new Line2D.Float(x+w-gap, y+h, x, y+h);
@@ -348,29 +342,42 @@ public class Maze extends Screen{
 		surface.line(llx1, lly1, llx2, lly2);
 		
 		//selectClue();
-
-
-		surface.rect(player1.x, player1.y,player1.width, player1.height);
 		
 
+		surface.fill(195);
+		surface.rect(player1.x, player1.y,player1.width, player1.height);
+		
+		//System.out.println(cluesFound);
+		
+		if (cluesFound ==1)
+		{
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line20.getX1(), (float)line20.getY1(), 30, (float)1.75);
+		}
 
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
+			
 			z-=2;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
 		{
+			
 			z+=2;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
+			
 			m-=2;
 
 		}
+		
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
+
 			m+=2;
 
 		}
@@ -401,14 +408,16 @@ public class Maze extends Screen{
 		{
 			System.out.println("line2");
 			//m= (int) (m+1.5);
-			z= (int) (z+1.5);		
+			z= (int) (z+1.5);	
+			
 		}
 		
 		if (player1.intersectsLine(right))
 		{
 			System.out.println("line2");
 			//m= (int) (m+1);
-			z= (int) (z-1);		
+			z= (int) (z-1);	
+			showClues();
 		}
 		
 		if (player1.intersectsLine(bottom))
@@ -465,6 +474,11 @@ public class Maze extends Screen{
 		
 		if (player1.intersectsLine(line20))
 		{
+			if (clue1Found == false)
+			{surface.switchScreen(ScreenSwitcher.CLUE1);
+			cluesFound=1;
+			clue1Found=true;
+			}
 			System.out.println("line2");
 			m= (int) (m-2);
 			z= (int) (z-1);		
@@ -605,7 +619,15 @@ public class Maze extends Screen{
 		ArrayList<String> clued = c.getClues();
 		//System.out.println(clued);
 		int k = (int) (Math.random()*clued.size());
+		
 		return clued.get(k);
+		
+	}
+	
+	public void setClue(int x)
+	{
+		//System.out.println("here");
+		cluesFound = x;
 	}
 	
 
