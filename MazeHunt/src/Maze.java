@@ -705,7 +705,7 @@ public class Maze extends Screen{
 
 		if (player1.intersects(player2))
 		{
-			surface.switchScreen(ScreenSwitcher.CLUE1);//change to lose screen
+			surface.switchScreen(ScreenSwitcher.YOULOSE);//change to lose screen
 
 		}
 		
