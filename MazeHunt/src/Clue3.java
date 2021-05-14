@@ -58,6 +58,6 @@ public class Clue3 extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN1); //switch to welcome screen
+			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to welcome screen
 		}
 	}

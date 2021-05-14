@@ -112,6 +112,6 @@ public class StartWindow extends Screen{
 			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to start screen
 		
 		if (cluesButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.CLUE1); //switch to start screen
+			surface.switchScreen(ScreenSwitcher.CLUE4); //switch to start screen
 	}
 }

@@ -71,10 +71,10 @@ public class Clue1 extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (iceCreamButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN1); //switch to welcome screen
+			surface.switchScreen(ScreenSwitcher.WRONGANSWER); //switch to welcome screen
 		if (donutsButton.contains(p))
 			surface.switchScreen(ScreenSwitcher.SCREEN3);
 		if (cakeButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN1);
+			surface.switchScreen(ScreenSwitcher.WRONGANSWER);
 		}
 	}
