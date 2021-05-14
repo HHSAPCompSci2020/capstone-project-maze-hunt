@@ -30,14 +30,13 @@
 			surface.stroke(0);     // Set line drawing color to white
 			surface.noFill();
 			
-			//surface.fill(255);
 			surface.rect(exitButton.x, exitButton.y, exitButton.width, exitButton.height, 10, 10, 10, 10);
 			
 			
 			surface.fill(0);
 			surface.textSize(9);
 			surface.text("Congratulations! You have made it to the end of the maze. Hope you liked Maze run. Please "
-					+ "\n click on the'Exit' button to exit the game or the 'Play Again' button to play again.",10,30);
+					+ "\n click on the'Exit' button to exit the game.",10,30);
 			
 			surface.textSize(10);
 			surface.fill(75,0,130);

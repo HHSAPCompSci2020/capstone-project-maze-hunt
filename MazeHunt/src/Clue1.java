@@ -6,7 +6,12 @@ import java.awt.event.*;
 
 import javax.swing.JOptionPane;
 
-
+/**
+ * This class holds and contains the first clue
+ * Users are prompted with a question and are asked to select the correct answer.
+ * @author Anika and Faith
+ *
+ */
 public class Clue1 extends Screen {
 	
 
@@ -16,7 +21,10 @@ public class Clue1 extends Screen {
 	private Rectangle donutsButton;
 	private Rectangle cakeButton;
 
-	
+	/**
+	 * Constructs the first clue to be shown onto the screen
+	 * @param surface, the PApplet screen in which the clues and 
+	 */
 	public Clue1(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
@@ -27,7 +35,7 @@ public class Clue1 extends Screen {
 	
 	public void draw() {
 		
-		// Draw stuff
+
 		
 		surface.pushStyle();
 		
@@ -36,7 +44,6 @@ public class Clue1 extends Screen {
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
-		//surface.fill(255);
 		surface.rect(iceCreamButton.x, iceCreamButton.y, iceCreamButton.width, iceCreamButton.height, 10, 10, 10, 10);
 		surface.rect(donutsButton.x, donutsButton.y, donutsButton.width, donutsButton.height, 10, 10, 10, 10);
 		surface.rect(cakeButton.x, cakeButton.y, cakeButton.width, cakeButton.height, 10, 10, 10, 10);
@@ -62,7 +69,7 @@ public class Clue1 extends Screen {
 
 		
 		
-		// Change stuff
+		
 
 	
 

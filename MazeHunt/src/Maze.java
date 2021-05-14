@@ -399,51 +399,62 @@ public class Maze extends Screen{
 
 		if (player1.intersectsLine(bottome) && cluesFound==5)
 		{
-			surface.switchScreen(ScreenSwitcher.SCREEN1); // replace screen1 with the end screen
+			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
+
 		}
-		
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
+
 			z-=2;
+
 		}
-		
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
 		{
+
 			z+=2;
+
 		}
-		
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
+
 			m-=2;
+
 		}
 
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
+
 			m+=2;
+
 		}
 		
 		if (surface.isPressed(KeyEvent.VK_W)) //up
 		{
+
 			b-=2;
+
 		}
-		
 		if (surface.isPressed(KeyEvent.VK_A)) //left
 		{
+
 			a-=2;
+
 		}
-		
 		if (surface.isPressed(KeyEvent.VK_S))//down
 		{
+
 			b+=2;
+
 		}
 
 		if (surface.isPressed(KeyEvent.VK_D))//right
 		{
+
 			a+=2;
+
 		}
 
 
-		//PLAYER 1
 		if (player1.intersectsLine(top))
 		{
 			System.out.println("test");
@@ -690,236 +701,22 @@ public class Maze extends Screen{
 			m= (int) (m+1);
 			//z= (int) (z+1);		
 		}
-		
-		
-		//PLAYER 2
-		if (player2.intersectsLine(top))
-		{
-			System.out.println("test");
-			b = (int) (b+1);
-			a = (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(line1))
-		{
-			System.out.println("line2");
-			b= (int) (b-1);
-			a= (int) (a-1);		
-		}
-
-
-		if (player2.intersectsLine(line2))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(left))
-		{
-			System.out.println("line2");
-			//b = (int) (b+1.5);
-			a = (int) (a+1.5);	
-
-		}
-
-		if (player2.intersectsLine(right))
-		{
-			System.out.println("line2");
-			//b = (int) (b+1);
-			a = (int) (a-1);	
-			showClues();
-		}
-
-		if (player2.intersectsLine(bottom))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-
-		if (player2.intersectsLine(line3))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line4))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(line5))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-
-		if (player2.intersectsLine(line6))
-		{
-			System.out.println("line2");
-			b = (int) (b+1);
-			a = (int) (a-1);		
-		}
-
-
-		if (player2.intersectsLine(line8))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line7))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line20))
-		{
-			System.out.println("line2");
-			b = (int) (b-2);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line16))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line9))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			//a= (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line17))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			//a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line10))
-		{
-			System.out.println("line2");
-			//b = (int) (b-1);
-			a = (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(line21))
-		{
-			System.out.println("line2");
-			//b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line22))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			//a= (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line23))
-		{
-			System.out.println("line2");
-			//b = (int) (b-1);
-			a = (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(line24))
-		{
-			System.out.println("line2");
-			//b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line19))
-		{
-			System.out.println("line2");
-			//b = (int) (b-1);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line18))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			//a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line11))
-		{
-			System.out.println("line2");
-			b = (int) (b+1);
-			//a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line12))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			//a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line13))
-		{
-			System.out.println("line2");
-			//b= (int) (b+1);
-			a = (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(line25))
-		{
-			System.out.println("line2");
-			b = (int) (b-1);
-			//a= (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(lastline))
-		{
-			System.out.println("line2");
-			//b = (int) (b-1);
-			a = (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(line14))
-		{
-			System.out.println("line2");
-			//b = (int) (b-1);
-			a= (int) (a+1);		
-		}
-
-		if (player2.intersectsLine(line15))
-		{
-			System.out.println("line2");
-			b = (int) (b+1);
-			//a = (int) (a+1);		
-		}
 	}
 
 
-	
+
+
+
 	public String showClues() {
 		ArrayList<String> clued = c.getClues();
 		//System.out.println(clued);
 		int k = (int) (Math.random()*clued.size());
-
+		
 		return clued.get(k);
 
 	}
+
+
 
 
 

@@ -6,7 +6,12 @@ import java.awt.event.*;
 
 import javax.swing.JOptionPane;
 
-
+/**
+ *  This class holds and contains the second clue
+ * Users are prompted with a question and are asked to select the correct answer.
+ * @author Saloni and Anika
+ *
+ */
 public class Clue2 extends Screen {
 	
 

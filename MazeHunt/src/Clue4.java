@@ -4,7 +4,12 @@ import java.awt.event.*;
 
 import javax.swing.JOptionPane;
 
-
+/**
+ * This class holds and contains the fourth clue
+ * Users are prompted with a question and are asked to select the correct answer.
+ * @author Anika and Saloni
+ *
+ */
 public class Clue4 extends Screen {
 	
 
@@ -14,7 +19,10 @@ public class Clue4 extends Screen {
 	private Rectangle phoneButton;
 	private Rectangle frisbeeButton;
 
-	
+	/**
+	 * 
+	 * @param surface
+	 */
 	public Clue4(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
