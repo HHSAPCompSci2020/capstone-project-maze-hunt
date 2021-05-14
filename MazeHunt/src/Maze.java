@@ -21,10 +21,14 @@ public class Maze extends Screen{
 	private Color exitRevel;
 	public int cluesFound=1;
 	public boolean clue1Found = false;
+	public boolean clue2Found = false;
+	public boolean clue3Found = false;
+	public boolean clue4Found = false;
+
 
 	private Clues clue;
 	private Rectangle player1;
-	
+
 	private Rectangle tester;
 
 	/**
@@ -33,7 +37,7 @@ public class Maze extends Screen{
 	public Maze(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-	
+
 
 	}
 
@@ -51,7 +55,7 @@ public class Maze extends Screen{
 		surface.textSize(5);
 		surface.text("Maze Hunt Reminder: \nMove the mouse around to run from the cat and find the clues. "
 				+ "Remember you can only leave the maze once you have found all the clues. Good luck!", 5, 15);
-//		surface.background(176,224,230);
+		//		surface.background(176,224,230);
 
 		//Rectangle(x,y,angle,length)
 		//System.out.println("here");
@@ -68,7 +72,7 @@ public class Maze extends Screen{
 		gap = 30;
 
 		player1 = new Rectangle(z,m,15,15);
-		
+
 		tester = new Rectangle(100,203,50,20);
 		//top entry
 		Line2D tope = new Line2D.Float(x, y, x+gap, y);//clue
@@ -98,13 +102,13 @@ public class Maze extends Screen{
 
 		//bottom exit
 		Line2D bottome = new Line2D.Float(x+w, y+h, x+w-gap, y+h); //clue
-		
+
 		//color
 		float bex1 = (float) bottome.getX1();
 		float bey1 = (float) bottome.getY1();
 		float bex2 = (float) bottome.getX2();
 		float bey2 = (float) bottome.getY2();
-		
+
 		surface.line(bex1, bey1, bex2, bey2);
 		//bottom line
 		Line2D bottom = new Line2D.Float(x+w-gap, y+h, x, y+h);
@@ -114,7 +118,7 @@ public class Maze extends Screen{
 		float by2 = (float) bottom.getY2();
 		surface.line(bx1, by1, bx2, by2);
 
-		
+
 		Line2D tester;
 		tester = new Line2D.Float(x+w-gap, y+h, x, y+h);
 		//Line2D test = new Line2D(x+w-gap, y+h, x, y+h);
@@ -123,8 +127,8 @@ public class Maze extends Screen{
 		float x2 = (float) tester.getX2();
 		float y2 = (float) tester.getY2();
 		surface.line(x1, y1, x2, y2);
-		
-		
+
+
 		//left line
 		Line2D left = new Line2D.Float(x, y+h, x, y);
 		float lx1 = (float) left.getX1();
@@ -228,7 +232,7 @@ public class Maze extends Screen{
 		float l12x2 = (float) line12.getX2();
 		float l12y2 = (float) line12.getY2();
 		surface.line(l12x1, l12y1, l12x2, l12y2);
-		
+
 		//line13
 		Line2D line13 = new Line2D.Float(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+gap*5);
 		float l13x1 = (float) line13.getX1();
@@ -340,15 +344,15 @@ public class Maze extends Screen{
 		float llx2 = (float) lastline.getX2();
 		float lly2 = (float) lastline.getY2();
 		surface.line(llx1, lly1, llx2, lly2);
-		
+
 		//selectClue();
-		
+
 
 		surface.fill(195);
 		surface.rect(player1.x, player1.y,player1.width, player1.height);
-		
+
 		//System.out.println(cluesFound);
-		
+
 		if (cluesFound ==1)
 		{
 			surface.fill(255,0,255);
@@ -356,25 +360,58 @@ public class Maze extends Screen{
 			surface.rect((float)line20.getX1(), (float)line20.getY1(), 30, (float)1.75);
 		}
 
+		if (cluesFound ==2)
+		{
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line19.getX1(), (float)line19.getY1(),(float)1.9, 30);
+		}
+
+		if (cluesFound ==3)
+		{
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line4.getX1(), (float)line4.getY1(),(float)1.90, 30);
+		}
+
+		if (cluesFound ==4)
+		{
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line1.getX1(), (float)line1.getY1(),(float)1.9, 30);
+		}
+
+		if (cluesFound==5)
+		{
+			surface.stroke(176,224,230);
+			surface.fill(176,224,230);
+			surface.rect((float)bottome.getX2()+1, (float)bottome.getY2()-1, 30, (float)2);
+		}
+
+		if (player1.intersectsLine(bottome) && cluesFound==5)
+		{
+			surface.switchScreen(ScreenSwitcher.SCREEN1); // replace screen1 with the end screen
+
+		}
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
-			
+
 			z-=2;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
 		{
-			
+
 			z+=2;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
-			
+
 			m-=2;
 
 		}
-		
+
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
 
@@ -389,14 +426,21 @@ public class Maze extends Screen{
 			m= (int) (m+1);
 			z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(line1))
 		{
+			if (clue4Found == false && clue3Found==true)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE4);
+				cluesFound=5;
+				clue4Found=true;
+			}
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
+
 		if (player1.intersectsLine(line2))
 		{
 			System.out.println("line2");
@@ -409,9 +453,9 @@ public class Maze extends Screen{
 			System.out.println("line2");
 			//m= (int) (m+1.5);
 			z= (int) (z+1.5);	
-			
+
 		}
-		
+
 		if (player1.intersectsLine(right))
 		{
 			System.out.println("line2");
@@ -419,190 +463,203 @@ public class Maze extends Screen{
 			z= (int) (z-1);	
 			showClues();
 		}
-		
+
 		if (player1.intersectsLine(bottom))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
-		
+
+
 		if (player1.intersectsLine(line3))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line4))
 		{
+			if (clue3Found == false && clue2Found==true)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE3);
+				cluesFound=4;
+				clue3Found=true;
+			}
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(line5))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
-		
+
+
 		if (player1.intersectsLine(line6))
 		{
 			System.out.println("line2");
 			m= (int) (m+1);
 			z= (int) (z-1);		
 		}
-		
-		
+
+
 		if (player1.intersectsLine(line8))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line7))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line20))
 		{
 			if (clue1Found == false)
 			{surface.switchScreen(ScreenSwitcher.CLUE1);
-			cluesFound=1;
+			cluesFound=2;
 			clue1Found=true;
 			}
 			System.out.println("line2");
 			m= (int) (m-2);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line16))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line9))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line17))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line10))
 		{
 			System.out.println("line2");
 			//m= (int) (m-1);
 			z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(line21))
 		{
 			System.out.println("line2");
 			//m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line22))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line23))
 		{
 			System.out.println("line2");
 			//m= (int) (m-1);
 			z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(line24))
 		{
 			System.out.println("line2");
 			//m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line19))
 		{
+			if (clue2Found == false && clue1Found==true)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE2);
+				cluesFound=3;
+				clue2Found=true;
+			}
 			System.out.println("line2");
 			//m= (int) (m-1);
 			z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line18))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line11))
 		{
 			System.out.println("line2");
 			m= (int) (m+1);
 			//z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line12))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z-1);		
 		}
-		
+
 		if (player1.intersectsLine(line13))
 		{
 			System.out.println("line2");
 			//m= (int) (m+1);
 			z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(line25))
 		{
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(lastline))
 		{
 			System.out.println("line2");
 			//m= (int) (m-1);
 			z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(bottome) && cluesFound!=5)
 		{
+
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(line14))
 		{
 			System.out.println("line2");
 			//m= (int) (m-1);
 			z= (int) (z+1);		
 		}
-		
+
 		if (player1.intersectsLine(line15))
 		{
 			System.out.println("line2");
@@ -613,23 +670,19 @@ public class Maze extends Screen{
 
 
 
-	
-	
+
+
 	public String showClues() {
 		ArrayList<String> clued = c.getClues();
 		//System.out.println(clued);
 		int k = (int) (Math.random()*clued.size());
-		
+
 		return clued.get(k);
-		
+
 	}
-	
-	public void setClue(int x)
-	{
-		//System.out.println("here");
-		cluesFound = x;
-	}
-	
+
+
+
 
 
 }
