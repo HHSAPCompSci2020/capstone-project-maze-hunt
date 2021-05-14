@@ -6,7 +6,11 @@ import java.awt.event.*;
 
 import javax.swing.JOptionPane;
 
-
+/**
+ * This class displays the Help window that contains instructions and rules of the game
+ * @author faithdominique
+ *
+ */
 public class Help extends Screen {
 	
 
@@ -14,7 +18,10 @@ public class Help extends Screen {
 	private DrawingSurface surface;
 	private Rectangle startButton;
 
-	
+	/**
+	 * Contructs the help class
+	 * @param surface, the PApplet surface that the help class will be drawn on 
+	 */
 	public Help(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;

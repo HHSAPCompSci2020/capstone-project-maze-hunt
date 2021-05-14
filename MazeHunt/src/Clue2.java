@@ -28,7 +28,9 @@ public class Clue2 extends Screen {
 		this.surface = surface;
 		back = new Rectangle(150,200,50,40);
 	}
-	
+	/**
+	 * Displays the clues and answers onto the screen with answer choices
+	 */
 	public void draw() {
 		
 		// Draw stuff

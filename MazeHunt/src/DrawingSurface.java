@@ -21,7 +21,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	
 
 	/**
-	 * Constructs a maze
+	 * Constructs the maze and sets up the different screens to be switched
 	 */
 	public DrawingSurface() {
 
@@ -125,45 +125,80 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		//curve.draw(this);		
 	}
 
+	/**
+	 * This method checks for which key has been pressed
+	 */
 	public void keyPressed() {
 		keys.add(keyCode);
 	}
 
+	/**
+	 * This method checks for when a key has been released
+	 */
 	public void keyReleased() {
 		while(keys.contains(keyCode))
 			keys.remove(new Integer(keyCode));
 	}
 
+	/**
+	 * This method checks if a certain key is pressed
+	 * @param code, the integer code of the key being pressed
+	 * @return, true if the key is pressed
+	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
 	}
 
+	/**
+	 * This method checks if the mouse is pressed
+	 */
 	public void mousePressed() {
 		activeScreen.mousePressed();
 	}
 
+	/**
+	 * This method checks if the mouse has been moved
+	 */
 	public void mouseMoved() {
 		activeScreen.mouseMoved();
 	}
 
+	/**
+	 * This method checks if the mouse has been dragged
+	 */
 	public void mouseDragged() {
 		activeScreen.mouseDragged();
 	}
 
+	/**
+	 * This method checks if the mouse has been released
+	 */
 	public void mouseReleased() {
 		activeScreen.mouseReleased();
 	}
 
+	/**
+	 * This method returns a point that is assumed to be the point passed in
+	 * @param assumed, the point to be assumed  
+	 * @return returns a point that is assumed to be the point passed in
+	 */
 	public Point assumedCoordinatesToActual(Point assumed) {
 		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
 	}
 
+	/**
+	 * The method returns a point that is actual to the coordinated that is assumed
+	 * @param actual, the point that is the actual coordinate
+	 * @return returns the coordinate that is the actual point
+	 */
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
 
 
-	
+	/**
+	 * this method gets the active screen that is being displayed
+	 */
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
 	}
@@ -171,18 +206,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 
 
 
-//	public void mousePressed()
-//	{
-//		if (mouseX >=250 && mouseX <= 340)
-//		{
-//			if (mouseY>=150 && mouseY <=210)
-//			{
-//				System.out.println("here");
-//				helpWindow.draw();
-//
-//			}
-//		}
-//	}
+
 
 
 }
