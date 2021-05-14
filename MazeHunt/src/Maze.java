@@ -376,7 +376,8 @@ public class Maze extends Screen{
 		cat= surface.loadImage("cat.png");
 		surface.image(cat, a, b,19,19);
 		
-		
+		surface.fill(0,0,204);
+		surface.quad(305, 130, 297, 135, 305, 140, 310, 135);
 		if (cluesFound ==1)
 		{
 			surface.fill(255,0,255);
