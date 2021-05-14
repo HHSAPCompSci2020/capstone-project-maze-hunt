@@ -11,6 +11,7 @@ public interface ScreenSwitcher {
 	public static final int WRONGANSWER = 7;
 	public static final int WRONGANSWER2 = 8;
 	public static final int THANKYOU = 9;
+	public static final int YOULOSE = 10;
 
 	
 	public void switchScreen(int i);
