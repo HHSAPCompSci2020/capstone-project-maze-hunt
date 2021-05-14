@@ -33,6 +33,9 @@ public class Clue1 extends Screen {
 		cakeButton = new Rectangle(150,100,50,40);
 	}
 	
+	/**
+	 * Displays the clues and answers onto the screen with answer choices
+	 */
 	public void draw() {
 		
 
@@ -67,14 +70,13 @@ public class Clue1 extends Screen {
 		surface.text(cake, cakeButton.x+cakeButton.width/2-z/2, cakeButton.y+cakeButton.height/2);
 		surface.popStyle();
 
-		
-		
-		
 
-	
-
-		
 	}
+	
+	/**
+	 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
+	 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (iceCreamButton.contains(p))
