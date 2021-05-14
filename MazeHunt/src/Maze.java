@@ -2,6 +2,9 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+
+import javax.sound.sampled.Line;
+
 import processing.core.PApplet;
 import java.awt.geom.Line2D;
 
@@ -33,7 +36,7 @@ public class Maze extends Screen{
 		super(400,300);
 		this.surface = surface;
 		clue = new Clues();
-
+		
 	}
 
 	/**
@@ -57,6 +60,7 @@ public class Maze extends Screen{
 
 		// circle.draw(marker);
 		// marker.rect(20, 10, 20, 10);
+
 
 		int x, y, w, h, gap;
 		x = 50;
