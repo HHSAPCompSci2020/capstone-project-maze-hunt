@@ -75,7 +75,8 @@ public class Maze extends Screen{
 		gap = 30;
 
 		player1 = new Rectangle(z,m,15,15);
-		player1 = new Rectangle(a,b,15,15);
+		
+		player2 = new Rectangle(a,b,15,15);
 
 
 		tester = new Rectangle(100,203,50,20);
@@ -355,6 +356,9 @@ public class Maze extends Screen{
 
 		surface.fill(195);
 		surface.rect(player1.x, player1.y,player1.width, player1.height);
+		
+		surface.fill(123);
+		surface.rect(player2.x, player2.y, player2.width, player2.height);
 
 		//System.out.println(cluesFound);
 
@@ -421,6 +425,32 @@ public class Maze extends Screen{
 		{
 
 			m+=2;
+
+		}
+		
+		if (surface.isPressed(KeyEvent.VK_W)) //up
+		{
+
+			b-=2;
+
+		}
+		if (surface.isPressed(KeyEvent.VK_A)) //left
+		{
+
+			a-=2;
+
+		}
+		if (surface.isPressed(KeyEvent.VK_S))//down
+		{
+
+			b+=2;
+
+		}
+
+		if (surface.isPressed(KeyEvent.VK_D))//right
+		{
+
+			a+=2;
 
 		}
 
