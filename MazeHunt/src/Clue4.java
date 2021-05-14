@@ -20,8 +20,8 @@ public class Clue4 extends Screen {
 	private Rectangle frisbeeButton;
 
 	/**
-	 * 
-	 * @param surface
+	 * Constructs the fourth clue to be shown onto the screen
+	 * @param surface, the PApplet screen in which the clues and answer choices are displayed onto the screen
 	 */
 	public Clue4(DrawingSurface surface) {
 		super(400,300);

@@ -23,7 +23,7 @@ public class Clue1 extends Screen {
 
 	/**
 	 * Constructs the first clue to be shown onto the screen
-	 * @param surface, the PApplet screen in which the clues and 
+	 * @param surface, the PApplet screen in which the clues and answer choices are displayed onto the screen
 	 */
 	public Clue1(DrawingSurface surface) {
 		super(400,300);
