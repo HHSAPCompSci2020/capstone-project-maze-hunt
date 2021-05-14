@@ -309,7 +309,7 @@ public class Maze extends Screen{
 		float l22y1 = (float) line22.getY1();
 		float l22x2 = (float) line22.getX2();
 		float l22y2 = (float) line22.getY2();
-		surface.line(l22x1, l22y1, l22x2, l22y2);
+		//surface.line(l22x1, l22y1, l22x2, l22y2);
 
 		//line23
 		Line2D line23 = new Line2D.Float(x+gap*5, y+gap*5, x+gap*5, y+h-gap+gap/4);
@@ -493,6 +493,20 @@ public class Maze extends Screen{
 			System.out.println("line2");
 			m= (int) (m-1);
 			//z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line17))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			//z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line10))
+		{
+			System.out.println("line2");
+			//m= (int) (m-1);
+			z= (int) (z-1);		
 		}
 	}
 
