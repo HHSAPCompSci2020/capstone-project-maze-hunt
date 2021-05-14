@@ -313,7 +313,7 @@ public class Maze extends Screen{
 		float l22y1 = (float) line22.getY1();
 		float l22x2 = (float) line22.getX2();
 		float l22y2 = (float) line22.getY2();
-		//surface.line(l22x1, l22y1, l22x2, l22y2);
+		surface.line(l22x1, l22y1, l22x2, l22y2);
 
 		//line23
 		Line2D line23 = new Line2D.Float(x+gap*5, y+gap*5, x+gap*5, y+h-gap+gap/4);
@@ -352,41 +352,26 @@ public class Maze extends Screen{
 
 		surface.rect(player1.x, player1.y,player1.width, player1.height);
 		
-		//player.act();
-		//shapesInteraction();
 
 
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
 			z-=2;
 
-			//player.accelerate(-1.1,0);
-
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
 		{
 			z+=2;
 
-			//player.accelerate(1.1,0);
-
-
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
 			m-=2;
-			//shapesInteraction();
-
-			//player.accelerate(0,-1);
-
 
 		}
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
 			m+=2;
-			//shapesInteraction();
-
-			//player.accelerate(0,1);
-
 
 		}
 
@@ -415,14 +400,14 @@ public class Maze extends Screen{
 		if (player1.intersectsLine(left))
 		{
 			System.out.println("line2");
-			m= (int) (m+1.5);
+			//m= (int) (m+1.5);
 			z= (int) (z+1.5);		
 		}
 		
 		if (player1.intersectsLine(right))
 		{
 			System.out.println("line2");
-			m= (int) (m+1);
+			//m= (int) (m+1);
 			z= (int) (z-1);		
 		}
 		
@@ -510,72 +495,111 @@ public class Maze extends Screen{
 		{
 			System.out.println("line2");
 			//m= (int) (m-1);
+			z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(line21))
+		{
+			System.out.println("line2");
+			//m= (int) (m-1);
 			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line22))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			//z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line23))
+		{
+			System.out.println("line2");
+			//m= (int) (m-1);
+			z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(line24))
+		{
+			System.out.println("line2");
+			//m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line19))
+		{
+			System.out.println("line2");
+			//m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line18))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			//z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line11))
+		{
+			System.out.println("line2");
+			m= (int) (m+1);
+			//z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line12))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			//z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line13))
+		{
+			System.out.println("line2");
+			//m= (int) (m+1);
+			z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(line25))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			//z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(lastline))
+		{
+			System.out.println("line2");
+			//m= (int) (m-1);
+			z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(bottome) && cluesFound!=5)
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			//z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(line14))
+		{
+			System.out.println("line2");
+			//m= (int) (m-1);
+			z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(line15))
+		{
+			System.out.println("line2");
+			m= (int) (m+1);
+			//z= (int) (z+1);		
 		}
 	}
 
-//	public void keyPressed()
-//	{
-//
-//		if (surface.isPressed(KeyEvent.VK_LEFT))
-//			z -= 3;
-//		if (surface.isPressed(KeyEvent.VK_RIGHT))
-//		{
-//			z += 3;
-//			shapesInteraction();
-//
-//			//player.translate()
-//
-//		}
-//		if (surface.isPressed(KeyEvent.VK_UP))
-//			m -= 3;
-//		if (surface.isPressed(KeyEvent.VK_DOWN))
-//			m += 3;
-//	}	
 
 
-	public void shapesInteraction()
-	{
-//		double x1;
-//		x1 = player.getCX();
-//		double y1;
-//		y1 = player.getCY();
-
-		int x, y, w, h, gap;
-		x = 50;
-		y = 60;
-		w = 300;
-		h = 200;
-		gap = 30;
-		//drawing the bounding lines for the rectangle and circle
-
-
-//		Rectangle botRect = new Rectangle (x1, y1+50, x1+50,y1+50);
-//		Rectangle top = new Rectangle(x+gap, y, x+w, y);
-		//checks if circle lines intersects with rect
-		//boolean leftRect = circle.intersects(rect); //CH vs RLH
-
-		//checks circle's vertical line
-		//boolean circ = circleVert.intersects(rect);
-
-		//checks rect bounding lines against the circle's bounding lines
-		//boolean rectTop = circleVert.intersects(topRect); // CV vs RTopH
-		//boolean botRectangle = top.intersects(botRect); // CV vs RBotH
-		//boolean rightRectangle = circle.intersects(rightRect); // CV vs RBotH
-		//System.out.println("here");
-
-
-//		if ( botRectangle)
-//		{
-//			System.out.println("here");
-//			//clue.clueNumber1();
-//			//			shape.bounceOff();
-//			//			shape.changeColor();
-//			//			shape2.bounceOff();
-//
-//
-//		}
-	}
+	
 	
 	public String showClues() {
 		ArrayList<String> clued = c.getClues();
@@ -584,19 +608,6 @@ public class Maze extends Screen{
 		return clued.get(k);
 	}
 	
-//	public void selectClue() {
-//		GButton b1, b2, b3;
-//		GLabel lblOut;
-//		long timer;
-//		//PApplet marker = null;
-//		b1 = new GButton(surface, 100, 60, 100, 40, "Button 1");
-//		b2 = new GButton(surface, 100, 120, 100, 40, "Button 2");
-//		b3 = new GButton(surface, 100, 180, 100, 40, "Button 3");
-//
-//		lblOut = new GLabel(surface, 10, 190, 560, 20, "");
-//		lblOut.setTextAlign(GAlign.CENTER, null);
-//		lblOut.setText("CLICK ON A BUTTON");
-//	}
 
 
 }
