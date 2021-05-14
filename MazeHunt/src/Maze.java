@@ -1,10 +1,10 @@
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import fdominique576.shapes.Circle;
-import processing.core.PApplet;
+//import fdominique576.shapes.Circle;
+//import processing.core.PApplet;
 import processing.core.PImage;
 
 import java.awt.geom.Line2D;
@@ -14,9 +14,9 @@ public class Maze extends Screen{
 
 	private DrawingSurface surface;
 	private Clues c = new Clues();
-	double z,m;
+	double z=15,m=35;
 	double a=300,b=35;
-	private Color exitRevel;
+//	private Color exitRevel;
 	public int cluesFound=1;
 	public boolean clue1Found = false;
 	public boolean clue2Found = false;
@@ -30,13 +30,13 @@ public class Maze extends Screen{
 	private double catX= 2, catY= 2;
 
 
-	private Clues clue;
+//	private Clues clue;
 	private Rectangle player1;
 	private Rectangle player2;
 	private Rectangle diamond;
 
 
-	private Rectangle tester;
+//	private Rectangle tester;
 	private Rectangle tester2;
 	
 
@@ -56,7 +56,7 @@ public class Maze extends Screen{
 	 * @param marker the place on with the maze and characters will be drawn on
 	 */
 	public void draw() {
-		int clues=0;
+		//int clues=0;
 		surface.pushStyle();
 		surface.background(176,224,230);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
@@ -89,17 +89,17 @@ public class Maze extends Screen{
 		
 
 
-		tester = new Rectangle(100,203,50,20);
+		//tester = new Rectangle(100,203,50,20);
 		
 		
 		//top entry
-		Line2D tope = new Line2D.Float(x, y, x+gap, y);//clue
+		//Line2D tope = new Line2D.Float(x, y, x+gap, y);//clue
 		//color
 		//tope.setStroke(new Color(176,224,230));
-		float tex1 = (float) tope.getX1();
-		float tey1 = (float) tope.getY1();
-		float tex2 = (float) tope.getX2();
-		float tey2 = (float) tope.getY2();
+//		float tex1 = (float) tope.getX1();
+//		float tey1 = (float) tope.getY1();
+//		float tex2 = (float) tope.getX2();
+//		float tey2 = (float) tope.getY2();
 		//surface.line(tex1, tey1, tex2, tey2);
 
 		//top line
@@ -1021,8 +1021,7 @@ public class Maze extends Screen{
 		superboost = 60*15;
 	}
 
-	//make method speedUp
-	//superboost = 60*15
+	
 	public void speedNorm()
 	{
 
@@ -1030,7 +1029,7 @@ public class Maze extends Screen{
 		catY=2.5;
 
 		speedX = 2;
-		speedY=22;
+		speedY=2;
 	}
 
 }

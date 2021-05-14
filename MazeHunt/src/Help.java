@@ -2,9 +2,9 @@
 
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.*;
-
-import javax.swing.JOptionPane;
+//import java.awt.event.*;
+//
+//import javax.swing.JOptionPane;
 
 /**
  * This class displays the Help window that contains instructions and rules of the game

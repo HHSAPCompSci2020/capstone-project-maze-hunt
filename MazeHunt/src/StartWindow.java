@@ -1,9 +1,9 @@
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import javax.swing.JButton;
+//import javax.swing.JButton;
 
-import processing.core.PApplet;
+//import processing.core.PApplet;
 
 public class StartWindow extends Screen{
 
@@ -11,11 +11,12 @@ public class StartWindow extends Screen{
 	private Rectangle helpButton;
 	private Rectangle startButton;
 
-	private Maze maze;
+//	private Maze maze;
 
 
 	/**
-	 * Constructs the help screen
+	 * Constructs the start window and displays the start of the game with options
+	 * @param surface, the PApplet surface that the start window is to be shown on
 	 */
 	public StartWindow(DrawingSurface surface)
 	{

@@ -1,8 +1,8 @@
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.*;
-
-import javax.swing.JOptionPane;
+//import java.awt.event.*;
+//
+//import javax.swing.JOptionPane;
 
 /**
  * This class holds and contains the fourth clue

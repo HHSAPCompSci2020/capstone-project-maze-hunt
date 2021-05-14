@@ -8,6 +8,5 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="lib/processing_core.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/shapes.jar"/>
-	<classpathentry exported="true" kind="lib" path="/ProcessingWidgetLibraries/lib/G4P.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

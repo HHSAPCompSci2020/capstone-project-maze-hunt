@@ -3,9 +3,9 @@
 
 	import java.awt.Point;
 	import java.awt.Rectangle;
-	import java.awt.event.*;
+//	import java.awt.event.*;
 
-	import javax.swing.JOptionPane;
+//	import javax.swing.JOptionPane;
 
 
 
