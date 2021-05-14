@@ -65,7 +65,7 @@ public class Maze extends Screen{
 		h = 200;
 		gap = 30;
 
-		player1 = new Rectangle(z,m,50,20);
+		player1 = new Rectangle(z,m,15,15);
 		tester = new Rectangle(100,203,50,20);
 		//top entry
 		Line2D tope = new Line2D.Float(x, y, x+gap, y);//clue
@@ -107,7 +107,7 @@ public class Maze extends Screen{
 		float bex2 = (float) bottome.getX2();
 		float bey2 = (float) bottome.getY2();
 
-		//surface.line(bex1, bey1, bex2, bey2);
+		surface.line(bex1, bey1, bex2, bey2);
 		//bottom line
 		Line2D bottom = new Line2D.Float(x+w-gap, y+h, x, y+h);
 		float bx1 = (float) bottom.getX1();
@@ -149,7 +149,7 @@ public class Maze extends Screen{
 		float l2y1 = (float) line2.getY1();
 		float l2x2 = (float) line2.getX2();
 		float l2y2 = (float) line2.getY2();
-		//surface.line(l2x1, l2y1, l2x2, l2y2);
+		surface.line(l2x1, l2y1, l2x2, l2y2);
 
 		//line3
 		Line2D line3 = new Line2D.Float(x+gap, y+gap*2, x+w-gap, y+gap*2);
@@ -393,7 +393,107 @@ public class Maze extends Screen{
 			m= (int) (m+1);
 			z= (int) (z+1);		
 		}
+		
+		if (player1.intersectsLine(line1))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line2))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z+1);		
+		}
 
+		if (player1.intersectsLine(left))
+		{
+			System.out.println("line2");
+			m= (int) (m+1.5);
+			z= (int) (z+1.5);		
+		}
+		
+		if (player1.intersectsLine(right))
+		{
+			System.out.println("line2");
+			m= (int) (m+1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(bottom))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		
+		if (player1.intersectsLine(line3))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line4))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z+1);		
+		}
+		
+		if (player1.intersectsLine(line5))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		
+		if (player1.intersectsLine(line6))
+		{
+			System.out.println("line2");
+			m= (int) (m+1);
+			z= (int) (z-1);		
+		}
+		
+		
+		if (player1.intersectsLine(line8))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line7))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line20))
+		{
+			System.out.println("line2");
+			m= (int) (m-2);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line16))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			z= (int) (z-1);		
+		}
+		
+		if (player1.intersectsLine(line9))
+		{
+			System.out.println("line2");
+			m= (int) (m-1);
+			//z= (int) (z-1);		
+		}
 	}
 
 //	public void keyPressed()

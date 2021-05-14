@@ -11,25 +11,7 @@ import processing.core.PApplet;
 public class Startup {
 
 	public static void main(String args[]) {
-		
-		 final JFrame parent = new JFrame();
-	        JButton button = new JButton();
-
-	        button.setText("Click me to show dialog!");
-	        parent.add(button);
-	        parent.pack();
-	        parent.setVisible(true);
-
-	        button.addActionListener(new java.awt.event.ActionListener() {
-	            @Override
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            	parent.setVisible(false);
-	                String name = JOptionPane.showInputDialog(parent,
-	                        "Answer to the Clue", "Type your answer here");
-	            }
-	        });
-	        
-	        
+		        
 
 		DrawingSurface drawing = new DrawingSurface();
 		PApplet.runSketch(new String[] {""}, drawing);
@@ -37,7 +19,7 @@ public class Startup {
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		JFrame window = (JFrame)canvas.getFrame();
 
-		window.setSize(700, 500);
+		window.setSize(800, 700);
 		window.setMinimumSize(new Dimension(100,100));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
