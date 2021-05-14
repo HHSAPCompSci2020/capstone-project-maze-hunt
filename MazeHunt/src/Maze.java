@@ -18,6 +18,7 @@ public class Maze extends Screen{
 	private DrawingSurface surface;
 	private Clues c = new Clues();
 	int z,m;
+	int a,b;
 	private Color exitRevel;
 	public int cluesFound=1;
 	public boolean clue1Found = false;
@@ -28,6 +29,8 @@ public class Maze extends Screen{
 
 	private Clues clue;
 	private Rectangle player1;
+	private Rectangle player2;
+
 
 	private Rectangle tester;
 
@@ -72,6 +75,8 @@ public class Maze extends Screen{
 		gap = 30;
 
 		player1 = new Rectangle(z,m,15,15);
+		player1 = new Rectangle(a,b,15,15);
+
 
 		tester = new Rectangle(100,203,50,20);
 		//top entry
