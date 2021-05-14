@@ -1,62 +1,78 @@
-import java.awt.Rectangle;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.*;
 
 import javax.swing.JOptionPane;
-public class Clue4 extends Screen{
-	private DrawingSurface surface;
-	private Rectangle startButton;
 
+
+public class Clue4 extends Screen {
+	
+
+	
+	private DrawingSurface surface;
+	private Rectangle glassesButton;
+	private Rectangle phoneButton;
+	private Rectangle frisbeeButton;
+
+	
 	public Clue4(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-		startButton = new Rectangle(150,200,50,40);
-
-		// TODO Auto-generated constructor stub
+		glassesButton = new Rectangle(150,200,50,40);
+		phoneButton = new Rectangle(150,150,50,40);
+		frisbeeButton = new Rectangle(150,100,50,40);
 	}
+	
 	public void draw() {
-
+		
 		// Draw stuff
-
+		
 		surface.pushStyle();
-
-
+		
+		
 		surface.background(255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
-
-		surface.fill(255);
-				surface.rect(startButton.x, startButton.y, startButton.width, startButton.height, 10, 10, 10, 10);
-
-
+		
+		//surface.fill(255);
+		surface.rect(glassesButton.x, glassesButton.y, glassesButton.width, glassesButton.height, 10, 10, 10, 10);
+		surface.rect(phoneButton.x, phoneButton.y, phoneButton.width, phoneButton.height, 10, 10, 10, 10);
+		surface.rect(frisbeeButton.x, frisbeeButton.y, frisbeeButton.width, frisbeeButton.height, 10, 10, 10, 10);
+	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("Maze Hunt is an interactive game where the users can control their players using keys." 
-				+ "\n The player is given clues along its way. Once the player finds all the clues the"
-				+ "\n the exit will be revealed and the game will end. You have the option to pause or"
-				+ "\n exit the during the game. The players of the game include a cat and a mouse. If your"
-				+ "\n charecter is a mouse your task is to find all the clues before the cat eats you."
-				+ "\n If you are a cat, you task is to catch the mouse and end the game. The cat can be"
-				+ "\n controlled usimg WASD keys and the mouse should be controlled using the arrow keys."
-				+ "\n You will also need to drag and click to view the menu options and to look at the clues."
-				+ "\n Please press the back button to return to the main menu.",10,30);
-
+		surface.text("Aha! You want to enter, I don't even know if you'll make it to the center. "
+				+ "\nWatch out for the cat, as he likes to eat rats. "
+				+ "\nBefore I let you enter the maze, what's a dessert that may contain glaze?",10,30);
+		
 		surface.textSize(10);
 		surface.fill(75,0,130);
-		String start = "TEST";
-		float w = surface.textWidth(start); //start button
-		surface.text(start, startButton.x+startButton.width/2-w/2, startButton.y+startButton.height/2);
-
-
+		String glasses = "Glasses";
+		float w = surface.textWidth(glasses); //start button
+		surface.text(glasses, glassesButton.x+glassesButton.width/2-w/2, glassesButton.y+glassesButton.height/2);
+		String phone = "Phone";
+		float y = surface.textWidth(phone); //start button
+		surface.text(phone, phoneButton.x+phoneButton.width/2-y/2, phoneButton.y+phoneButton.height/2);
+		String frisbee = "Frisbee";
+		float z = surface.textWidth(frisbee); //start button
+		surface.text(frisbee, frisbeeButton.x+frisbeeButton.width/2-z/2, frisbeeButton.y+frisbeeButton.height/2);
 		surface.popStyle();
 
-
-
+		
+		
 		// Change stuff
 
+	
 
-
-
+		
 	}
-}
+	public void mousePressed() {
+		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
+		if (glassesButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.SCREEN1); //switch to welcome screen
+		if (phoneButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.SCREEN1);
+		if (frisbeeButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.SCREEN3);
+		}
+	}
