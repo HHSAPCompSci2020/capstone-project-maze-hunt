@@ -12,8 +12,8 @@ public class Maze extends Screen{
 
 	private DrawingSurface surface;
 	private Clues c = new Clues();
-	int z,m;
-	int a=300,b=35;
+	double z,m;
+	double a=300,b=35;
 	private Color exitRevel;
 	public int cluesFound=1;
 	public boolean clue1Found = false;
@@ -22,11 +22,15 @@ public class Maze extends Screen{
 	public boolean clue4Found = false;
 	private PImage rat;
 	private PImage cat;
+	private int timeout=0;
+	private double speedX= 2, speedY= 2;
+	private double catX= 2, catY= 2;
 
 
 	private Clues clue;
 	private Rectangle player1;
 	private Rectangle player2;
+	private Rectangle diamond;
 
 
 	private Rectangle tester;
@@ -41,7 +45,7 @@ public class Maze extends Screen{
 
 	}
 
-	
+
 	/**
 	 * Place to draw the maze and characters on
 	 * @param marker the place on with the maze and characters will be drawn on
@@ -72,9 +76,10 @@ public class Maze extends Screen{
 		h = 200;
 		gap = 30;
 
-		player1 = new Rectangle(z,m,19,19);
+		player1 = new Rectangle((int)z,(int)m,19,19);
 
-		player2 = new Rectangle(a,b,17,17);
+		player2 = new Rectangle((int)a,(int)b,17,17);
+		diamond = new Rectangle(297, 130, 14, 10);
 
 
 		tester = new Rectangle(100,203,50,20);
@@ -361,16 +366,21 @@ public class Maze extends Screen{
 		surface.rect(player2.x, player2.y, player2.width, player2.height);
 
 
-		  
+
 		rat= surface.loadImage("rat.png");
-		surface.image(rat, z, m,19,19);
-		
-		
+		surface.image(rat, (float)z, (float)m,19,19);
+
+
 		cat= surface.loadImage("cat.png");
-		surface.image(cat, a, b,19,19);
-		
+		surface.image(cat, (float)a, (float)b,19,19);
+
+		surface.fill(0); //fill 
+
+		surface.rect(297, 130, 14, 10);
+
 		surface.fill(0,0,204); //fill 
 		surface.quad(305, 130, 297, 135, 305, 140, 310, 135);
+
 		if (cluesFound ==1)
 		{
 			surface.fill(255,0,255);
@@ -414,56 +424,58 @@ public class Maze extends Screen{
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
 
-			z-=2;
+			z = z-speedX;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
 		{
 
-			z+=2;
+			z = z+speedX;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
 
-			m-=2;
+			m = m-speedY;
 
 		}
 
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
 
-			m+=2;
+			m = m+speedY;
+
 
 		}
 
 		if (surface.isPressed(KeyEvent.VK_W)) //up
 		{
 
-			b-=2;
+			b = b-catY;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_A)) //left
 		{
 
-			a-=2;
+			a= a-catX;;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_S))//down
 		{
 
-			b+=2;
+			b= b+catY;
 
 		}
 
 		if (surface.isPressed(KeyEvent.VK_D))//right
 		{
 
-			a+=2;
+			a = a+catX;
 
 		}
 
 
+		//if (player1)
 		if (player1.intersectsLine(top))
 		{
 			System.out.println("test");
@@ -717,7 +729,7 @@ public class Maze extends Screen{
 			surface.switchScreen(ScreenSwitcher.YOULOSE);//change to lose screen
 
 		}
-		
+
 		if (player2.intersectsLine(top))
 		{
 			System.out.println("test");
@@ -932,8 +944,45 @@ public class Maze extends Screen{
 			b = (int) (b+2);
 			//a = (int) (a+1);		
 		}
+
+		if (player1.intersects(diamond)&&timeout==0)
+		{
+			this.slowSpeed();
+			while (timeout>0)
+			{
+				catX = catX-1;
+				catY = catY-1;
+				timeout--;
+				System.out.println("timer" + timeout);
+			}
+
+
+		}
+
+		if (timeout==0)
+		{
+			speedNorm();
+		}
+
+
+		//if (player1.intersects(r)) //change r to circle box
+//		{
+//			this.speedUp;
+//			while(superboost >0)
+//			{
+//				speedX = speedX+2;
+//				speedY = speedY+2;
+//				superboost--;
+//			}
+		
+		
+//		if (superboost == 0)
+//		{
+//			speedNorm();
+//		}
+
 	}
-	
+
 
 
 
@@ -949,7 +998,22 @@ public class Maze extends Screen{
 	}
 
 
+	public void slowSpeed()
+	{
 
+		timeout = 60*15;
+	}
 
+	//make method speedUp
+	//superboost = 60*15
+	public void speedNorm()
+	{
+
+		catX = 2.5;
+		catY=2.5;
+
+		speedX = 2;
+		speedY=22;
+	}
 
 }
