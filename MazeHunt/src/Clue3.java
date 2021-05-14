@@ -19,7 +19,10 @@ public class Clue3 extends Screen {
 	private DrawingSurface surface;
 	private Rectangle back;
 
-
+	/**
+	 * Constructs the third clue to be shown onto the screen
+	 * @param surface, the PApplet screen in which the clues and answer choices are displayed onto the screen
+	 */
 	public Clue3(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
