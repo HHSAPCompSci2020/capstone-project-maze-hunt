@@ -7,13 +7,6 @@ import processing.core.PImage;
 
 import java.awt.geom.Line2D;
 
-//import fdominique576.shapes.Rectangle;
-//import fdominique576.shapes.Rectangle;
-import g4p_controls.GAlign;
-import g4p_controls.GButton;
-import g4p_controls.GLabel;
-
-//import fdominique576.physicsshapedemo.PhysicsShape;
 
 public class Maze extends Screen{
 
