@@ -29,6 +29,9 @@ public class Clue3 extends Screen {
 		back = new Rectangle(150,200,50,40);
 	}
 
+	/**
+	 * Displays the clues and answers onto the screen with answer choices
+	 */
 	public void draw() {
 
 		// Draw stuff
@@ -63,6 +66,11 @@ public class Clue3 extends Screen {
 
 
 	}
+	
+	/**
+	 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
+	 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))

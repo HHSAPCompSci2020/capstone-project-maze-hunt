@@ -31,6 +31,9 @@ public class Clue4 extends Screen {
 		frisbeeButton = new Rectangle(150,100,50,40);
 	}
 	
+	/**
+	 * Displays the clues and answers onto the screen with answer choices
+	 */
 	public void draw() {
 		
 		// Draw stuff
@@ -65,15 +68,14 @@ public class Clue4 extends Screen {
 		float z = surface.textWidth(frisbee); //start button
 		surface.text(frisbee, frisbeeButton.x+frisbeeButton.width/2-z/2, frisbeeButton.y+frisbeeButton.height/2);
 		surface.popStyle();
-
-		
-		
 		// Change stuff
-
-	
-
-		
 	}
+	
+	
+	/**
+	 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
+	 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (glassesButton.contains(p))
