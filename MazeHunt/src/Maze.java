@@ -30,7 +30,7 @@ public class Maze extends Screen{
 	 * Constructs a maze 
 	 */
 	public Maze(DrawingSurface surface) {
-		super(700,500);
+		super(400,300);
 		this.surface = surface;
 		clue = new Clues();
 
@@ -68,14 +68,14 @@ public class Maze extends Screen{
 		player1 = new Rectangle(z,m,50,20);
 		tester = new Rectangle(100,203,50,20);
 		//top entry
-		Line2D tope = new Line2D.Float(x, y, x+gap, y);
+		Line2D tope = new Line2D.Float(x, y, x+gap, y);//clue
 		//color
 		//tope.setStroke(new Color(176,224,230));
 		float tex1 = (float) tope.getX1();
 		float tey1 = (float) tope.getY1();
 		float tex2 = (float) tope.getX2();
 		float tey2 = (float) tope.getY2();
-		surface.line(tex1, tey1, tex2, tey2);
+		//surface.line(tex1, tey1, tex2, tey2);
 
 		//top line
 		Line2D top = new Line2D.Float(x+gap, y, x+w, y);
@@ -94,7 +94,7 @@ public class Maze extends Screen{
 		surface.line(rx1, ry1, rx2, ry2);
 
 		//bottom exit
-		Line2D bottome = new Line2D.Float(x+w, y+h, x+w-gap, y+h);
+		Line2D bottome = new Line2D.Float(x+w, y+h, x+w-gap, y+h); //clue
 		if (cluesFound==5)
 		{
 			exitRevel = new Color(176,224,230);
@@ -106,8 +106,8 @@ public class Maze extends Screen{
 		float bey1 = (float) bottome.getY1();
 		float bex2 = (float) bottome.getX2();
 		float bey2 = (float) bottome.getY2();
-		surface.line(bex1, bey1, bex2, bey2);
 
+		//surface.line(bex1, bey1, bex2, bey2);
 		//bottom line
 		Line2D bottom = new Line2D.Float(x+w-gap, y+h, x, y+h);
 		float bx1 = (float) bottom.getX1();
@@ -149,7 +149,7 @@ public class Maze extends Screen{
 		float l2y1 = (float) line2.getY1();
 		float l2x2 = (float) line2.getX2();
 		float l2y2 = (float) line2.getY2();
-		surface.line(l2x1, l2y1, l2x2, l2y2);
+		//surface.line(l2x1, l2y1, l2x2, l2y2);
 
 		//line3
 		Line2D line3 = new Line2D.Float(x+gap, y+gap*2, x+w-gap, y+gap*2);
@@ -280,7 +280,7 @@ public class Maze extends Screen{
 		surface.line(l18x1, l18y1, l18x2, l18y2);
 
 		//line19
-		Line2D line19 = new Line2D.Float(x+gap*6, y+gap*4, x+gap*6, y+gap*5);
+		Line2D line19 = new Line2D.Float(x+gap*6, y+gap*4, x+gap*6, y+gap*5);//clue
 		float l19x1 = (float) line19.getX1();
 		float l19y1 = (float) line19.getY1();
 		float l19x2 = (float) line19.getX2();
@@ -288,7 +288,7 @@ public class Maze extends Screen{
 		surface.line(l19x1, l19y1, l19x2, l19y2);
 
 		//line20
-		Line2D line20 = new Line2D.Float(x, y+(gap*5+gap/2), x+gap,y+(gap*5+gap/2));
+		Line2D line20 = new Line2D.Float(x, y+(gap*5+gap/2), x+gap,y+(gap*5+gap/2)); //clue
 		float l20x1 = (float) line20.getX1();
 		float l20y1 = (float) line20.getY1();
 		float l20x2 = (float) line20.getX2();
@@ -387,12 +387,12 @@ public class Maze extends Screen{
 		}
 
 
-//		if (player1.intersects(tester))
-//		{
-//			System.out.println("intersects");
-//			m= (int) (m-0.5);
-//			z= (int) (z-0.5);		
-//		}
+		if (player1.intersectsLine(top))
+		{
+			System.out.println("test");
+			m= (int) (m+1);
+			z= (int) (z+1);		
+		}
 
 	}
 
