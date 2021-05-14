@@ -20,7 +20,7 @@ public class Maze extends Screen{
 	private DrawingSurface surface;
 	private Clues c = new Clues();
 	int z,m;
-	int a=10,b=60;
+	int a=300,b=35;
 	private Color exitRevel;
 	public int cluesFound=1;
 	public boolean clue1Found = false;
