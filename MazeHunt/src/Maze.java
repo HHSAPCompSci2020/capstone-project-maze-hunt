@@ -399,7 +399,7 @@ public class Maze extends Screen{
 
 		if (player1.intersectsLine(bottome) && cluesFound==5)
 		{
-			surface.switchScreen(ScreenSwitcher.SCREEN1); // replace screen1 with the end screen
+			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
 
 		}
 		if (surface.isPressed(KeyEvent.VK_LEFT))

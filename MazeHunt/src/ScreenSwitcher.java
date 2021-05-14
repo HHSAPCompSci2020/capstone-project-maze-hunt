@@ -8,9 +8,9 @@ public interface ScreenSwitcher {
 	public static final int CLUE2 = 4;//clue 2
 	public static final int CLUE3 = 5;//clue 3
 	public static final int CLUE4 = 6;//clue 4
-	public static final int WRONGANSWER = 7;//clue 4
-	public static final int WRONGANSWER2 = 8;//clue 4
-
+	public static final int WRONGANSWER = 7;
+	public static final int WRONGANSWER2 = 8;
+	public static final int THANKYOU = 9;
 
 	
 	public void switchScreen(int i);

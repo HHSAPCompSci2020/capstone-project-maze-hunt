@@ -56,6 +56,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		WrongAnswer2 WrongAnswer2 = new WrongAnswer2(this);
 		screens.add(WrongAnswer2);
 		
+		ThankYou ThankYou = new ThankYou(this);
+		screens.add(ThankYou);
+		
 		activeScreen = screens.get(0);
 
 
