@@ -16,6 +16,9 @@ public interface ScreenSwitcher {
 	public static final int WRONGANSWER3 = 12;
 	public static final int KEYBOARDPRESS = 13;
 	public static final int WRONGANSWER4 = 14;
+	public static final int CLUE5 = 15;
+	public static final int CLUE6 = 16;
+	public static final int CLUE7 = 17;
 	
 
 	
