@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 /**
  * This class holds and contains the first clue
  * Users are prompted with a question and are asked to select the correct answer.
- * @author Anika and Faith
+ * @author Anika
  *
  */
 public class Clue5 extends Screen {
