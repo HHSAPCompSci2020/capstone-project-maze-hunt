@@ -10,6 +10,7 @@ public class StartWindow extends Screen{
 	private DrawingSurface surface;
 	private Rectangle helpButton;
 	private Rectangle startButton;
+	private Rectangle clueButton;
 
 //	private Maze maze;
 
@@ -24,6 +25,7 @@ public class StartWindow extends Screen{
 		this.surface = surface;
 		helpButton = new Rectangle(250,160,90,60);
 		startButton = new Rectangle(65,160,90,60);
+		clueButton = new Rectangle(157,160,90,60);
 
 		//maze = new Maze();
 
@@ -39,6 +41,7 @@ public class StartWindow extends Screen{
 		surface.fill(255);
 		surface.rect(helpButton.x, helpButton.y, helpButton.width, helpButton.height, 10, 10, 10, 10);
 		surface.rect(startButton.x, startButton.y, startButton.width, startButton.height, 10, 10, 10, 10);
+		surface.rect(clueButton.x, clueButton.y, clueButton.width, clueButton.height, 10, 10, 10, 10);
 
 		
 		//welcome text
@@ -55,16 +58,23 @@ public class StartWindow extends Screen{
 		surface.textSize(15);
 		String help = "Help";
 		
+		surface.fill(139,0,139);
+		surface.textSize(15);
+		String clue = "Clue";
+		
+		
 		
 		
 		//surface.text(start, 80, 70);
 		
 		float w = surface.textWidth(start); //start button
 		float y = surface.textWidth(help); //help button
+		float z = surface.textWidth(clue); //help button
 
 		
 		surface.text(start, startButton.x+startButton.width/2-w/2, startButton.y+startButton.height/2);
 		surface.text(help, helpButton.x+helpButton.width/2-y/2, helpButton.y+helpButton.height/2);
+		surface.text(clue, clueButton.x+clueButton.width/2-z/2, clueButton.y+clueButton.height/2);
 		surface.popStyle();
 
 		//stroke(0);
@@ -104,5 +114,7 @@ public class StartWindow extends Screen{
 		if (startButton.contains(p))
 			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to start screen
 		
+		if (clueButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.CLUE8); //switch to start screen
 	}
 }
