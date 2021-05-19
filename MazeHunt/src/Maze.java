@@ -298,7 +298,7 @@ public class Maze extends Screen{
 		float l14x2 = (float) line14.getX2();
 		float l14y2 = (float) line14.getY2();
 		surface.line(l14x1, l14y1, l14x2, l14y2);
-		
+		mazeLines.add(line14);
 
 		//line15
 		Line2D line15 = new Line2D.Float(x+w-gap, y+(gap*5-gap/6), x+w, y+(gap*5-gap/6));
