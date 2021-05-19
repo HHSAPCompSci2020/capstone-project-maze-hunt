@@ -14,9 +14,9 @@ public class Maze extends Screen{
 
 	private DrawingSurface surface;
 	private Clues c = new Clues();
-	double z=15,m=35;
+	double z=20,m=35;
 	double a=300,b=35;
-//	private Color exitRevel;
+	//	private Color exitRevel;
 	public int cluesFound=1;
 	public boolean clue1Found = false;
 	public boolean clue2Found = false;
@@ -30,15 +30,15 @@ public class Maze extends Screen{
 	private double catX= 2, catY= 2;
 	private ArrayList<Line2D> mazeLines; 
 
-//	private Clues clue;
+	//	private Clues clue;
 	private Rectangle player1;
 	private Rectangle player2;
 	private Rectangle diamond;
 
 
-//	private Rectangle tester;
+	//	private Rectangle tester;
 	private Rectangle tester2;
-	
+
 
 	/**
 	 * Constructs a maze 
@@ -93,29 +93,29 @@ public class Maze extends Screen{
 		player2 = new Rectangle((int)a,(int)b,17,17);
 		diamond = new Rectangle(297, 130, 14, 10);
 		tester2 = new Rectangle (140, 130, 10, 10);
-		
+
 
 
 		//tester = new Rectangle(100,203,50,20);
-		
-		
+
+
 		//top entry
 		//Line2D tope = new Line2D.Float(x, y, x+gap, y);//clue
 		//color
 		//tope.setStroke(new Color(176,224,230));
-//		float tex1 = (float) tope.getX1();
-//		float tey1 = (float) tope.getY1();
-//		float tex2 = (float) tope.getX2();
-//		float tey2 = (float) tope.getY2();
+		//		float tex1 = (float) tope.getX1();
+		//		float tey1 = (float) tope.getY1();
+		//		float tex2 = (float) tope.getX2();
+		//		float tey2 = (float) tope.getY2();
 		//surface.line(tex1, tey1, tex2, tey2);
 
 		//top line
 		Line2D top = new Line2D.Float(x+gap, y, x+w, y);
-		float tx1 = (float) top.getX1();
-		float ty1 = (float) top.getY1();
-		float tx2 = (float) top.getX2();
-		float ty2 = (float) top.getY2();
-		surface.line(tx1, ty1, tx2, ty2);
+//		float tx1 = (float) top.getX1();
+//		float ty1 = (float) top.getY1();
+//		float tx2 = (float) top.getX2();
+//		float ty2 = (float) top.getY2();
+		surface.line(getLineX1(top), getLineY1(top), getLineX2(top), getLineY2(top));
 		mazeLines.add(top);
 
 		//right line
@@ -138,7 +138,7 @@ public class Maze extends Screen{
 		surface.line(bex1, bey1, bex2, bey2);
 		mazeLines.add(bottome);
 
-		
+
 		//bottom line
 		Line2D bottom = new Line2D.Float(x+w-gap, y+h, x, y+h);
 		float bx1 = (float) bottom.getX1();
@@ -149,7 +149,7 @@ public class Maze extends Screen{
 		mazeLines.add(bottom);
 
 
-		
+
 		Line2D tester = new Line2D.Float(x+w-gap, y+h, x, y+h);
 		//Line2D test = new Line2D(x+w-gap, y+h, x, y+h);
 		float x1 = (float) tester.getX1();
@@ -169,7 +169,7 @@ public class Maze extends Screen{
 		surface.line(lx1, ly1, lx2, ly2);
 		mazeLines.add(left);
 
-		
+
 		//line1
 		Line2D line1 = new Line2D.Float(x+gap, y, x+gap, y+gap);
 		float l1x1 = (float) line1.getX1();
@@ -208,7 +208,7 @@ public class Maze extends Screen{
 		float l4y2 = (float) line4.getY2();
 		surface.line(l4x1, l4y1, l4x2, l4y2);
 		mazeLines.add(line4);
-		
+
 
 		//line5
 		Line2D line5 = new Line2D.Float(x+gap*2, y+gap*3, x+gap*2, y+gap*4);
@@ -379,6 +379,7 @@ public class Maze extends Screen{
 		float l23x2 = (float) line23.getX2();
 		float l23y2 = (float) line23.getY2();
 		surface.line(l23x1, l23y1, l23x2, l23y2);
+		//surface.line(mazeLines.get(0));
 		mazeLines.add(line23);
 
 		//line24
@@ -479,256 +480,273 @@ public class Maze extends Screen{
 			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
 
 		}
-		
+
+
+		for (int i=0; i<mazeLines.size(); i++)
+		{
+			if(player1.intersectsLine(mazeLines.get(i)))
+			{
+				System.out.println("here");
+				speedX = 0;
+				speedY = 0;
+			}
+			if(!(player1.intersectsLine(mazeLines.get(i))))
+			{
+				System.out.println("not intersect");
+				speedX = 2;
+				speedY = 2;
+			}
+
+		}
 
 		//if (player1)
-		if (player1.intersectsLine(top))
-		{
-			System.out.println("here");
-			speedX = -speedX;
-			speedY = -speedY;
-			//z= (int) (z+1);		
-		}
-
-		else if (player1.intersectsLine(line1))
-		{
-			if (clue4Found == false && clue3Found==true)
-			{
-				surface.switchScreen(ScreenSwitcher.CLUE4);
-				cluesFound=5;
-				clue4Found=true;
-			};
-			//m= (int) (m-2);
-			z= (int) (z-2);		
-		}
-
-
-		else if (player1.intersectsLine(line2))
-		{
-			 
-			m= (int) (m-2);
-			z= (int) (z+1);		
-		}
-
-		else if (player1.intersectsLine(left))
-		{
-			 
-			//m= (int) (m+1.5);
-			z= (int) (z+2);	
-
-		}
-
-		else if (player1.intersectsLine(right))
-		{
-			 
-			//m= (int) (m+1);
-			z= (int) (z-2);	
-			showClues();
-		}
-
-		else if (player1.intersectsLine(bottom))
-		{
-			 
-			m= (int) (m-2);
-			z= (int) (z-1);		
-		}
-
-
-		else if (player1.intersectsLine(line3))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z-1);		
-		}
-
-		else if (player1.intersectsLine(line4))
-		{
-			if (clue3Found == false && clue2Found==true)
-			{
-				surface.switchScreen(ScreenSwitcher.CLUE3);
-				cluesFound=4;
-				clue3Found=true;
-			}
-			 
-			//m= (int) (m-2);
-			z= (int) (z+1);		
-		}
-
-		else if (player1.intersectsLine(line5))
-		{
-			 
-			m= (int) (m-2);
-			z= (int) (z-1);		
-		}
-
-
-		else if (player1.intersectsLine(line6))
-		{
-			 
-			//m= (int) (m+1);
-			z= (int) (z-1);		
-		}
-
-
-		else if (player1.intersectsLine(line8))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z-1);		
-		}
-
-		else if (player1.intersectsLine(line7))
-		{
-			 
-			m= (int) (m-2);
-			z= (int) (z-1);		
-		}
-
-		else if (player1.intersectsLine(line20))
-		{
-			if (clue1Found == false)
-			{
-				surface.switchScreen(ScreenSwitcher.CLUE1);
-				cluesFound=2;
-				clue1Found=true;
-			}
-			 
-			m= (int) (m-2);
-			z= (int) (z-1);		
-		}
-
-		else if (player1.intersectsLine(line16))
-		{
-			 
-			m= (int) (m-2);
-			z= (int) (z-1);		
-		}
-
-		else if (player1.intersectsLine(line9))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z-1);		
-		}
-
-		else if (player1.intersectsLine(line17))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line10))
-		{
-			 
-			//m= (int) (m-1);
-			z= (int) (z+1);		
-		}
-
-		if (player1.intersectsLine(line21))
-		{
-			 
-			//m= (int) (m-1);
-			z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line22))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line23))
-		{
-			 
-			//m= (int) (m-1);
-			z= (int) (z+1);		
-		}
-
-		if (player1.intersectsLine(line24))
-		{
-			 
-			//m= (int) (m-1);
-			z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line19))
-		{
-			if (clue2Found == false && clue1Found==true)
-			{
-				surface.switchScreen(ScreenSwitcher.CLUE2);
-				cluesFound=3;
-				clue2Found=true;
-			}
-			 
-			//m= (int) (m-1);
-			z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line18))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line11))
-		{
-			 
-			m= (int) (m+1);
-			//z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line12))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z-1);		
-		}
-
-		if (player1.intersectsLine(line13))
-		{
-			 
-			//m= (int) (m+1);
-			z= (int) (z+1);		
-		}
-
-		if (player1.intersectsLine(line25))
-		{
-			 
-			m= (int) (m-2);
-			//z= (int) (z+1);		
-		}
-
-		if (player1.intersectsLine(lastline))
-		{
-			 
-			//m= (int) (m-1);
-			z= (int) (z+1);		
-		}
-
-		if (player1.intersectsLine(bottome) && cluesFound!=5)
-		{
-
-			 
-			m= (int) (m-2);
-			//z= (int) (z+1);		
-		}
-
-		if (player1.intersectsLine(line14))
-		{
-			 
-			//m= (int) (m-1);
-			z= (int) (z+1);		
-		}
-
-		if (player1.intersectsLine(line15))
-		{
-			 
-			m= (int) (m+1);
-			//z= (int) (z+1);		
-		}
+		//		if (player1.intersectsLine(top))
+		//		{
+		//			System.out.println("here");
+		//			speedX = -speedX;
+		//			speedY = -speedY;
+		//			//z= (int) (z+1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line1))
+		//		{
+		//			if (clue4Found == false && clue3Found==true)
+		//			{
+		//				surface.switchScreen(ScreenSwitcher.CLUE4);
+		//				cluesFound=5;
+		//				clue4Found=true;
+		//			};
+		//			//m= (int) (m-2);
+		//			z= (int) (z-2);		
+		//		}
+		//
+		//
+		//		else if (player1.intersectsLine(line2))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			z= (int) (z+1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(left))
+		//		{
+		//			 
+		//			//m= (int) (m+1.5);
+		//			z= (int) (z+2);	
+		//
+		//		}
+		//
+		//		else if (player1.intersectsLine(right))
+		//		{
+		//			 
+		//			//m= (int) (m+1);
+		//			z= (int) (z-2);	
+		//			showClues();
+		//		}
+		//
+		//		else if (player1.intersectsLine(bottom))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//
+		//		else if (player1.intersectsLine(line3))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line4))
+		//		{
+		//			if (clue3Found == false && clue2Found==true)
+		//			{
+		//				surface.switchScreen(ScreenSwitcher.CLUE3);
+		//				cluesFound=4;
+		//				clue3Found=true;
+		//			}
+		//			 
+		//			//m= (int) (m-2);
+		//			z= (int) (z+1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line5))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//
+		//		else if (player1.intersectsLine(line6))
+		//		{
+		//			 
+		//			//m= (int) (m+1);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//
+		//		else if (player1.intersectsLine(line8))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line7))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line20))
+		//		{
+		//			if (clue1Found == false)
+		//			{
+		//				surface.switchScreen(ScreenSwitcher.CLUE1);
+		//				cluesFound=2;
+		//				clue1Found=true;
+		//			}
+		//			 
+		//			m= (int) (m-2);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line16))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line9))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		else if (player1.intersectsLine(line17))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line10))
+		//		{
+		//			 
+		//			//m= (int) (m-1);
+		//			z= (int) (z+1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line21))
+		//		{
+		//			 
+		//			//m= (int) (m-1);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line22))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line23))
+		//		{
+		//			 
+		//			//m= (int) (m-1);
+		//			z= (int) (z+1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line24))
+		//		{
+		//			 
+		//			//m= (int) (m-1);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line19))
+		//		{
+		//			if (clue2Found == false && clue1Found==true)
+		//			{
+		//				surface.switchScreen(ScreenSwitcher.CLUE2);
+		//				cluesFound=3;
+		//				clue2Found=true;
+		//			}
+		//			 
+		//			//m= (int) (m-1);
+		//			z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line18))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line11))
+		//		{
+		//			 
+		//			m= (int) (m+1);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line12))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z-1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line13))
+		//		{
+		//			 
+		//			//m= (int) (m+1);
+		//			z= (int) (z+1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line25))
+		//		{
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z+1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(lastline))
+		//		{
+		//			 
+		//			//m= (int) (m-1);
+		//			z= (int) (z+1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(bottome) && cluesFound!=5)
+		//		{
+		//
+		//			 
+		//			m= (int) (m-2);
+		//			//z= (int) (z+1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line14))
+		//		{
+		//			 
+		//			//m= (int) (m-1);
+		//			z= (int) (z+1);		
+		//		}
+		//
+		//		if (player1.intersectsLine(line15))
+		//		{
+		//			 
+		//			m= (int) (m+1);
+		//			//z= (int) (z+1);		
+		//		}
 
 		if (player1.intersects(player2))
 		{
@@ -752,14 +770,14 @@ public class Maze extends Screen{
 
 		if (player2.intersectsLine(line2))
 		{
-			 
+
 			b = (int) (b-2);
 			//a = (int) (a+1);		
 		}
 
 		if (player2.intersectsLine(left))
 		{
-			 
+
 			//b = (int) (b+1.5);
 			a = (int) (a+2);	
 
@@ -767,7 +785,7 @@ public class Maze extends Screen{
 
 		if (player2.intersectsLine(right))
 		{
-			 
+
 			//b = (int) (b+1);
 			a = (int) (a-2);	
 			showClues();
@@ -775,7 +793,7 @@ public class Maze extends Screen{
 
 		if (player2.intersectsLine(bottom))
 		{
-			 
+
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
@@ -783,21 +801,21 @@ public class Maze extends Screen{
 
 		if (player2.intersectsLine(line3))
 		{
-			 
+
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line4))
 		{
-			 
+
 			//b = (int) (b-2);
 			a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line5))
 		{
-			 
+
 			b = (int) (b-2);
 			a = (int) (a-1);		
 		}
@@ -805,7 +823,7 @@ public class Maze extends Screen{
 
 		if (player2.intersectsLine(line6))
 		{
-			 
+
 			//b = (int) (b+2);
 			a = (int) (a-1);		
 		}
@@ -813,140 +831,140 @@ public class Maze extends Screen{
 
 		if (player2.intersectsLine(line8))
 		{
-			 
+
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line7))
 		{
-			 
+
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line20))
 		{
-			 
+
 			b = (int) (b-2);
 			a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line16))
 		{
-			 
+
 			b = (int) (b-2);
 			a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line9))
 		{
-			 
+
 			b = (int) (b-2);
 			//a= (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line17))
 		{
-			 
+
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line10))
 		{
-			 
+
 			//b = (int) (b-1);
 			a = (int) (a+1);		
 		}
 
 		if (player2.intersectsLine(line21))
 		{
-			 
+
 			//b = (int) (b-1);
 			a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line22))
 		{
-			 
+
 			b = (int) (b-2);
 			//a= (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line23))
 		{
-			 
+
 			//b = (int) (b-1);
 			a = (int) (a+1);		
 		}
 
 		if (player2.intersectsLine(line24))
 		{
-			 
+
 			//b = (int) (b-1);
 			a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line19))
 		{
-			 
+
 			//b = (int) (b-1);
 			a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line18))
 		{
-			 
+
 			b = (int) (b-1);
 			//a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line11))
 		{
-			 
+
 			b = (int) (b+2);
 			//a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line12))
 		{
-			 
+
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
 		if (player2.intersectsLine(line13))
 		{
-			 
+
 			//b= (int) (b+1);
 			a = (int) (a+1);		
 		}
 
 		if (player2.intersectsLine(line25))
 		{
-			 
+
 			b = (int) (b-2);
 			//a= (int) (a+1);		
 		}
 
 		if (player2.intersectsLine(lastline))
 		{
-			 
+
 			//b = (int) (b-1);
 			a = (int) (a+1);		
 		}
 
 		if (player2.intersectsLine(line14))
 		{
-			 
+
 			//b = (int) (b-1);
 			a= (int) (a+1);		
 		}
 
 		if (player2.intersectsLine(line15))
 		{
-			 
+
 			b = (int) (b+2);
 			//a = (int) (a+1);		
 		}
@@ -959,8 +977,7 @@ public class Maze extends Screen{
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
 		{
-
-			z = z+speedX;
+			z+=speedX;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
@@ -1033,12 +1050,12 @@ public class Maze extends Screen{
 				superboost--;
 			}
 		}
-		
+
 		if (superboost == 0)
 		{
 			speedNorm();
 		}
-		
+
 
 	}
 
@@ -1062,14 +1079,14 @@ public class Maze extends Screen{
 
 		timeout = 60*15;
 	}
-	
+
 	public void Speedup()
 	{
 
 		superboost = 60*15;
 	}
 
-	
+
 	public void speedNorm()
 	{
 
@@ -1080,4 +1097,23 @@ public class Maze extends Screen{
 		speedY=2;
 	}
 
+	public float getLineX1(Line2D line)
+	{
+		return (float)line.getX1();
+	}
+
+	public float getLineY1(Line2D line)
+	{
+		return (float)line.getY1();
+	}
+
+	public float getLineX2(Line2D line)
+	{
+		return (float)line.getX2();
+	}
+
+	public float getLineY2(Line2D line)
+	{
+		return (float)line.getY2();
+	}
 }
