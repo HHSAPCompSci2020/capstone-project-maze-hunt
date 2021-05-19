@@ -20,7 +20,7 @@ public class Clue6 extends Screen{
 		
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("You’ve hit a dead end and you don’t know what to do! "
+		surface.text("You've hit a dead end and you don't know what to do! "
 				+ "\nMaybe turn around and look for something blue. "
 				+ "\nMake sure you go slow because the clue is in that row. "
 				+ "\nYou may be able to sprint when you find the next hint.",10,30);
