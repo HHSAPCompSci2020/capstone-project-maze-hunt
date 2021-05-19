@@ -6,18 +6,18 @@ public class Clue6 extends Screen{
 	private DrawingSurface surface;
 	private Rectangle brownButton;
 	private Rectangle orangeButton;
-	private Rectangle whiteButton;
+	private Rectangle beigeButton;
 	
 	public Clue6(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
 		
-		surface.fill(0);
+		surface.fill(255,235,205);
 		brownButton = new Rectangle(150,200,50,40);
-		surface.fill(0);
+		surface.fill(255,165,0);
 		orangeButton = new Rectangle(150,150,50,40);
-		surface.fill(0);
-		whiteButton = new Rectangle(150,100,50,40);
+		surface.fill(210,180,140);
+		beigeButton = new Rectangle(150,100,50,40);
 	}
 	
 	public void draw() {
@@ -31,7 +31,7 @@ public class Clue6 extends Screen{
 		
 		surface.rect(brownButton.x, brownButton.y, brownButton.width, brownButton.height, 10, 10, 10, 10);
 		surface.rect(orangeButton.x, orangeButton.y, orangeButton.width, orangeButton.height, 10, 10, 10, 10);
-		surface.rect(whiteButton.x, whiteButton.y, whiteButton.width, whiteButton.height, 10, 10, 10, 10);
+		surface.rect(beigeButton.x, beigeButton.y, beigeButton.width, beigeButton.height, 10, 10, 10, 10);
 		
 		surface.fill(0);
 		surface.textSize(9);
@@ -52,9 +52,9 @@ public class Clue6 extends Screen{
 		String Orange = "Orange";
 		float y = surface.textWidth(Orange); //start button
 		surface.text(Orange, orangeButton.x+orangeButton.width/2-y/2, orangeButton.y+orangeButton.height/2);
-		String White = "White";
-		float z = surface.textWidth(White); //start button
-		surface.text(White, whiteButton.x+whiteButton.width/2-z/2, whiteButton.y+whiteButton.height/2);
+		String Beige = "Beige";
+		float z = surface.textWidth(Beige); //start button
+		surface.text(Beige, beigeButton.x+beigeButton.width/2-z/2, beigeButton.y+beigeButton.height/2);
 		surface.popStyle();
 		
 	}
@@ -62,11 +62,11 @@ public class Clue6 extends Screen{
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (brownButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.KEYBOARDPRESS);
+			surface.switchScreen(ScreenSwitcher.SCREEN3);
 		if (orangeButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.KEYBOARDPRESS);
-		if (whiteButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.KEYBOARDPRESS);
+			surface.switchScreen(ScreenSwitcher.SCREEN3);
+		if (beigeButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}
 
 }
