@@ -12,11 +12,9 @@ public class Clue6 extends Screen{
 		super(400,300);
 		this.surface = surface;
 		
-		surface.fill(255,235,205);
+		
 		brownButton = new Rectangle(150,200,50,40);
-		surface.fill(255,165,0);
 		orangeButton = new Rectangle(150,150,50,40);
-		surface.fill(210,180,140);
 		beigeButton = new Rectangle(150,100,50,40);
 	}
 	
@@ -28,21 +26,20 @@ public class Clue6 extends Screen{
 		surface.background(255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
-		
+		surface.fill(255,235,205);
 		surface.rect(brownButton.x, brownButton.y, brownButton.width, brownButton.height, 10, 10, 10, 10);
+		surface.fill(255,165,0);
 		surface.rect(orangeButton.x, orangeButton.y, orangeButton.width, orangeButton.height, 10, 10, 10, 10);
+		surface.fill(210,180,140);
 		surface.rect(beigeButton.x, beigeButton.y, beigeButton.width, beigeButton.height, 10, 10, 10, 10);
 		
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("You've hit a dead end and you don't know what to do! "
-				+ "\nMaybe turn around and look for something blue. "
-				+ "\nMake sure you go slow because the clue is in that row. "
-				+ "\nYou'll be able to sprint when you find the next hint.", 10, 30);
-		
-		surface.text("But before you proceed, let me help you succeed!"
-				+ "\nDon't put on your victory cape just yet,"
-				+ "\nFirst tell me the color of a parisian baguette", 10, 100);
+		surface.text("You've hit a dead end and you don't know what to do! Maybe turn around and look for "
+				+ "\nsomething blue. Make sure you go slow because the clue is in that row. You'll be able to sprint "
+				+ "\nwhen you find the next hint."
+				+"\nBut before you proceed, let me help you succeed! Don't put on your victory cape just yet,"
+				+ "\nFirst tell me the color of a parisian baguette", 10, 30);
 		
 		surface.textSize(10);
 		surface.fill(0);
@@ -62,9 +59,9 @@ public class Clue6 extends Screen{
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (brownButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN3);
+			surface.switchScreen(ScreenSwitcher.WRONGANSWER6);
 		if (orangeButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN3);
+			surface.switchScreen(ScreenSwitcher.WRONGANSWER6);
 		if (beigeButton.contains(p))
 			surface.switchScreen(ScreenSwitcher.SCREEN3);
 		}

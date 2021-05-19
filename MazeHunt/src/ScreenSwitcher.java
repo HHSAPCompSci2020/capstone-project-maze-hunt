@@ -20,6 +20,7 @@ public interface ScreenSwitcher {
 	public static final int CLUE6 = 16;
 	public static final int CLUE7 = 17;
 	public static final int WRONGANSWER5 = 18;
+	public static final int WRONGANSWER6 = 19;
 
 	
 	public void switchScreen(int i);

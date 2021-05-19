@@ -9,13 +9,13 @@
 
 
 
-	public class WrongAnswer5 extends Screen {
+	public class WrongAnswer6 extends Screen {
 		
 		private DrawingSurface surface;
 		private Rectangle startButton;
 
 		
-		public WrongAnswer5(DrawingSurface surface) {
+		public WrongAnswer6(DrawingSurface surface) {
 			super(400,300);
 			this.surface = surface;
 			startButton = new Rectangle(150,200,50,40);
@@ -62,7 +62,7 @@
 		public void mousePressed() {
 			Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 			if (startButton.contains(p))
-				surface.switchScreen(ScreenSwitcher.CLUE5); //switch to welcome screen
+				surface.switchScreen(ScreenSwitcher.CLUE6); //switch to welcome screen
 			
 			}
 		}
