@@ -207,6 +207,8 @@ public class Maze extends Screen{
 		float l4x2 = (float) line4.getX2();
 		float l4y2 = (float) line4.getY2();
 		surface.line(l4x1, l4y1, l4x2, l4y2);
+		mazeLines.add(line4);
+		
 
 		//line5
 		Line2D line5 = new Line2D.Float(x+gap*2, y+gap*3, x+gap*2, y+gap*4);
@@ -215,6 +217,7 @@ public class Maze extends Screen{
 		float l5x2 = (float) line5.getX2();
 		float l5y2 = (float) line5.getY2();
 		surface.line(l5x1, l5y1, l5x2, l5y2);
+		mazeLines.add(line5);
 
 		//line6
 		Line2D line6 = new Line2D.Float(x+gap*3, y+gap*2, x+gap*3, y+gap*3);
@@ -223,6 +226,7 @@ public class Maze extends Screen{
 		float l6x2 = (float) line6.getX2();
 		float l6y2 = (float) line6.getY2();
 		surface.line(l6x1, l6y1, l6x2, l6y2);
+		mazeLines.add(line6);
 
 		//line7
 		Line2D line7 = new Line2D.Float(x+gap*4, y+gap*3, x+gap*6, y+gap*3);
@@ -231,6 +235,7 @@ public class Maze extends Screen{
 		float l7x2 = (float) line7.getX2();
 		float l7y2 = (float) line7.getY2();
 		surface.line(l7x1, l7y1, l7x2, l7y2);
+		mazeLines.add(line7);
 
 		//line8
 		Line2D line8 = new Line2D.Float(x+gap*7, y+gap*3, x+w, y+gap*3);
@@ -239,6 +244,7 @@ public class Maze extends Screen{
 		float l8x2 = (float) line8.getX2();
 		float l8y2 = (float) line8.getY2();
 		surface.line(l8x1, l8y1, l8x2, l8y2);
+		mazeLines.add(line8);
 
 		//line9
 		Line2D line9 = new Line2D.Float(x+gap, y+gap*4, x+gap*3, y+gap*4);
@@ -247,6 +253,7 @@ public class Maze extends Screen{
 		float l9x2 = (float) line9.getX2();
 		float l9y2 = (float) line9.getY2();
 		surface.line(l9x1, l9y1, l9x2, l9y2);
+		mazeLines.add(line9);
 
 		//line10
 		Line2D line10 = new Line2D.Float(x+gap*4, y+gap*3, x+gap*4, y+gap*5);
@@ -255,6 +262,7 @@ public class Maze extends Screen{
 		float l10x2 = (float) line10.getX2();
 		float l10y2 = (float) line10.getY2();
 		surface.line(l10x1, l10y1, l10x2, l10y2);
+		mazeLines.add(line10);
 
 		//line11
 		Line2D line11 = new Line2D.Float(x+gap*5, y+gap*4, x+gap*6, y+gap*4);
@@ -263,6 +271,7 @@ public class Maze extends Screen{
 		float l11x2 = (float) line11.getX2();
 		float l11y2 = (float) line11.getY2();
 		surface.line(l11x1, l11y1, l11x2, l11y2);
+		mazeLines.add(line11);
 
 		//line12
 		Line2D line12 = new Line2D.Float(x+gap*7, (((y+gap*4)+(y+gap*5))/2)-gap/5, x+w-gap*2, (((y+gap*4)+(y+gap*5))/2)-gap/5);
@@ -271,6 +280,7 @@ public class Maze extends Screen{
 		float l12x2 = (float) line12.getX2();
 		float l12y2 = (float) line12.getY2();
 		surface.line(l12x1, l12y1, l12x2, l12y2);
+		mazeLines.add(line12);
 
 		//line13
 		Line2D line13 = new Line2D.Float(x+w-gap*2, y+(gap*4-gap/4), x+w-gap*2, y+gap*5);
@@ -279,6 +289,7 @@ public class Maze extends Screen{
 		float l13x2 = (float) line13.getX2();
 		float l13y2 = (float) line13.getY2();
 		surface.line(l13x1, l13y1, l13x2, l13y2);
+		mazeLines.add(line13);
 
 		//line14
 		Line2D line14 = new Line2D.Float(x+w-gap, y+gap*3, x+w-gap, y+gap*4);
@@ -287,6 +298,7 @@ public class Maze extends Screen{
 		float l14x2 = (float) line14.getX2();
 		float l14y2 = (float) line14.getY2();
 		surface.line(l14x1, l14y1, l14x2, l14y2);
+		
 
 		//line15
 		Line2D line15 = new Line2D.Float(x+w-gap, y+(gap*5-gap/6), x+w, y+(gap*5-gap/6));
