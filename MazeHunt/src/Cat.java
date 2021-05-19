@@ -1,7 +1,7 @@
 
-public class Player2 {
+public class Cat {
 
-	public Player2() {
+	public Cat() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -12,11 +12,10 @@ import java.awt.geom.Line2D;
 
 public class Maze extends Screen{
 
-	private DrawingSurface surface;
+	protected DrawingSurface surface;
 	private Clues c = new Clues();
-	double z=20,m=35;
-	double a=300,b=35;
-	//	private Color exitRevel;
+	protected double z=20,m=35;
+	protected double a=300,b=35;
 	public int cluesFound=1;
 	public boolean clue1Found = false;
 	public boolean clue2Found = false;
@@ -26,9 +25,12 @@ public class Maze extends Screen{
 	private PImage cat;
 	private int timeout=0;
 	private int superboost=0;
-	private double speedX= 2, speedY= 2;
+	protected double speedX= 2, speedY= 2;
 	private double catX= 2, catY= 2;
 	private ArrayList<Line2D> mazeLines; 
+	
+	private Mouse p1;
+	private Cat p2;
 
 	//	private Clues clue;
 	private Rectangle player1;
@@ -46,13 +48,9 @@ public class Maze extends Screen{
 	public Maze(DrawingSurface surface) {
 		super(345,255);
 		this.surface = surface;
+		p1 = new Mouse(surface.loadImage("rat.png"),25,30);
 		mazeLines = new ArrayList<Line2D>();
-		int x, y, w, h, gap;
-		x = 15;
-		y = 35;
-		w = 300;
-		h = 200;
-		gap = 30;
+		
 	}
 
 	/**
@@ -86,13 +84,12 @@ public class Maze extends Screen{
 		gap = 30;
 
 		player1 = new Rectangle((int)z,(int)m,19,19);
-
 		player2 = new Rectangle((int)a,(int)b,17,17);
 		diamond = new Rectangle(297, 130, 14, 10);
 		tester2 = new Rectangle (140, 130, 10, 10);
 
 
-
+		p1.draw(surface);
 		//tester = new Rectangle(100,203,50,20);
 
 
@@ -829,8 +826,9 @@ public class Maze extends Screen{
 
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
-
-			z = z-speedX;
+			p1.walk(-2);
+			
+//			z = z-speedX;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
@@ -947,7 +945,6 @@ public class Maze extends Screen{
 
 	public void speedNorm()
 	{
-
 		catX = 2.5;
 		catY=2.5;
 
@@ -974,4 +971,7 @@ public class Maze extends Screen{
 	{
 		return (float)line.getY2();
 	}
+	
+	
+	
 }
