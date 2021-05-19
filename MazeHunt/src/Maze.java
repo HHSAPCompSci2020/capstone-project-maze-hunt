@@ -53,10 +53,7 @@ public class Maze extends Screen{
 		w = 300;
 		h = 200;
 		gap = 30;
-
-
 	}
-
 
 	/**
 	 * Place to draw the maze and characters on
