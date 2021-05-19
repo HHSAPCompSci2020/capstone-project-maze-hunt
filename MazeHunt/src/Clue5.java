@@ -1,4 +1,5 @@
 
+
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.*;
@@ -8,7 +9,7 @@ import javax.swing.JOptionPane;
 /**
  * This class holds and contains the first clue
  * Users are prompted with a question and are asked to select the correct answer.
- * @author Anika
+ * @author Anika and Faith
  *
  */
 public class Clue5 extends Screen {
@@ -16,9 +17,9 @@ public class Clue5 extends Screen {
 
 	
 	private DrawingSurface surface;
-	private Rectangle iceCreamButton;
-	private Rectangle donutsButton;
-	private Rectangle cakeButton;
+	private Rectangle knightButton;
+	private Rectangle kingButton;
+	private Rectangle queenButton;
 
 	/**
 	 * Constructs the first clue to be shown onto the screen
@@ -27,9 +28,9 @@ public class Clue5 extends Screen {
 	public Clue5(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-		iceCreamButton = new Rectangle(150,200,50,40);
-		donutsButton = new Rectangle(150,150,50,40);
-		cakeButton = new Rectangle(150,100,50,40);
+		knightButton = new Rectangle(150,200,50,40);
+		queenButton = new Rectangle(150,150,50,40);
+		kingButton = new Rectangle(150,100,50,40);
 	}
 	
 	/**
@@ -46,27 +47,29 @@ public class Clue5 extends Screen {
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
-		surface.rect(iceCreamButton.x, iceCreamButton.y, iceCreamButton.width, iceCreamButton.height, 10, 10, 10, 10);
-		surface.rect(donutsButton.x, donutsButton.y, donutsButton.width, donutsButton.height, 10, 10, 10, 10);
-		surface.rect(cakeButton.x, cakeButton.y, cakeButton.width, cakeButton.height, 10, 10, 10, 10);
+		surface.fill(204,204,255);
+		surface.rect(queenButton.x, queenButton.y, queenButton.width, queenButton.height, 10, 10, 10, 10);
+		surface.fill(204,204,255);
+		surface.rect(knightButton.x, knightButton.y, knightButton.width, knightButton.height, 10, 10, 10, 10);
+		surface.fill(204,204,255);
+		surface.rect(kingButton.x, kingButton.y, kingButton.width, kingButton.height, 10, 10, 10, 10);
 	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("Aha! You want to enter, I don't even know if you'll make it to the center. "
-				+ "\nWatch out for the cat, as he likes to eat rats. "
-				+ "\nBefore I let you enter the maze, what's a dessert that may contain glaze?",10,30);
+		surface.text("The maze is just begun, now will end your time of fun! "
+				+ "\nIts gonna get harder before that tell us who wears an armour",10,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
-		String iceCream = "Ice Cream";
-		float w = surface.textWidth(iceCream); //start button
-		surface.text(iceCream, iceCreamButton.x+iceCreamButton.width/2-w/2, iceCreamButton.y+iceCreamButton.height/2);
-		String donut = "Donut";
-		float y = surface.textWidth(donut); //start button
-		surface.text(donut, donutsButton.x+donutsButton.width/2-y/2, donutsButton.y+donutsButton.height/2);
-		String cake = "Cake";
-		float z = surface.textWidth(cake); //start button
-		surface.text(cake, cakeButton.x+cakeButton.width/2-z/2, cakeButton.y+cakeButton.height/2);
+		String Knight = "Knight";
+		float w = surface.textWidth(Knight); //start button
+		surface.text(Knight, knightButton.x+knightButton.width/2-w/2, knightButton.y+knightButton.height/2);
+		String King = "King";
+		float y = surface.textWidth(King); //start button
+		surface.text(King, kingButton.x+kingButton.width/2-y/2, kingButton.y+kingButton.height/2);
+		String Queen = "Queen";
+		float z = surface.textWidth(Queen); //start button
+		surface.text(Queen, queenButton.x+queenButton.width/2-z/2, queenButton.y+queenButton.height/2);
 		surface.popStyle();
 
 
@@ -78,11 +81,11 @@ public class Clue5 extends Screen {
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (iceCreamButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.WRONGANSWER); //switch to welcome screen
-		if (donutsButton.contains(p))
+		if (kingButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.WRONGANSWER5); //switch to welcome screen
+		if (knightButton.contains(p))
 			surface.switchScreen(ScreenSwitcher.SCREEN3);
-		if (cakeButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.WRONGANSWER);
+		if (queenButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.WRONGANSWER5);
 		}
 	}

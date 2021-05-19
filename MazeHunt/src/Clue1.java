@@ -1,5 +1,4 @@
 
-
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.*;
@@ -9,7 +8,7 @@ import javax.swing.JOptionPane;
 /**
  * This class holds and contains the first clue
  * Users are prompted with a question and are asked to select the correct answer.
- * @author Anika and Faith
+ * @author Anika
  *
  */
 public class Clue1 extends Screen {
@@ -87,3 +86,7 @@ public class Clue1 extends Screen {
 			surface.switchScreen(ScreenSwitcher.WRONGANSWER);
 		}
 	}
+
+
+
+
