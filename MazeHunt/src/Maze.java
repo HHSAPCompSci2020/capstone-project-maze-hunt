@@ -28,7 +28,7 @@ public class Maze extends Screen{
 	private int superboost=0;
 	private double speedX= 2, speedY= 2;
 	private double catX= 2, catY= 2;
-
+	private ArrayList<Line2D> mazeLines; 
 
 //	private Clues clue;
 	private Rectangle player1;
@@ -46,6 +46,13 @@ public class Maze extends Screen{
 	public Maze(DrawingSurface surface) {
 		super(345,255);
 		this.surface = surface;
+		mazeLines = new ArrayList<Line2D>();
+		int x, y, w, h, gap;
+		x = 15;
+		y = 35;
+		w = 300;
+		h = 200;
+		gap = 30;
 
 
 	}
@@ -109,6 +116,7 @@ public class Maze extends Screen{
 		float tx2 = (float) top.getX2();
 		float ty2 = (float) top.getY2();
 		surface.line(tx1, ty1, tx2, ty2);
+		mazeLines.add(top);
 
 		//right line
 		Line2D right = new Line2D.Float(x+w, y, x+w, y+h);
@@ -117,17 +125,20 @@ public class Maze extends Screen{
 		float rx2 = (float) right.getX2();
 		float ry2 = (float) right.getY2();
 		surface.line(rx1, ry1, rx2, ry2);
+		mazeLines.add(right);
+
 
 		//bottom exit
 		Line2D bottome = new Line2D.Float(x+w, y+h, x+w-gap, y+h); //clue
-
 		//color
 		float bex1 = (float) bottome.getX1();
 		float bey1 = (float) bottome.getY1();
 		float bex2 = (float) bottome.getX2();
 		float bey2 = (float) bottome.getY2();
-
 		surface.line(bex1, bey1, bex2, bey2);
+		mazeLines.add(bottome);
+
+		
 		//bottom line
 		Line2D bottom = new Line2D.Float(x+w-gap, y+h, x, y+h);
 		float bx1 = (float) bottom.getX1();
@@ -135,16 +146,18 @@ public class Maze extends Screen{
 		float bx2 = (float) bottom.getX2();
 		float by2 = (float) bottom.getY2();
 		surface.line(bx1, by1, bx2, by2);
+		mazeLines.add(bottom);
 
 
-		Line2D tester;
-		tester = new Line2D.Float(x+w-gap, y+h, x, y+h);
+		
+		Line2D tester = new Line2D.Float(x+w-gap, y+h, x, y+h);
 		//Line2D test = new Line2D(x+w-gap, y+h, x, y+h);
 		float x1 = (float) tester.getX1();
 		float y1 = (float) tester.getY1();
 		float x2 = (float) tester.getX2();
 		float y2 = (float) tester.getY2();
 		surface.line(x1, y1, x2, y2);
+		mazeLines.add(tester);
 
 
 		//left line
@@ -154,7 +167,9 @@ public class Maze extends Screen{
 		float lx2 = (float) left.getX2();
 		float ly2 = (float) left.getY2();
 		surface.line(lx1, ly1, lx2, ly2);
+		mazeLines.add(left);
 
+		
 		//line1
 		Line2D line1 = new Line2D.Float(x+gap, y, x+gap, y+gap);
 		float l1x1 = (float) line1.getX1();
@@ -162,6 +177,8 @@ public class Maze extends Screen{
 		float l1x2 = (float) line1.getX2();
 		float l1y2 = (float) line1.getY2();
 		surface.line(l1x1, l1y1, l1x2, l1y2);
+		mazeLines.add(line1);
+
 
 		//line2
 		Line2D line2 = new Line2D.Float(x+gap*2, y+gap, x+w, y+gap);
@@ -170,6 +187,8 @@ public class Maze extends Screen{
 		float l2x2 = (float) line2.getX2();
 		float l2y2 = (float) line2.getY2();
 		surface.line(l2x1, l2y1, l2x2, l2y2);
+		mazeLines.add(line2);
+
 
 		//line3
 		Line2D line3 = new Line2D.Float(x+gap, y+gap*2, x+w-gap, y+gap*2);
@@ -178,6 +197,8 @@ public class Maze extends Screen{
 		float l3x2 = (float) line3.getX2();
 		float l3y2 = (float) line3.getY2();
 		surface.line(l3x1, l3y1, l3x2, l3y2);
+		mazeLines.add(line3);
+
 
 		//line4
 		Line2D line4 = new Line2D.Float(x+gap, y+gap*2, x+gap, y+gap*3);
@@ -434,68 +455,18 @@ public class Maze extends Screen{
 			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
 
 		}
-		if (surface.isPressed(KeyEvent.VK_LEFT))
-		{
-
-			z = z-speedX;
-
-		}
-		if (surface.isPressed(KeyEvent.VK_RIGHT))
-		{
-
-			z = z+speedX;
-
-		}
-		if (surface.isPressed(KeyEvent.VK_UP))
-		{
-
-			m = m-speedY;
-
-		}
-
-		if (surface.isPressed(KeyEvent.VK_DOWN))
-		{
-
-			m = m+speedY;
-
-
-		}
-
-		if (surface.isPressed(KeyEvent.VK_W)) //up
-		{
-
-			b = b-catY;
-
-		}
-		if (surface.isPressed(KeyEvent.VK_A)) //left
-		{
-
-			a= a-catX;;
-
-		}
-		if (surface.isPressed(KeyEvent.VK_S))//down
-		{
-
-			b= b+catY;
-
-		}
-
-		if (surface.isPressed(KeyEvent.VK_D))//right
-		{
-
-			a = a+catX;
-
-		}
-
+		
 
 		//if (player1)
 		if (player1.intersectsLine(top))
 		{
-			m= (int) (m+2);
+			System.out.println("here");
+			speedX = -speedX;
+			speedY = -speedY;
 			//z= (int) (z+1);		
 		}
 
-		if (player1.intersectsLine(line1))
+		else if (player1.intersectsLine(line1))
 		{
 			if (clue4Found == false && clue3Found==true)
 			{
@@ -508,14 +479,14 @@ public class Maze extends Screen{
 		}
 
 
-		if (player1.intersectsLine(line2))
+		else if (player1.intersectsLine(line2))
 		{
 			 
 			m= (int) (m-2);
 			z= (int) (z+1);		
 		}
 
-		if (player1.intersectsLine(left))
+		else if (player1.intersectsLine(left))
 		{
 			 
 			//m= (int) (m+1.5);
@@ -523,7 +494,7 @@ public class Maze extends Screen{
 
 		}
 
-		if (player1.intersectsLine(right))
+		else if (player1.intersectsLine(right))
 		{
 			 
 			//m= (int) (m+1);
@@ -531,7 +502,7 @@ public class Maze extends Screen{
 			showClues();
 		}
 
-		if (player1.intersectsLine(bottom))
+		else if (player1.intersectsLine(bottom))
 		{
 			 
 			m= (int) (m-2);
@@ -539,14 +510,14 @@ public class Maze extends Screen{
 		}
 
 
-		if (player1.intersectsLine(line3))
+		else if (player1.intersectsLine(line3))
 		{
 			 
 			m= (int) (m-2);
 			//z= (int) (z-1);		
 		}
 
-		if (player1.intersectsLine(line4))
+		else if (player1.intersectsLine(line4))
 		{
 			if (clue3Found == false && clue2Found==true)
 			{
@@ -559,7 +530,7 @@ public class Maze extends Screen{
 			z= (int) (z+1);		
 		}
 
-		if (player1.intersectsLine(line5))
+		else if (player1.intersectsLine(line5))
 		{
 			 
 			m= (int) (m-2);
@@ -567,7 +538,7 @@ public class Maze extends Screen{
 		}
 
 
-		if (player1.intersectsLine(line6))
+		else if (player1.intersectsLine(line6))
 		{
 			 
 			//m= (int) (m+1);
@@ -575,21 +546,21 @@ public class Maze extends Screen{
 		}
 
 
-		if (player1.intersectsLine(line8))
+		else if (player1.intersectsLine(line8))
 		{
 			 
 			m= (int) (m-2);
 			//z= (int) (z-1);		
 		}
 
-		if (player1.intersectsLine(line7))
+		else if (player1.intersectsLine(line7))
 		{
 			 
 			m= (int) (m-2);
 			z= (int) (z-1);		
 		}
 
-		if (player1.intersectsLine(line20))
+		else if (player1.intersectsLine(line20))
 		{
 			if (clue1Found == false)
 			{
@@ -602,21 +573,21 @@ public class Maze extends Screen{
 			z= (int) (z-1);		
 		}
 
-		if (player1.intersectsLine(line16))
+		else if (player1.intersectsLine(line16))
 		{
 			 
 			m= (int) (m-2);
 			z= (int) (z-1);		
 		}
 
-		if (player1.intersectsLine(line9))
+		else if (player1.intersectsLine(line9))
 		{
 			 
 			m= (int) (m-2);
 			//z= (int) (z-1);		
 		}
 
-		if (player1.intersectsLine(line17))
+		else if (player1.intersectsLine(line17))
 		{
 			 
 			m= (int) (m-2);
@@ -954,6 +925,59 @@ public class Maze extends Screen{
 			 
 			b = (int) (b+2);
 			//a = (int) (a+1);		
+		}
+
+		if (surface.isPressed(KeyEvent.VK_LEFT))
+		{
+
+			z = z-speedX;
+
+		}
+		if (surface.isPressed(KeyEvent.VK_RIGHT))
+		{
+
+			z = z+speedX;
+
+		}
+		if (surface.isPressed(KeyEvent.VK_UP))
+		{
+
+			m = m-speedY;
+
+		}
+
+		if (surface.isPressed(KeyEvent.VK_DOWN))
+		{
+
+			m = m+speedY;
+
+
+		}
+
+		if (surface.isPressed(KeyEvent.VK_W)) //up
+		{
+
+			b = b-catY;
+
+		}
+		if (surface.isPressed(KeyEvent.VK_A)) //left
+		{
+
+			a= a-catX;;
+
+		}
+		if (surface.isPressed(KeyEvent.VK_S))//down
+		{
+
+			b= b+catY;
+
+		}
+
+		if (surface.isPressed(KeyEvent.VK_D))//right
+		{
+
+			a = a+catX;
+
 		}
 
 		if (player1.intersects(diamond)&&timeout==0)
