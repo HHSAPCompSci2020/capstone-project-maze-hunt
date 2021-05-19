@@ -307,6 +307,7 @@ public class Maze extends Screen{
 		float l15x2 = (float) line15.getX2();
 		float l15y2 = (float) line15.getY2();
 		surface.line(l15x1, l15y1, l15x2, l15y2);
+		mazeLines.add(line15);
 
 		//line16
 		Line2D line16 = new Line2D.Float(x+gap, y+gap*4, x+gap, y+(gap*5+gap/2));
@@ -315,6 +316,7 @@ public class Maze extends Screen{
 		float l16x2 = (float) line16.getX2();
 		float l16y2 = (float) line16.getY2();
 		surface.line(l16x1, l16y1, l16x2, l16y2);
+		mazeLines.add(line16);
 
 		//line17
 		Line2D line17 = new Line2D.Float(x+gap*2, y+(gap*5-gap/6), x+gap*3, y+(gap*5-gap/6));
@@ -323,6 +325,7 @@ public class Maze extends Screen{
 		float l17x2 = (float) line17.getX2();
 		float l17y2 = (float) line17.getY2();
 		surface.line(l17x1, l17y1, l17x2, l17y2);
+		mazeLines.add(line17);
 
 		//line18
 		Line2D line18 = new Line2D.Float(x+gap*4, y+gap*5, x+gap*6, y+gap*5);
@@ -331,6 +334,7 @@ public class Maze extends Screen{
 		float l18x2 = (float) line18.getX2();
 		float l18y2 = (float) line18.getY2();
 		surface.line(l18x1, l18y1, l18x2, l18y2);
+		mazeLines.add(line18);
 
 		//line19
 		Line2D line19 = new Line2D.Float(x+gap*6, y+gap*4, x+gap*6, y+gap*5);//clue
@@ -339,6 +343,7 @@ public class Maze extends Screen{
 		float l19x2 = (float) line19.getX2();
 		float l19y2 = (float) line19.getY2();
 		surface.line(l19x1, l19y1, l19x2, l19y2);
+		mazeLines.add(line19);
 
 		//line20
 		Line2D line20 = new Line2D.Float(x, y+(gap*5+gap/2), x+gap,y+(gap*5+gap/2)); //clue
@@ -347,6 +352,7 @@ public class Maze extends Screen{
 		float l20x2 = (float) line20.getX2();
 		float l20y2 = (float) line20.getY2();
 		surface.line(l20x1, l20y1, l20x2, l20y2);
+		mazeLines.add(line20);
 
 		//line21
 		Line2D line21 = new Line2D.Float(((x+gap*2)+(x+gap*3))/2, y+h-gap, ((x+gap*2)+(x+gap*3))/2, y+h);
@@ -355,6 +361,7 @@ public class Maze extends Screen{
 		float l21x2 = (float) line21.getX2();
 		float l21y2 = (float) line21.getY2();
 		surface.line(l21x1, l21y1, l21x2, l21y2);
+		mazeLines.add(line21);
 
 		//line22
 		Line2D line22 = new Line2D.Float(x+(gap*4-gap/2), y+h-gap+gap/4, x+gap*5, y+h-gap+gap/4);
@@ -363,6 +370,7 @@ public class Maze extends Screen{
 		float l22x2 = (float) line22.getX2();
 		float l22y2 = (float) line22.getY2();
 		surface.line(l22x1, l22y1, l22x2, l22y2);
+		
 
 		//line23
 		Line2D line23 = new Line2D.Float(x+gap*5, y+gap*5, x+gap*5, y+h-gap+gap/4);
