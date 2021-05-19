@@ -28,7 +28,7 @@ public class Maze extends Screen{
 	protected double speedX= 2, speedY= 2;
 	private double catX= 2, catY= 2;
 	private ArrayList<Line2D> mazeLines; 
-	
+
 	private Mouse p1;
 	private Cat p2;
 
@@ -48,9 +48,9 @@ public class Maze extends Screen{
 	public Maze(DrawingSurface surface) {
 		super(345,255);
 		this.surface = surface;
-		p1 = new Mouse(surface.loadImage("rat.png"),25,30);
+		//p1 = new Mouse(surface.loadImage("rat.png"),25,30);
 		mazeLines = new ArrayList<Line2D>();
-		
+
 	}
 
 	/**
@@ -83,13 +83,13 @@ public class Maze extends Screen{
 		h = 200;
 		gap = 30;
 
-		player1 = new Rectangle((int)z,(int)m,19,19);
+		player1 = new Rectangle((int)z,(int)m,16,16);
 		player2 = new Rectangle((int)a,(int)b,17,17);
 		diamond = new Rectangle(297, 130, 14, 10);
 		tester2 = new Rectangle (140, 130, 10, 10);
 
 
-		p1.draw(surface);
+		//p1.draw(surface);
 		//tester = new Rectangle(100,203,50,20);
 
 
@@ -127,7 +127,6 @@ public class Maze extends Screen{
 		Line2D left = new Line2D.Float(x, y+h, x, y);
 		surface.line(getLineX1(left), getLineY1(left), getLineX2(left), getLineY2(left));
 		mazeLines.add(left);
-
 
 		//line1
 		Line2D line1 = new Line2D.Float(x+gap, y, x+gap, y+gap);
@@ -335,273 +334,251 @@ public class Maze extends Screen{
 			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
 
 		}
-
-
-		for (int i=0; i<mazeLines.size(); i++)
+		else if (player1.intersectsLine(top))
 		{
-			if(player1.intersectsLine(mazeLines.get(i)))
+			//System.out.println("here");
+			
+			m= (int) (m+3);		
+		}
+		
+		else if (player1.intersectsLine(line1))
+		{
+			if (clue4Found == false && clue3Found==true)
 			{
-				System.out.println("here");
-				speedX = 0;
-				speedY = 0;
-			}
-			if(!(player1.intersectsLine(mazeLines.get(i))))
-			{
-				System.out.println("not intersect");
-				speedX = 2;
-				speedY = 2;
-			}
+				surface.switchScreen(ScreenSwitcher.CLUE4);
+				cluesFound=5;
+				clue4Found=true;
+			};
+			//m= (int) (m-2);
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);	
+		}
+
+
+		else if (player1.intersectsLine(line2))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(left))
+		{
+
+			z= z+2;	
 
 		}
 
-		//if (player1)
-		//		if (player1.intersectsLine(top))
-		//		{
-		//			System.out.println("here");
-		//			speedX = -speedX;
-		//			speedY = -speedY;
-		//			//z= (int) (z+1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line1))
-		//		{
-		//			if (clue4Found == false && clue3Found==true)
-		//			{
-		//				surface.switchScreen(ScreenSwitcher.CLUE4);
-		//				cluesFound=5;
-		//				clue4Found=true;
-		//			};
-		//			//m= (int) (m-2);
-		//			z= (int) (z-2);		
-		//		}
-		//
-		//
-		//		else if (player1.intersectsLine(line2))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			z= (int) (z+1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(left))
-		//		{
-		//			 
-		//			//m= (int) (m+1.5);
-		//			z= (int) (z+2);	
-		//
-		//		}
-		//
-		//		else if (player1.intersectsLine(right))
-		//		{
-		//			 
-		//			//m= (int) (m+1);
-		//			z= (int) (z-2);	
-		//			showClues();
-		//		}
-		//
-		//		else if (player1.intersectsLine(bottom))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//
-		//		else if (player1.intersectsLine(line3))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line4))
-		//		{
-		//			if (clue3Found == false && clue2Found==true)
-		//			{
-		//				surface.switchScreen(ScreenSwitcher.CLUE3);
-		//				cluesFound=4;
-		//				clue3Found=true;
-		//			}
-		//			 
-		//			//m= (int) (m-2);
-		//			z= (int) (z+1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line5))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//
-		//		else if (player1.intersectsLine(line6))
-		//		{
-		//			 
-		//			//m= (int) (m+1);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//
-		//		else if (player1.intersectsLine(line8))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line7))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line20))
-		//		{
-		//			if (clue1Found == false)
-		//			{
-		//				surface.switchScreen(ScreenSwitcher.CLUE1);
-		//				cluesFound=2;
-		//				clue1Found=true;
-		//			}
-		//			 
-		//			m= (int) (m-2);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line16))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line9))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		else if (player1.intersectsLine(line17))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line10))
-		//		{
-		//			 
-		//			//m= (int) (m-1);
-		//			z= (int) (z+1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line21))
-		//		{
-		//			 
-		//			//m= (int) (m-1);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line22))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line23))
-		//		{
-		//			 
-		//			//m= (int) (m-1);
-		//			z= (int) (z+1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line24))
-		//		{
-		//			 
-		//			//m= (int) (m-1);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line19))
-		//		{
-		//			if (clue2Found == false && clue1Found==true)
-		//			{
-		//				surface.switchScreen(ScreenSwitcher.CLUE2);
-		//				cluesFound=3;
-		//				clue2Found=true;
-		//			}
-		//			 
-		//			//m= (int) (m-1);
-		//			z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line18))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line11))
-		//		{
-		//			 
-		//			m= (int) (m+1);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line12))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z-1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line13))
-		//		{
-		//			 
-		//			//m= (int) (m+1);
-		//			z= (int) (z+1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line25))
-		//		{
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z+1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(lastline))
-		//		{
-		//			 
-		//			//m= (int) (m-1);
-		//			z= (int) (z+1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(bottome) && cluesFound!=5)
-		//		{
-		//
-		//			 
-		//			m= (int) (m-2);
-		//			//z= (int) (z+1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line14))
-		//		{
-		//			 
-		//			//m= (int) (m-1);
-		//			z= (int) (z+1);		
-		//		}
-		//
-		//		if (player1.intersectsLine(line15))
-		//		{
-		//			 
-		//			m= (int) (m+1);
-		//			//z= (int) (z+1);		
-		//		}
+		else if (player1.intersectsLine(right))
+		{
+
+			z= z-2;	
+			showClues();
+		}
+
+		else if (player1.intersectsLine(bottom))
+		{
+
+			m= m-2;		
+		}
+
+
+		else if (player1.intersectsLine(line3))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line4))
+		{
+			if (clue3Found == false && clue2Found==true)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE3);
+				cluesFound=4;
+				clue3Found=true;
+			}
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line5))
+		{
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+
+		else if (player1.intersectsLine(line6))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+
+		else if (player1.intersectsLine(line8))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line7))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line20))
+		{
+			if (clue1Found == false)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE1);
+				cluesFound=2;
+				clue1Found=true;
+			}
+
+			m= m-2;		
+		}
+
+		else if (player1.intersectsLine(line16))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);	
+		}
+
+		else if (player1.intersectsLine(line9))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line17))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line10))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);	
+		}
+
+		else if (player1.intersectsLine(line21))
+		{
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line22))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line23))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line24))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);	
+		}
+
+		else if (player1.intersectsLine(line19))
+		{
+			if (clue2Found == false && clue1Found==true)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE2);
+				cluesFound=3;
+				clue2Found=true;
+			}
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line18))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line11))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line12))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line13))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line25))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(lastline))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);	
+		}
+
+		else if (player1.intersectsLine(bottome) && cluesFound!=5)
+		{
+
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+
+		else if (player1.intersectsLine(line14))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);	
+		}
+
+		else if (player1.intersectsLine(line15))
+		{
+
+			speedX = (speedX+2.5)*-1;
+			speedY = -1*(speedY+2.5);		
+		}
+		else
+		{
+			speedX=2;
+			speedY=2;
+		}
 
 		if (player1.intersects(player2))
 		{
@@ -826,9 +803,8 @@ public class Maze extends Screen{
 
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
-			p1.walk(-2);
-			
-//			z = z-speedX;
+			z-=speedX;
+			//			z = z-speedX;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
@@ -916,10 +892,6 @@ public class Maze extends Screen{
 	}
 
 
-
-
-
-
 	public String showClues() {
 		ArrayList<String> clued = c.getClues();
 		//System.out.println(clued);
@@ -971,7 +943,7 @@ public class Maze extends Screen{
 	{
 		return (float)line.getY2();
 	}
-	
-	
-	
+
+
+
 }
