@@ -52,9 +52,10 @@ public class Clue4 extends Screen {
 	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("Aha! You want to enter, I don't even know if you'll make it to the center. "
-				+ "\nWatch out for the cat, as he likes to eat rats. "
-				+ "\nBefore I let you enter the maze, what's a dessert that may contain glaze?",10,30);
+		surface.text("You're almost done, just one more to go. "
+				+ "\n'Ughh' I know what a bummer! "
+				+ "\nJust tell me your favourite thing to throw "
+				+ "\nand then you'll have reached the summer!", 10,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);

@@ -69,7 +69,7 @@ public class StartWindow extends Screen{
 		
 		float w = surface.textWidth(start); //start button
 		float y = surface.textWidth(help); //help button
-		float z = surface.textWidth(clue); //help button
+		//float z = surface.textWidth(clue); //help button
 
 		
 		surface.text(start, startButton.x+startButton.width/2-w/2, startButton.y+startButton.height/2);

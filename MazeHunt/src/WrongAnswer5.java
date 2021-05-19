@@ -62,7 +62,7 @@
 		public void mousePressed() {
 			Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 			if (startButton.contains(p))
-				surface.switchScreen(ScreenSwitcher.CLUE5); //switch to welcome screen
+				surface.switchScreen(ScreenSwitcher.CLUE6); //switch to welcome screen
 			
 			}
 		}
