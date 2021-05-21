@@ -15,13 +15,15 @@ public class Maze extends Screen{
 	public boolean clue2Found = false;
 	public boolean clue3Found = false;
 	public boolean clue4Found = false;
+	private boolean speedUp=false;
 	private boolean slowDown=false;
 	private PImage rat;
 	private PImage cat;
 	private int timeout=0;
-	private int superboost=0;
-	protected double speedX= 2, speedY= 2;
-	private double catX= 2, catY= 2;
+
+
+	protected double speedX= 0, speedY= 0;
+	private double catX= 0, catY= 0;
 	private ArrayList<Line2D> mazeLines; 
 
 	private Mouse p1;
@@ -33,12 +35,9 @@ public class Maze extends Screen{
 	private Rectangle diamond;
 	int savedTime;
 	int totalTime = 15000;
-	private int startTime;
-	private int duration=15;
-	private int time=15;
 
-	//	private Rectangle tester;
-	private Rectangle tester2;
+
+	private Rectangle superBoost1;
 
 
 	/**
@@ -48,6 +47,7 @@ public class Maze extends Screen{
 		super(345,255);
 		this.surface = surface;
 		//p1 = new Mouse(surface.loadImage("rat.png"),25,30);
+
 		mazeLines = new ArrayList<Line2D>();
 
 	}
@@ -82,15 +82,7 @@ public class Maze extends Screen{
 		h = 200;
 		gap = 30;
 
-		player1 = new Rectangle((int)z,(int)m,16,15);
-		surface.rect((float)z, (float)m, 16, 16);
-		player2 = new Rectangle((int)a,(int)b,17,17);
-		diamond = new Rectangle(297, 130, 14, 10);
-		tester2 = new Rectangle (140, 130, 10, 10);
 
-
-		//p1.draw(surface);
-		//tester = new Rectangle(100,203,50,20);
 
 
 
@@ -266,6 +258,15 @@ public class Maze extends Screen{
 		//selectClue();
 
 
+
+		player1 = new Rectangle((int)z,(int)m,16,15);
+		//surface.rect((float)z, (float)m, 16, 16);
+		player2 = new Rectangle((int)a,(int)b,17,17);
+		diamond = new Rectangle(297, 130, 14, 10);
+		superBoost1 = new Rectangle (140, 130, 10, 10);
+
+		rat= surface.loadImage("rat.png");
+		surface.image(rat, (float)z, (float)m,16,15);
 		surface.noFill();
 		surface.noStroke();
 		surface.rect(player1.x, player1.y,player1.width, player1.height);
@@ -276,8 +277,7 @@ public class Maze extends Screen{
 
 
 
-		rat= surface.loadImage("rat.png");
-		surface.image(rat, (float)z, (float)m,19,19);
+
 
 
 		cat= surface.loadImage("cat.png");
@@ -289,8 +289,8 @@ public class Maze extends Screen{
 
 		surface.fill(0,0,204); //fill 
 		surface.quad(305, 130, 297, 135, 305, 140, 310, 135);
-		surface.fill(0);
-		surface.rect(140, 130, 10, 10);
+		//surface.fill(0);
+		//surface.rect(140, 130, 10, 10);
 		surface.fill(255, 165,0 );
 		surface.circle(145, 135, 8);
 
@@ -343,14 +343,14 @@ public class Maze extends Screen{
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
 
-			m = m-speedY;
+			m -=speedY;
 
 		}
 
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
 
-			m = m+speedY;
+			m +=speedY;
 
 
 		}
@@ -380,6 +380,9 @@ public class Maze extends Screen{
 			a = a+catX;
 
 		}
+
+
+
 		if (player1.intersectsLine(bottome) && cluesFound==5)
 		{
 			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
@@ -400,45 +403,43 @@ public class Maze extends Screen{
 				cluesFound=5;
 				clue4Found=true;
 			};
-			//m= (int) (m-2);
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);	
+			z= (int) (z-3);
+			//			speedX = (speedX+2)*-1;
+			//			speedY = -1*(speedY+2);	
 		}
 
 
 		else if (player1.intersectsLine(line2))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=3;	
 		}
 
 		else if (player1.intersectsLine(left))
 		{
 
-			z= z+2;	
+			z= z+3;	
 
 		}
 
 		else if (player1.intersectsLine(right))
 		{
 
-			z= z-2;	
+			z= z-3;	
 			showClues();
 		}
 
 		else if (player1.intersectsLine(bottom))
 		{
 
-			m= m-2;		
+			m= m-3;		
 		}
 
 
 		else if (player1.intersectsLine(line3))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m+=3;		
 		}
 
 		else if (player1.intersectsLine(line4))
@@ -449,37 +450,26 @@ public class Maze extends Screen{
 				cluesFound=4;
 				clue3Found=true;
 			}
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			z+=3;		
 		}
 
 		else if (player1.intersectsLine(line5))
 		{
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			z-=3;	
 		}
 
-
-		//		else if (player1.intersectsLine(line6))
-		//		{
-		//
-		//			speedX = (speedX+2.5)*-1;
-		//			speedY = -1*(speedY+2.5);		
-		//		}
 
 
 		else if (player1.intersectsLine(line8))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m+=2;	
 		}
 
 		else if (player1.intersectsLine(line7))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m+=3;	
 		}
 
 		else if (player1.intersectsLine(line20))
@@ -491,62 +481,55 @@ public class Maze extends Screen{
 				clue1Found=true;
 			}
 
-			m= m-2;		
+			m= m-3;		
 		}
 
 		else if (player1.intersectsLine(line16))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);	
+			z-=3;	
 		}
 
 		else if (player1.intersectsLine(line9))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=2;	
 		}
 
 		else if (player1.intersectsLine(line17))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m+=2;	
 		}
 
 		else if (player1.intersectsLine(line10))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);	
+			z+=2;	
+
 		}
 
 		else if (player1.intersectsLine(line21))
 		{
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			z-=3;		
 		}
 
 		else if (player1.intersectsLine(line22))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m+=2;	
 		}
 
 		else if (player1.intersectsLine(line23))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			z+=2;	
 		}
 
 		else if (player1.intersectsLine(line24))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);	
+			z-=2;	
 		}
 
 		else if (player1.intersectsLine(line19))
@@ -558,77 +541,67 @@ public class Maze extends Screen{
 				clue2Found=true;
 			}
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			z+=2;		
 		}
 
 		else if (player1.intersectsLine(line18))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=2;	
 		}
 
 		else if (player1.intersectsLine(line11))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=2;		
 		}
 
 		else if (player1.intersectsLine(line12))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=2;	
 		}
 
 		else if (player1.intersectsLine(line13))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			z+=2;	
 		}
 
 		else if (player1.intersectsLine(line25))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=2;		
 		}
 
 		else if (player1.intersectsLine(lastline))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);	
+			z+=2;
 		}
 
 		else if (player1.intersectsLine(bottome) && cluesFound!=5)
 		{
 
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=3;		
 		}
 
 		else if (player1.intersectsLine(line14))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);	
+			z+=2;	
 		}
 
 		else if (player1.intersectsLine(line15))
 		{
 
-			speedX = (speedX+2)*-1;
-			speedY = -1*(speedY+2);		
+			m-=2;		
 		}
 		else
 		{
-			speedX=2;
-			speedY=2;
+			speedX=1;
+			speedY=1;
 		}
 
 		if (player1.intersects(player2))
@@ -644,21 +617,21 @@ public class Maze extends Screen{
 			//a = (int) (a+1);		
 		}
 
-		if (player2.intersectsLine(line1))
+		else if (player2.intersectsLine(line1))
 		{
 			//b= (int) (b-2);
-			a= (int) (a-1);		
+			a-=2;		
 		}
 
 
-		if (player2.intersectsLine(line2))
+		else if (player2.intersectsLine(line2))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a+1);		
 		}
 
-		if (player2.intersectsLine(left))
+		else if (player2.intersectsLine(left))
 		{
 
 			//b = (int) (b+1.5);
@@ -666,7 +639,7 @@ public class Maze extends Screen{
 
 		}
 
-		if (player2.intersectsLine(right))
+		else if (player2.intersectsLine(right))
 		{
 
 			//b = (int) (b+1);
@@ -674,7 +647,7 @@ public class Maze extends Screen{
 			showClues();
 		}
 
-		if (player2.intersectsLine(bottom))
+		else if (player2.intersectsLine(bottom))
 		{
 
 			b = (int) (b-2);
@@ -682,25 +655,24 @@ public class Maze extends Screen{
 		}
 
 
-		if (player2.intersectsLine(line3))
+		else if (player2.intersectsLine(line3))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line4))
+		else if (player2.intersectsLine(line4))
 		{
 
 			//b = (int) (b-2);
-			a = (int) (a-1);		
+			a = (int) (a-2);		
 		}
 
-		if (player2.intersectsLine(line5))
+		else if (player2.intersectsLine(line5))
 		{
 
-			b = (int) (b-2);
-			a = (int) (a-1);		
+			a-=2;		
 		}
 
 
@@ -712,151 +684,153 @@ public class Maze extends Screen{
 		//		}
 
 
-		if (player2.intersectsLine(line8))
+		else if (player2.intersectsLine(line8))
+		{
+
+			b-=2;;
+			//a = (int) (a-1);		
+		}
+
+		else if (player2.intersectsLine(line7))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line7))
+		else if (player2.intersectsLine(line20))
 		{
 
-			b = (int) (b-2);
-			//a = (int) (a-1);		
+			b-=2;		
 		}
 
-		if (player2.intersectsLine(line20))
+		else if (player2.intersectsLine(line16))
 		{
 
-			b = (int) (b-2);
-			a = (int) (a-1);		
+			a = (int) (a-2);		
 		}
 
-		if (player2.intersectsLine(line16))
-		{
-
-			b = (int) (b-2);
-			a = (int) (a-1);		
-		}
-
-		if (player2.intersectsLine(line9))
+		else if (player2.intersectsLine(line9))
 		{
 
 			b = (int) (b-2);
 			//a= (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line17))
+		else if (player2.intersectsLine(line17))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line10))
+		else if (player2.intersectsLine(line10))
 		{
 
 			//b = (int) (b-1);
-			a = (int) (a+1);		
+			a+=2;;		
 		}
 
-		if (player2.intersectsLine(line21))
+		else if (player2.intersectsLine(line21))
 		{
 
 			//b = (int) (b-1);
-			a = (int) (a-1);		
+			a = (int) (a-2);		
 		}
 
-		if (player2.intersectsLine(line22))
+		else if (player2.intersectsLine(line22))
 		{
 
 			b = (int) (b-2);
 			//a= (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line23))
+		else if (player2.intersectsLine(line23))
 		{
 
 			//b = (int) (b-1);
-			a = (int) (a+1);		
+			a = (int) (a+2);		
 		}
 
-		if (player2.intersectsLine(line24))
+		else if (player2.intersectsLine(line24))
 		{
 
 			//b = (int) (b-1);
-			a = (int) (a-1);		
+			a = (int) (a-2);		
 		}
 
-		if (player2.intersectsLine(line19))
+		else if (player2.intersectsLine(line19))
 		{
 
 			//b = (int) (b-1);
-			a = (int) (a-1);		
+			a = (int) (a-2);		
 		}
 
-		if (player2.intersectsLine(line18))
+		else if (player2.intersectsLine(line18))
 		{
 
-			b = (int) (b-1);
+			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line11))
+		else if (player2.intersectsLine(line11))
 		{
 
 			b = (int) (b+2);
 			//a = (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line12))
+		else if (player2.intersectsLine(line12))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-		if (player2.intersectsLine(line13))
+		else if (player2.intersectsLine(line13))
 		{
 
 			//b= (int) (b+1);
-			a = (int) (a+1);		
+			a = (int) (a+2);		
 		}
 
-		if (player2.intersectsLine(line25))
+		else if (player2.intersectsLine(line25))
 		{
 
 			b = (int) (b-2);
 			//a= (int) (a+1);		
 		}
 
-		if (player2.intersectsLine(lastline))
+		else if (player2.intersectsLine(lastline))
 		{
 
 			//b = (int) (b-1);
 			a = (int) (a+1);		
 		}
 
-		if (player2.intersectsLine(line14))
+		else if (player2.intersectsLine(line14))
 		{
 
 			//b = (int) (b-1);
 			a= (int) (a+1);		
 		}
 
-		if (player2.intersectsLine(line15))
+		else if (player2.intersectsLine(line15))
 		{
 
 			b = (int) (b+2);
 			//a = (int) (a+1);		
+		}
+		else
+		{
+			catX=2;
+			catY=2;
 		}
 
 
 
 		if (player1.intersects(diamond))
 		{
-			this.Speedup();
 			//			while (timeout>0)
 			//			{
 			//				catX = catX-1;
@@ -869,7 +843,17 @@ public class Maze extends Screen{
 
 
 
-		if (player1.intersects(tester2)) //change r to circle box
+		if (player1.intersects(superBoost1)) //change r to circle box
+		{
+			System.out.println("here");
+			savedTime = surface.millis();
+			speedUp=true;
+			//Speedup();
+
+		}
+
+		
+		if (player1.intersects(diamond)) //change r to circle box
 		{
 			System.out.println("here");
 			savedTime = surface.millis();
@@ -878,32 +862,37 @@ public class Maze extends Screen{
 
 		}
 
+			int passedTime = surface.millis() - savedTime;
 
+		if (speedUp==true) {
+			if (passedTime < totalTime) 
+			{
+				System.out.println("in methid");
 
-
-		int passedTime = surface.millis() - savedTime;
-
+				speedX+=1;
+				speedY+=1;
+				System.out.println(speedX);
+				System.out.println("5 seconds have passed!");
+				//savedTime = surface.millis();
+			}
+			else
+				speedUp=false;
+		}
 		if (slowDown==true) {
 			if (passedTime < totalTime) 
 			{
 				System.out.println("in methid");
 
-				speedX+=2;
-				speedY+=2;
+				catX*=0.5;
+				catY*=0.5;
 				System.out.println(speedX);
 				System.out.println("5 seconds have passed!");
 				//savedTime = surface.millis();
 			}
 			else
 				slowDown=false;
-			// Save the current time to restart the timer!
 		}
 
-
-		//		if (superboost == 0)
-		//		{
-		//			speedNorm();
-		//		}
 
 
 	}
@@ -918,68 +907,6 @@ public class Maze extends Screen{
 
 	}
 
-
-	public void slowSpeed()
-	{
-
-		timeout = 60*15;
-	}
-
-	public void Speedup()
-	{ 
-		System.out.println("here: " );
-
-		//System.out.println("start timer " + startTime);
-
-		int passedTime = surface.millis() - startTime;
-		while(slowDown==true)
-		{System.out.println("passed " + passedTime);
-		}
-	}
-	//		while(passedTime<40000)
-	//		{
-	//			System.out.println("passed " + passedTime);
-	//
-	//			speedX+=2;
-	//			speedY+=2;
-	//		}
-
-
-	//		while(startTime< 20000)
-	//		{
-	//			System.out.println("start timer here " + startTime);
-	//			if (surface.isPressed(KeyEvent.VK_UP))
-	//			{
-	//
-	//				m = m-3;
-	//
-	//			}
-	//
-	//			if (surface.isPressed(KeyEvent.VK_DOWN))
-	//			{
-	//
-	//				m = m+3;
-	//
-	//
-	//			}
-
-
-
-
-
-
-
-
-
-
-	public void speedNorm()
-	{
-		catX = 2.5;
-		catY=2.5;
-
-		speedX = 2;
-		speedY=2;
-	}
 
 	public float getLineX1(Line2D line)
 	{
@@ -1000,7 +927,6 @@ public class Maze extends Screen{
 	{
 		return (float)line.getY2();
 	}
-
 
 
 }
