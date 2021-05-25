@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 public class Maze extends Screen{
 
 	protected DrawingSurface surface;
-	private Clues c = new Clues();
 	protected double z=20,m=35;
 	protected double a=300,b=35;
 	public int cluesFound=1;
@@ -38,6 +37,7 @@ public class Maze extends Screen{
 
 
 	private Rectangle superBoost1;
+	private Rectangle superBoost2;
 
 
 	/**
@@ -266,6 +266,7 @@ public class Maze extends Screen{
 		player2 = new Rectangle((int)a,(int)b,17,17);
 		diamond = new Rectangle(297, 130, 14, 10);
 		superBoost1 = new Rectangle (140, 130, 10, 10);
+		superBoost2 = new Rectangle(20, 215, 10, 10);
 
 		rat= surface.loadImage("rat.png");
 		surface.image(rat, (float)z, (float)m,16,15);
@@ -292,9 +293,12 @@ public class Maze extends Screen{
 		surface.fill(0,0,204); //fill 
 		surface.quad(305, 130, 297, 135, 305, 140, 310, 135);
 		//surface.fill(0);
-		//surface.rect(140, 130, 10, 10);
+		surface.rect(20, 215, 10, 10);
 		surface.fill(255, 165,0 );
 		surface.circle(145, 135, 8);
+		surface.fill(255, 165,0 );
+		surface.circle(25, 220, 8);
+		
 
 		if (cluesFound ==1)
 		{
@@ -427,7 +431,7 @@ public class Maze extends Screen{
 		{
 
 			z= z-3;	
-			showClues();
+			
 		}
 
 		else if (mouse.intersectsLine(bottom))
@@ -645,7 +649,6 @@ public class Maze extends Screen{
 
 			//b = (int) (b+1);
 			a = (int) (a-2);	
-			showClues();
 		}
 
 		else if (player2.intersectsLine(bottom))
@@ -838,6 +841,14 @@ public class Maze extends Screen{
 			//Speedup();
 
 		}
+		
+		
+		if(mouse.intersects(superBoost2))
+		{
+			System.out.println("here");
+			savedTime = surface.millis();
+			speedUp = true;
+		}
 
 		
 		if (mouse.intersects(diamond)) //change r to circle box
@@ -884,15 +895,6 @@ public class Maze extends Screen{
 
 	}
 
-
-	public String showClues() {
-		ArrayList<String> clued = c.getClues();
-		//System.out.println(clued);
-		int k = (int) (Math.random()*clued.size());
-
-		return clued.get(k);
-
-	}
 
 
 	public float getLineX1(Line2D line)
