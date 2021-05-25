@@ -1,5 +1,3 @@
-
-
 import java.awt.Point;
 import java.awt.Rectangle;
 
@@ -13,8 +11,6 @@ import processing.core.PImage;
  */
 public class Help extends Screen {
 	
-
-	
 	private DrawingSurface surface;
 	private Rectangle startButton;
 	private PImage helpScreen;
@@ -27,15 +23,12 @@ public class Help extends Screen {
 		super(400,300);
 		this.surface = surface;
 		startButton = new Rectangle(170,240,50,40);
-	
 	}
 	
 	/**
 	 * Displays the help class and rules and directions
 	 */
 	public void draw() {
-		
-		// Draw stuff
 		
 		surface.pushStyle();
 		
@@ -49,23 +42,13 @@ public class Help extends Screen {
 		//surface.fill(255);
 		surface.rect(startButton.x, startButton.y, startButton.width, startButton.height, 10, 10, 10, 10);
 		
-		
-		
 		surface.textSize(10);
 		surface.fill(75,0,130);
 		String start = "Back";
 		float w = surface.textWidth(start); //start button
 		surface.text(start, startButton.x+startButton.width/2-w/2, startButton.y+startButton.height/2);
-
 		
 		surface.popStyle();
-
-		
-		
-		// Change stuff
-
-	
-
 		
 	}
 	
@@ -79,5 +62,4 @@ public class Help extends Screen {
 		
 		}
 	}
-	
 	
