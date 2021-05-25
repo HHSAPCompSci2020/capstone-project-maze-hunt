@@ -1,11 +1,14 @@
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import processing.core.PImage;
+
 public class History extends Screen{
 
 
 	private DrawingSurface surface;
 	private Rectangle continueButton;
+	private PImage backgroundInfo;
 
 	
 	public History(DrawingSurface surface) {
@@ -25,6 +28,8 @@ public class History extends Screen{
 		surface.background(255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
+		backgroundInfo= surface.loadImage("BackgroundInfo.png");
+		surface.image(backgroundInfo, 0, 0, 400 , 300);
 		
 		//surface.fill(255);
 		surface.rect(continueButton.x, continueButton.y, continueButton.width, continueButton.height, 10, 10, 10, 10);
