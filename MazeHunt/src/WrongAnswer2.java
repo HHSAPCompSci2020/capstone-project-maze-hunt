@@ -3,18 +3,22 @@
 
 	import java.awt.Point;
 	import java.awt.Rectangle;
-//	import java.awt.event.*;
 
-//	import javax.swing.JOptionPane;
-
-
-
+	/**
+	 * This class contains the wrong answer2 screen when the wrong answer choice has been selected
+	 * @author Anika and Saloni
+	 * @version May 24,2021
+	 *
+	 */
 	public class WrongAnswer2 extends Screen {
 		
 		private DrawingSurface surface;
 		private Rectangle startButton;
 
-		
+		/**
+		 * Constructs the wrong answer2 class 
+		 * @param surface, the PApplet surface for which the class is to be shown on
+		 */
 		public WrongAnswer2(DrawingSurface surface) {
 			super(400,300);
 			this.surface = surface;
@@ -22,6 +26,9 @@
 		
 		}
 		
+		/**
+		 * Draws the wrong answer class and displays it onto the PApplet screen
+		 */
 		public void draw() {
 			
 			// Draw stuff
@@ -58,6 +65,10 @@
 
 			
 		}
+		
+		/**
+		 * Checks whether the mouse has been pressed and taked actions depending on where the mouse has been pressed
+		 */
 		public void mousePressed() {
 			Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 			if (startButton.contains(p))
