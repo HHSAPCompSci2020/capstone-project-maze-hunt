@@ -16,8 +16,6 @@ public class StartWindow extends Screen{
 	private Rectangle startButton;
 	private PImage welcome;
 
-
-
 	/**
 	 * Constructs the start window and displays the start of the game with options
 	 * @param surface, the PApplet surface that the start window is to be shown on
@@ -28,8 +26,6 @@ public class StartWindow extends Screen{
 		this.surface = surface;
 		helpButton = new Rectangle(250,190,90,60);
 		startButton = new Rectangle(65,190,90,60);
-
-		//maze = new Maze();
 
 	}
 
