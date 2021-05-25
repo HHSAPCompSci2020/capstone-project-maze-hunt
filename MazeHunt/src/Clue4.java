@@ -52,10 +52,9 @@ public class Clue4 extends Screen {
 	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("You're almost done, just one more to go. "
-				+ "\n'Ughh' I know what a bummer! "
-				+ "\nJust tell me your favourite thing to throw "
-				+ "\nand then you'll have reached the summer!", 10,30);
+		surface.text("The next one sits upon an island. "
+				+ "\nBut don't be frightened, "
+				+ "\nit's not one you can get stranded on.", 10,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
