@@ -16,7 +16,10 @@ public class History extends Screen{
 	private Rectangle continueButton;
 	private PImage backgroundInfo;
 
-	
+	/**
+	 * Constructs the background screen to be shown onto the screen
+	 * @param surface; The PApplet screen in which the background information text and the continue button will be displayed.
+	 */
 	public History(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
