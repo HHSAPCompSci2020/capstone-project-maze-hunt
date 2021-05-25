@@ -57,6 +57,10 @@ public class History extends Screen{
 
 		
 	}
+	
+	/**
+	 * Checks whether the player has pressed the continue button and returns to the maze
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (continueButton.contains(p))
