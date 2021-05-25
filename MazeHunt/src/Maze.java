@@ -9,11 +9,15 @@ public class Maze extends Screen{
 	protected DrawingSurface surface;
 	protected double z=20,m=35;
 	protected double a=300,b=35;
-	public int cluesFound=1;
-	public boolean clue1Found = false;
-	public boolean clue2Found = false;
-	public boolean clue3Found = false;
-	public boolean clue4Found = false;
+	private  int cluesFound=1;
+	private boolean clue1Found = false;
+	private boolean clue2Found = false;
+	private boolean clue3Found = false;
+	private boolean clue4Found = false;
+	private boolean clue5Found = false;
+	private boolean clue6Found = false;
+	private boolean clue7Found = false;
+	private boolean clue8Found = false;
 	private boolean speedUp=false;
 	private boolean slowDown=false;
 	private PImage rat;
@@ -261,7 +265,6 @@ public class Maze extends Screen{
 		//selectClue();
 
 
-
 		mouse = new Rectangle((int)z,(int)m,16,15);
 		//surface.rect((float)z, (float)m, 16, 16);
 		player2 = new Rectangle((int)a,(int)b,17,17);
@@ -331,9 +334,16 @@ public class Maze extends Screen{
 
 		if (cluesFound==5)
 		{
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line17.getX1(), (float)line17.getY1(),(float)30, (float)1.9);
+		}
+		
+		if (cluesFound==6)
+		{
 			surface.stroke(176,224,230);
 			surface.fill(176,224,230);
-			surface.rect((float)bottome.getX2()+1, (float)bottome.getY2()-1, 30, (float)2);
+			surface.rect((float)line17.getX2()+1, (float)line17.getY2()-1, 30, (float)2);
 		}
 
 		if (surface.isPressed(KeyEvent.VK_LEFT))
@@ -390,7 +400,7 @@ public class Maze extends Screen{
 
 
 
-		if (mouse.intersectsLine(bottome) && cluesFound==5)
+		if (mouse.intersectsLine(bottome) && cluesFound==9)
 		{
 			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
 
@@ -504,7 +514,13 @@ public class Maze extends Screen{
 
 		else if (mouse.intersectsLine(line17))
 		{
-
+			if (clue5Found == false && clue4Found==true)
+			{
+				System.out.println("clue5");
+				surface.switchScreen(ScreenSwitcher.CLUE5);
+				cluesFound=6;
+				clue5Found=true;
+			}
 			m+=2;	
 		}
 
@@ -586,7 +602,7 @@ public class Maze extends Screen{
 			z+=2;
 		}
 
-		else if (mouse.intersectsLine(bottome) && cluesFound!=5)
+		else if (mouse.intersectsLine(bottome) && cluesFound!=9)
 		{
 
 
