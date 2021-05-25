@@ -11,8 +11,7 @@ public class Mouse extends PApplet{
 	int width=19;
 	int height=19;
 
-	public Mouse(PImage img, double x1, double y1) {
-		rat = img;
+	public Mouse(double x1, double y1, double width, double height) {
 		x=x1;
 		y=y1;
 		
@@ -30,7 +29,7 @@ public class Mouse extends PApplet{
 	public void draw(PApplet surface)
 	{
 		//making the house
-		surface.fill(168,0,50);
+		surface.fill(0,0,50);
 		surface.rect(25,30,19,19);
 	}
 	public void keyPressed() // method call for when a key is pressed

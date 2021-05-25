@@ -19,7 +19,6 @@ public class Maze extends Screen{
 	private boolean slowDown=false;
 	private PImage rat;
 	private PImage cat;
-	private int timeout=0;
 
 
 	protected double speedX= 0, speedY= 0;
@@ -30,9 +29,10 @@ public class Maze extends Screen{
 	private Cat p2;
 
 	//	private Clues clue;
-	private Rectangle player1;
+	private Rectangle mouse;
 	private Rectangle player2;
 	private Rectangle diamond;
+	private Mouse Mouse;
 	int savedTime;
 	int totalTime = 15000;
 
@@ -46,7 +46,8 @@ public class Maze extends Screen{
 	public Maze(DrawingSurface surface) {
 		super(345,255);
 		this.surface = surface;
-		//p1 = new Mouse(surface.loadImage("rat.png"),25,30);
+		Mouse = new Mouse(25,30,15,15);
+		
 
 		mazeLines = new ArrayList<Line2D>();
 
@@ -58,6 +59,7 @@ public class Maze extends Screen{
 	 */
 	public void draw() {
 		//int clues=0;
+		Mouse.draw();
 		surface.pushStyle();
 		surface.background(176,224,230);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
@@ -259,7 +261,7 @@ public class Maze extends Screen{
 
 
 
-		player1 = new Rectangle((int)z,(int)m,16,15);
+		mouse = new Rectangle((int)z,(int)m,16,15);
 		//surface.rect((float)z, (float)m, 16, 16);
 		player2 = new Rectangle((int)a,(int)b,17,17);
 		diamond = new Rectangle(297, 130, 14, 10);
@@ -269,7 +271,7 @@ public class Maze extends Screen{
 		surface.image(rat, (float)z, (float)m,16,15);
 		surface.noFill();
 		surface.noStroke();
-		surface.rect(player1.x, player1.y,player1.width, player1.height);
+		surface.rect(mouse.x, mouse.y,mouse.width, mouse.height);
 
 		surface.noFill();
 		surface.noStroke();
@@ -383,19 +385,19 @@ public class Maze extends Screen{
 
 
 
-		if (player1.intersectsLine(bottome) && cluesFound==5)
+		if (mouse.intersectsLine(bottome) && cluesFound==5)
 		{
 			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
 
 		}
-		else if (player1.intersectsLine(top))
+		else if (mouse.intersectsLine(top))
 		{
 			//System.out.println("here");
 
 			m= (int) (m+3);		
 		}
 
-		else if (player1.intersectsLine(line1))
+		else if (mouse.intersectsLine(line1))
 		{
 			if (clue4Found == false && clue3Found==true)
 			{
@@ -404,45 +406,44 @@ public class Maze extends Screen{
 				clue4Found=true;
 			};
 			z= (int) (z-3);
-			//			speedX = (speedX+2)*-1;
-			//			speedY = -1*(speedY+2);	
+			
 		}
 
 
-		else if (player1.intersectsLine(line2))
+		else if (mouse.intersectsLine(line2))
 		{
 
 			m-=3;	
 		}
 
-		else if (player1.intersectsLine(left))
+		else if (mouse.intersectsLine(left))
 		{
 
 			z= z+3;	
 
 		}
 
-		else if (player1.intersectsLine(right))
+		else if (mouse.intersectsLine(right))
 		{
 
 			z= z-3;	
 			showClues();
 		}
 
-		else if (player1.intersectsLine(bottom))
+		else if (mouse.intersectsLine(bottom))
 		{
 
 			m= m-3;		
 		}
 
 
-		else if (player1.intersectsLine(line3))
+		else if (mouse.intersectsLine(line3))
 		{
 
 			m+=3;		
 		}
 
-		else if (player1.intersectsLine(line4))
+		else if (mouse.intersectsLine(line4))
 		{
 			if (clue3Found == false && clue2Found==true)
 			{
@@ -453,26 +454,26 @@ public class Maze extends Screen{
 			z+=3;		
 		}
 
-		else if (player1.intersectsLine(line5))
+		else if (mouse.intersectsLine(line5))
 		{
 			z-=3;	
 		}
 
 
 
-		else if (player1.intersectsLine(line8))
+		else if (mouse.intersectsLine(line8))
 		{
 
 			m+=2;	
 		}
 
-		else if (player1.intersectsLine(line7))
+		else if (mouse.intersectsLine(line7))
 		{
 
 			m+=3;	
 		}
 
-		else if (player1.intersectsLine(line20))
+		else if (mouse.intersectsLine(line20))
 		{
 			if (clue1Found == false)
 			{
@@ -484,55 +485,55 @@ public class Maze extends Screen{
 			m= m-3;		
 		}
 
-		else if (player1.intersectsLine(line16))
+		else if (mouse.intersectsLine(line16))
 		{
 
 			z-=3;	
 		}
 
-		else if (player1.intersectsLine(line9))
+		else if (mouse.intersectsLine(line9))
 		{
 
 			m-=2;	
 		}
 
-		else if (player1.intersectsLine(line17))
+		else if (mouse.intersectsLine(line17))
 		{
 
 			m+=2;	
 		}
 
-		else if (player1.intersectsLine(line10))
+		else if (mouse.intersectsLine(line10))
 		{
 
 			z+=2;	
 
 		}
 
-		else if (player1.intersectsLine(line21))
+		else if (mouse.intersectsLine(line21))
 		{
 			z-=3;		
 		}
 
-		else if (player1.intersectsLine(line22))
+		else if (mouse.intersectsLine(line22))
 		{
 
 			m+=2;	
 		}
 
-		else if (player1.intersectsLine(line23))
+		else if (mouse.intersectsLine(line23))
 		{
 
 			z+=2;	
 		}
 
-		else if (player1.intersectsLine(line24))
+		else if (mouse.intersectsLine(line24))
 		{
 
 			z-=2;	
 		}
 
-		else if (player1.intersectsLine(line19))
+		else if (mouse.intersectsLine(line19))
 		{
 			if (clue2Found == false && clue1Found==true)
 			{
@@ -544,56 +545,56 @@ public class Maze extends Screen{
 			z+=2;		
 		}
 
-		else if (player1.intersectsLine(line18))
+		else if (mouse.intersectsLine(line18))
 		{
 
 			m-=2;	
 		}
 
-		else if (player1.intersectsLine(line11))
+		else if (mouse.intersectsLine(line11))
 		{
 
 			m-=2;		
 		}
 
-		else if (player1.intersectsLine(line12))
+		else if (mouse.intersectsLine(line12))
 		{
 
 			m-=2;	
 		}
 
-		else if (player1.intersectsLine(line13))
+		else if (mouse.intersectsLine(line13))
 		{
 
 			z+=2;	
 		}
 
-		else if (player1.intersectsLine(line25))
+		else if (mouse.intersectsLine(line25))
 		{
 
 			m-=2;		
 		}
 
-		else if (player1.intersectsLine(lastline))
+		else if (mouse.intersectsLine(lastline))
 		{
 
 			z+=2;
 		}
 
-		else if (player1.intersectsLine(bottome) && cluesFound!=5)
+		else if (mouse.intersectsLine(bottome) && cluesFound!=5)
 		{
 
 
 			m-=3;		
 		}
 
-		else if (player1.intersectsLine(line14))
+		else if (mouse.intersectsLine(line14))
 		{
 
 			z+=2;	
 		}
 
-		else if (player1.intersectsLine(line15))
+		else if (mouse.intersectsLine(line15))
 		{
 
 			m-=2;		
@@ -604,7 +605,7 @@ public class Maze extends Screen{
 			speedY=1;
 		}
 
-		if (player1.intersects(player2))
+		if (mouse.intersects(player2))
 		{
 			surface.switchScreen(ScreenSwitcher.YOULOSE);//change to lose screen
 
@@ -829,21 +830,7 @@ public class Maze extends Screen{
 
 
 
-		if (player1.intersects(diamond))
-		{
-			//			while (timeout>0)
-			//			{
-			//				catX = catX-1;
-			//				catY = catY-1;
-			//				timeout--;
-			//			}
-
-
-		}
-
-
-
-		if (player1.intersects(superBoost1)) //change r to circle box
+		if (mouse.intersects(superBoost1)) //change r to circle box
 		{
 			System.out.println("here");
 			savedTime = surface.millis();
@@ -853,7 +840,7 @@ public class Maze extends Screen{
 		}
 
 		
-		if (player1.intersects(diamond)) //change r to circle box
+		if (mouse.intersects(diamond)) //change r to circle box
 		{
 			System.out.println("here");
 			savedTime = surface.millis();
