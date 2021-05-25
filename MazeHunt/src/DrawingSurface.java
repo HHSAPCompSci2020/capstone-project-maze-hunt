@@ -23,7 +23,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	 */
 	public DrawingSurface() {
 
-		
 		keys = new ArrayList<Integer>();
 
 		screens = new ArrayList<Screen>();
@@ -208,21 +207,4 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 		activeScreen = screens.get(i);
 	}
 
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
