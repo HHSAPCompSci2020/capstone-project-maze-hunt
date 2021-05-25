@@ -3,6 +3,12 @@ import java.awt.Rectangle;
 import processing.core.PApplet;
 import processing.core.PImage;
 
+/**
+ * This class is the cat class in which the class is created and displayed
+ * @author Anika, Saloni, Faith
+ * @version May 24,2021
+ *
+ */
 public class Cat extends PApplet {
 
 		private Rectangle bounding;

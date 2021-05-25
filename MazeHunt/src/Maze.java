@@ -746,7 +746,6 @@ public class Maze extends Screen{
 
 		if (mouse.intersects(diamond2)) 
 		{
-			System.out.println("here");
 			savedTime = surface.millis();
 			slowDown=true;
 		}
