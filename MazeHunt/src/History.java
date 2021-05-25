@@ -39,12 +39,6 @@ public class History extends Screen{
 		surface.popStyle();
 
 		
-		
-		// Change stuff
-
-	
-
-		
 	}
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));

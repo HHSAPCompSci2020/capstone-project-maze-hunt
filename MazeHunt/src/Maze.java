@@ -259,7 +259,7 @@ public class Maze extends Screen{
 
 		if (cluesFound ==1)
 		{
-			surface.fill(10,153,153);
+			surface.fill(255,0,255);
 			surface.strokeWeight(1);
 			surface.rect((float)line1.getX1(), (float)line1.getY1(), (float)1.7, 30);
 		}
