@@ -16,9 +16,8 @@ public class Clue4 extends Screen {
 
 	
 	private DrawingSurface surface;
-	private Rectangle glassesButton;
-	private Rectangle phoneButton;
-	private Rectangle frisbeeButton;
+	private Rectangle backButton;
+	
 
 	/**
 	 * Constructs the fourth clue to be shown onto the screen
@@ -27,9 +26,7 @@ public class Clue4 extends Screen {
 	public Clue4(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-		glassesButton = new Rectangle(150,200,50,40);
-		phoneButton = new Rectangle(150,150,50,40);
-		frisbeeButton = new Rectangle(150,100,50,40);
+		backButton = new Rectangle(150,200,50,40);
 	}
 	
 	/**
@@ -44,9 +41,8 @@ public class Clue4 extends Screen {
 		surface.noFill();
 		
 		//surface.fill(255);
-		surface.rect(glassesButton.x, glassesButton.y, glassesButton.width, glassesButton.height, 10, 10, 10, 10);
-		surface.rect(phoneButton.x, phoneButton.y, phoneButton.width, phoneButton.height, 10, 10, 10, 10);
-		surface.rect(frisbeeButton.x, frisbeeButton.y, frisbeeButton.width, frisbeeButton.height, 10, 10, 10, 10);
+		surface.rect(backButton.x, backButton.y, backButton.width, backButton.height, 10, 10, 10, 10);
+		
 	
 		surface.fill(0);
 		surface.textSize(9);
@@ -58,15 +54,9 @@ public class Clue4 extends Screen {
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
-		String glasses = "Glasses";
-		float w = surface.textWidth(glasses); //start button
-		surface.text(glasses, glassesButton.x+glassesButton.width/2-w/2, glassesButton.y+glassesButton.height/2);
-		String phone = "Phone";
-		float y = surface.textWidth(phone); //start button
-		surface.text(phone, phoneButton.x+phoneButton.width/2-y/2, phoneButton.y+phoneButton.height/2);
-		String frisbee = "Frisbee";
-		float z = surface.textWidth(frisbee); //start button
-		surface.text(frisbee, frisbeeButton.x+frisbeeButton.width/2-z/2, frisbeeButton.y+frisbeeButton.height/2);
+		String back = "Back";
+		float z = surface.textWidth(back); //start button
+		surface.text(back, backButton.x+backButton.width/2-z/2, backButton.y+backButton.height/2);
 		surface.popStyle();
 		// Change stuff
 	}
@@ -78,11 +68,7 @@ public class Clue4 extends Screen {
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (glassesButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.WRONGANSWER2); //switch to welcome screen
-		if (phoneButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.WRONGANSWER2);
-		if (frisbeeButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN3);
+		if (backButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to welcome screen
 		}
 	}
