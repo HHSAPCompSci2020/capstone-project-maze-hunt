@@ -49,7 +49,9 @@ public class Clue2 extends Screen {
 		surface.fill(0);
 		surface.textSize(9);
 		surface.text("Oh no! You've hit a wall, that's okay stand up tall. "
-				+ "\nTo measure your height, walk down a hall.",10,30);
+				+ "\nTo measure your height, walk down a hall."
+				+ "\nLet me tell you something that I already knew,"
+				+ "\nNow be aware of the lines as you might go through.",10,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
