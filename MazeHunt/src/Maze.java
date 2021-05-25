@@ -38,7 +38,7 @@ public class Maze extends Screen{
 
 
 	/**
-	 * Constructs a maze 
+	 * Constructs the maze that players will be playing on
 	 */
 	public Maze(DrawingSurface surface) {
 		super(345,255);
