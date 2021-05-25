@@ -1,6 +1,6 @@
-﻿Maze Hunt
+Maze Hunt
 Authors: Anika Ummukulsum, Faith Dominique, Saloni Nadarajan
-Revision: May 14, 2021
+Revision: May 24, 2021
 
 
 Introduction: 
@@ -56,67 +56,81 @@ Class List:
    * Players, super boosts, and diamonds are also displayed in this class
 * Sounds class
    * where different sounds are played for different actions made by the players
-* Clue 1 class
-   * where the information, question, and answer for the first clue is displayed
-* Clue 2 class
-   * where the information, question, and answer for the second clue is displayed
-* Clue 3 class
-   * where the information, question, and answer for the third clue is displayed
-* Clue 4 class
-   * where the information, question, and answer for the fourth clue is displayed
+* Clue 1, Clue 2, Clue 3, Clue 4, Clue 5, Clue 6, Clue 7, Clue 8 class
+   * where the information, question, and answer for the clues are displayed
 * ThankYou class
    * Where the thank you screen pops up and an exit button is displayed.
-* WrongAnswer class
+* WrongAnswer, WrongAnswer2, WrongAnswer3, class
    * Contains the screen that pops up when the user clicks on the wrong answer for the clue1.
-* WrongAnswer class
-   * Contains the screen that pops up when the user clicks on the wrong answer for the clue4.
 * YouLose class
    * Contains the screen that pops when the player loses the game and an exit button.
 * Clues class
    * This class contains the different clues that will be used in the game.
-* Screen, ScreenSwitcher, 
-* End screen class, where the end of the game card is displayed and shows either the mouse’s journey and achievements or shows the mouse’s death due to the cat.
+* Keyboard Press
+   * Class that was an answer to a clue
+* Screen, ScreenSwitcher
+   * Dynamically switch between different screens
+   * Code heavily borrows by Mr. Shelby
+* End screen class
+   * where the end of the game card is displayed 
 
 
 
 
 Credits:
-**Credits so far, might/will be changed once we start coding the project**
 * Anika
    * Added javadoc comments
-   * ReadMe and UML Diagram
-   * Worked on Clue1, clue2, Clue4 classes.
-   * Added and worked on ThankYou, YouLose, WrongAnswer1 and WrongAnswer2.
-   * Worked on the help classes.
+   * Worked ReadMe and UML Diagram
+   * Worked on Clue1, Clue2, Clue4, 
+   * Added and worked on Clue5, Clue 7 classes.
+   * Added and worked on ThankYou
+   * Added and worked on YouLose.
+   * Added and worked WrongAnswer, WrongAnswer2, WrongAnswer4, WrongAnswer5 classes
+   * Worked on the help class
    * Edited the images used for the mouse and cat.
-   * Worked on startWindow and the DrawingSurface to correctly show different screens.
+   * Worked on the DrawingSurface to correctly show different screens.
    * Added a few screens to the ScreenSwitcher class.
-   * Added the clues in the Clues class.
    * Worked on collision detection on the Maze class.
+   * Worked on the Keyboard Press class
+   * Worked on the Mouse and Cat class
 * Faith
    * Created Drawing Surface and Startup (and code)
    * Created jar file and javadoc files
    * Added javadoc comments
-   * ReadMe and UML diagram
+   * Worked on ReadMe and UML diagram
    * Worked on the creating and adding to the Help class
-   * Added and worked on the Clue1, and Clue 3 classes
+   * Added and worked on the Clue1, and Clue 3, Clue 5, Clue 6, Clue 8 classes
    * Worked on the Maze class to detect collisions between the rat and the maze walls so that the rat doesn’t overlap onto the lines, also made the feature so that each clue pops up and lights up on the maze as you find the clues.
    * Worked on the startWindow that contained the welcome screen for players to navigate through
+   * Worked on the Mouse and Cat class
+   * Worked on WrongAnswer, WrongAnswer3, WrongAnswer2, WrongAnswer6 class
    * Set up the drawing surface class and also edited it as we progressed through
    * Added screens to the ScreenSwitcher class to be able to dynamically switch between screens like the maze and clues
-   * * Saloni
-   * Readme and UML Diagram
+
+
+* Saloni
+   * Worked Readme and UML Diagram
+      * Updated whole UML Diagram for Beta Build
    * Created classes (and added fields, constructors, and methods)
    * Added javadoc comments
    * Worked on Maze Class
-      * Created the whole maze using lines
-      * Worked on collision detection for the images for Player 2
+      * Collision detection and adding the players
    * Created all the clues
    * Found and added cat and rat images into Maze Hunt
-   * Worked on Clue2, Clue3, and Clue4
-* Outside resources as of May 14th:
+   * Worked on Clue2, Clue3, and Clue4, Clue 6, Clue 7, Clue 8
+   * Worked on the Mouse and Cat class
+   * Worked on WrongAnswer2, WrongAnswer3, WrongAnswer5, WrongAnswer6 class
+   * Coded History class (background information with continue button)
+   * Worked on the DrawingSurface to correctly show different screens.
+   * Worked on the help classes.
+   * Worked on YouLose class
+   * Worked on the Keyboard Press class
+
+
+* Outside resources as of May 24th:
    * Processing and Processing jar/library
       * Looked at examples for checking detection and adding images
+      * Looked at examples for using the timer
    * Java library
       * Used the rectangle, color, and Line 2D  class throughout 
    * Heavily borrowed code from Mr. Shelby’s screen switching demo and also using buttons in those screens. This was used in our project to switch between the different classes and screens
@@ -124,4 +138,8 @@ Credits:
    * Shapes.jar - used Faith’s jar and imported it into our project to use 
    * Cat and Rat images
       * Cat: https://www.nicepng.com/ourpic/u2w7a9i1w7w7y3e6_black-cat-small-eyes-clip-art-cartoon-cat/ 
-      * Rat: https://www.pngkey.com/detail/u2q8r5e6y3t4u2w7_mouse-clipart-maus-clipart/
+      * Rat: https://www.pngkey.com/detail/u2q8r5e6y3t4u2w7_mouse-clipart-maus-clipart/ 
+   * Referenced Mr. Shelby’s startup class
+
+
+Note: More than 30 hours (with zoom logs) were spent on Zoom collaborating to work on the project. No code/classes were worked on without the group meeting to discuss changes and all code was done during the meetings.
