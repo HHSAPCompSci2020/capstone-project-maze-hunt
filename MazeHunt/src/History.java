@@ -32,7 +32,7 @@ public class History extends Screen{
 		surface.image(backgroundInfo, 0, 0, 400 , 300);
 		
 		//surface.fill(255);
-		surface.rect(continueButton.x, continueButton.y, continueButton.x+continueButton.width, continueButton.height, 10, 10, 10, 10);
+		surface.rect(continueButton.x+continueButton.width/2, continueButton.y, continueButton.width, continueButton.height, 10, 10, 10, 10);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
