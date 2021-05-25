@@ -34,10 +34,12 @@ import processing.core.PImage;
 			surface.noFill();
 			youLose= surface.loadImage("YouLoseScreen.jpg");
 			surface.image(youLose, 0, 0, 400 , 300);
+			surface.fill(204,204,255);
 			surface.rect(exitButton.x, exitButton.y, exitButton.width, exitButton.height, 10, 10, 10, 10);
 			
+			
 			surface.textSize(10);
-			surface.fill(75,0,130);
+			surface.fill(0);
 			String exit = "Exit";
 			float w = surface.textWidth(exit); //start button
 			surface.text(exit, exitButton.x+exitButton.width/2-w/2, exitButton.y+exitButton.height/2);
