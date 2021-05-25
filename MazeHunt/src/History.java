@@ -64,7 +64,7 @@ public class History extends Screen{
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (continueButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to welcome screen
+			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to maze screen
 		
 		}
 }
