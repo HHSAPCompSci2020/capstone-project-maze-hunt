@@ -1,20 +1,22 @@
-
-
-
 	import java.awt.Point;
 	import java.awt.Rectangle;
-//	import java.awt.event.*;
-
-//	import javax.swing.JOptionPane;
 
 
 
+	/**
+	 * This class holds the screen that pops up after the user chooses the wrong answer for a question.
+	 * @author Faith and Saloni
+	 *
+	 */
 	public class WrongAnswer6 extends Screen {
 		
 		private DrawingSurface surface;
 		private Rectangle startButton;
 
-		
+		/**
+		 * Constructs the wrong answer screen to be shown onto the screen
+		 * @param surface, , the PApplet screen in which the you wrong answer text and the back button will be displayed.
+		 */
 		public WrongAnswer6(DrawingSurface surface) {
 			super(400,300);
 			this.surface = surface;
@@ -22,6 +24,9 @@
 		
 		}
 		
+		/**
+		 * Displays the wrong answer text and back button
+		 */
 		public void draw() {
 			
 			// Draw stuff
@@ -50,15 +55,13 @@
 
 			
 			surface.popStyle();
-
-			
-			
-			// Change stuff
-
 		
-
-			
 		}
+		
+		/**
+		 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
+		 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
+		 */
 		public void mousePressed() {
 			Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 			if (startButton.contains(p))
