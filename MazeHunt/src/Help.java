@@ -30,6 +30,10 @@ public class Help extends Screen {
 	
 	}
 	
+	/**
+	 * Constructs the help screen to be shown onto the screen
+	 * @param surface, the PApplet screen in the rules and directions of the game are displayed
+	 */
 	public void draw() {
 		
 		// Draw stuff
@@ -65,6 +69,10 @@ public class Help extends Screen {
 
 		
 	}
+	
+	/**
+	 * Checks for whether the mouse has been pressed and different action will be taken depending on where the mouse is pressed
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (startButton.contains(p))
