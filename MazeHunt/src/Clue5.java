@@ -56,8 +56,8 @@ public class Clue5 extends Screen {
 	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("The maze is just begun, now will end your time of fun! "
-				+ "\nIts gonna get harder before that tell us who wears an armour",10,30);
+		surface.text("The maze has just begun, soon we will end your time of fun! "
+				+ "\nIt's going to get harder, but first tell us who wears an armour.",10,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
