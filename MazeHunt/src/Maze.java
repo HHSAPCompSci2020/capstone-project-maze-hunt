@@ -56,7 +56,6 @@ public class Maze extends Screen{
 
 	/**
 	 * Place to draw the maze and characters on
-	 * @param marker the place on with the maze and characters will be drawn on
 	 */
 	public void draw() {
 		Mouse.draw();
