@@ -1,3 +1,6 @@
+/**
+ * Main class
+ */
 
 import java.awt.Dimension;
 
