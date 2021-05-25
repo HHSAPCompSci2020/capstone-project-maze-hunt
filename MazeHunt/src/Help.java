@@ -3,6 +3,8 @@
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import processing.core.PImage;
+
 /**
  * This class displays the Help window that contains instructions and rules of the game
  * @author Anika, Saloni, Faith
@@ -15,6 +17,7 @@ public class Help extends Screen {
 	
 	private DrawingSurface surface;
 	private Rectangle startButton;
+	private PImage helpScreen;
 
 	/**
 	 * Contructs the help class
@@ -23,7 +26,7 @@ public class Help extends Screen {
 	public Help(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
-		startButton = new Rectangle(150,200,50,40);
+		startButton = new Rectangle(170,240,50,40);
 	
 	}
 	
@@ -37,22 +40,13 @@ public class Help extends Screen {
 		surface.background(255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
+		helpScreen= surface.loadImage("HelpScreen.jpg");
+		surface.image(helpScreen, 0, 0, 400 , 300);
 		
 		//surface.fill(255);
 		surface.rect(startButton.x, startButton.y, startButton.width, startButton.height, 10, 10, 10, 10);
 		
 		
-		surface.fill(0);
-		surface.textSize(9);
-		surface.text("Maze Hunt is an interactive game where the users can control their players using keys." 
-				+ "\n The player is given clues along its way. Once the player finds all the clues the"
-				+ "\n the exit will be revealed and the game will end. You have the option to pause or"
-				+ "\n exit the during the game. The players of the game include a cat and a mouse. If your"
-				+ "\n charecter is a mouse your task is to find all the clues before the cat eats you."
-				+ "\n If you are a cat, you task is to catch the mouse and end the game. The cat can be"
-				+ "\n controlled usimg WASD keys and the mouse should be controlled using the arrow keys."
-				+ "\n You will also need to drag and click to view the menu options and to look at the clues."
-				+ "\n Please press the back button to return to the main menu.",10,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
