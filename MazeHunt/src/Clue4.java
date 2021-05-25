@@ -68,11 +68,7 @@ public class Clue4 extends Screen {
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (glassesButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.WRONGANSWER2); //switch to welcome screen
-		if (phoneButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.WRONGANSWER2);
-		if (frisbeeButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.SCREEN3);
+		if (backButton.contains(p))
+			surface.switchScreen(ScreenSwitcher.SCREEN3); //switch to welcome screen
 		}
 	}
