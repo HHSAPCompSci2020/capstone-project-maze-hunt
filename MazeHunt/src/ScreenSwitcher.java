@@ -1,5 +1,8 @@
-
-
+/**
+ * This interface contains all the screens 
+ * @author Faith and Anika
+ *
+ */
 public interface ScreenSwitcher {
 	public static final int SCREEN1 = 0;//welcome
 	public static final int SCREEN2 = 1;//help
@@ -23,6 +26,9 @@ public interface ScreenSwitcher {
 	public static final int WRONGANSWER6 = 19;
 	public static final int HISTORY = 20;
 
-	
+	/**
+	 * This method switches from one screen to another
+	 * @param i, the value of the screen
+	 */
 	public void switchScreen(int i);
 }
