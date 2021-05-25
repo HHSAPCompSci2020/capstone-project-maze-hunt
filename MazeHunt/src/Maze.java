@@ -31,6 +31,7 @@ public class Maze extends Screen{
 	private Rectangle mouse;
 	private Rectangle player2;
 	private Rectangle diamond;
+	private Rectangle diamond2;
 	private Mouse Mouse;
 	int savedTime;
 	int totalTime = 15000;
@@ -265,6 +266,7 @@ public class Maze extends Screen{
 		//surface.rect((float)z, (float)m, 16, 16);
 		player2 = new Rectangle((int)a,(int)b,17,17);
 		diamond = new Rectangle(297, 130, 14, 10);
+		diamond2 = new Rectangle(270, 45, 14, 10);
 		superBoost1 = new Rectangle (140, 130, 10, 10);
 		superBoost2 = new Rectangle(20, 215, 10, 10);
 
@@ -288,12 +290,11 @@ public class Maze extends Screen{
 
 		surface.fill(0); //fill 
 
-		surface.rect(297, 130, 14, 10);
-
 		surface.fill(0,0,204); //fill 
 		surface.quad(305, 130, 297, 135, 305, 140, 310, 135);
-		//surface.fill(0);
-		surface.rect(20, 215, 10, 10);
+		surface.quad(278, 45, 270, 50, 278, 55, 283, 50);
+		//
+		
 		surface.fill(255, 165,0 );
 		surface.circle(145, 135, 8);
 		surface.fill(255, 165,0 );
@@ -852,6 +853,15 @@ public class Maze extends Screen{
 
 		
 		if (mouse.intersects(diamond)) //change r to circle box
+		{
+			System.out.println("here");
+			savedTime = surface.millis();
+			slowDown=true;
+			//Speedup();
+
+		}
+		
+		if (mouse.intersects(diamond2)) //change r to circle box
 		{
 			System.out.println("here");
 			savedTime = surface.millis();
