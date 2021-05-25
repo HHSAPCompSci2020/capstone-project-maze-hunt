@@ -1,3 +1,9 @@
+/**
+ * @author Saloni Nadarajan
+ * This class pops up when the player selects "start" and will display background information about the cat
+ * and the mouse. The player will be able to see the screen before playing the game.
+ */
+
 import java.awt.Point;
 import java.awt.Rectangle;
 
