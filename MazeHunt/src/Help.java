@@ -20,8 +20,8 @@ public class Help extends Screen {
 	private PImage helpScreen;
 
 	/**
-	 * Contructs the help class
-	 * @param surface, the PApplet surface that the help class will be drawn on 
+	 * Constructs the help class
+	 * @param surface, the PApplet surface for which the rules and directions of the game are displayed
 	 */
 	public Help(DrawingSurface surface) {
 		super(400,300);
@@ -31,8 +31,7 @@ public class Help extends Screen {
 	}
 	
 	/**
-	 * Constructs the help screen to be shown onto the screen
-	 * @param surface, the PApplet screen in the rules and directions of the game are displayed
+	 * Displays the help class and rules and directions
 	 */
 	public void draw() {
 		

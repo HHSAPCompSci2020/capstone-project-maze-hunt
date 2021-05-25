@@ -39,6 +39,7 @@ public class Maze extends Screen{
 
 	/**
 	 * Constructs the maze that players will be playing on
+	 * @param surface, the PApplet surface in which the maze will be drawn on
 	 */
 	public Maze(DrawingSurface surface) {
 		super(345,255);
