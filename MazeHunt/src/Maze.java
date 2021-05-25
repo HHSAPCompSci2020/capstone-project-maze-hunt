@@ -365,26 +365,26 @@ public class Maze extends Screen{
 		if (surface.isPressed(KeyEvent.VK_W)) //up
 		{
 
-			b = b-catY;
+			b -=catY;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_A)) //left
 		{
 
-			a= a-catX;;
+			a-=catX;;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_S))//down
 		{
 
-			b= b+catY;
+			b+=catY;
 
 		}
 
 		if (surface.isPressed(KeyEvent.VK_D))//right
 		{
 
-			a = a+catX;
+			a +=catX;
 
 		}
 
@@ -828,8 +828,8 @@ public class Maze extends Screen{
 		}
 		else
 		{
-			catX=2;
-			catY=2;
+			catX=1;
+			catY=1;
 		}
 
 
