@@ -18,7 +18,7 @@ public class History extends Screen{
 
 	/**
 	 * Constructs the background screen to be shown onto the screen
-	 * @param surface; The PApplet screen in which the background information text and the continue button will be displayed.
+	 * @param surface; The PApplet screen in which the background information and the continue button will be displayed.
 	 */
 	public History(DrawingSurface surface) {
 		super(400,300);
