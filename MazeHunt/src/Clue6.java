@@ -22,7 +22,7 @@ public class Clue6 extends Screen{
 		surface.pushStyle();
 		
 		
-		surface.background(255);   // Clear the screen with a white background
+		surface.background(204,255,209);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		surface.fill(255,228,196);

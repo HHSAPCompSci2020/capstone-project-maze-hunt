@@ -43,7 +43,7 @@ public class Clue5 extends Screen {
 		surface.pushStyle();
 		
 		
-		surface.background(204,229,255);   // Clear the screen with a white background
+		surface.background(255,229,204);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
