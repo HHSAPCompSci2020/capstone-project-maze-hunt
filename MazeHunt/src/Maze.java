@@ -308,28 +308,28 @@ public class Maze extends Screen{
 		{
 			surface.fill(255,0,255);
 			surface.strokeWeight(1);
-			surface.rect((float)line20.getX1(), (float)line20.getY1(), 30, (float)1.75);
+			surface.rect((float)line1.getX1(), (float)line1.getY1(), (float)1.7, 30);
 		}
 
 		if (cluesFound ==2)
 		{
 			surface.fill(255,0,255);
 			surface.strokeWeight(1);
-			surface.rect((float)line19.getX1(), (float)line19.getY1(),(float)1.9, 30);
+			surface.rect((float)line8.getX1(), (float)line8.getY1(),60,(float)1.9);
 		}
 
 		if (cluesFound ==3)
 		{
 			surface.fill(255,0,255);
 			surface.strokeWeight(1);
-			surface.rect((float)line4.getX1(), (float)line4.getY1(),(float)1.90, 30);
+			surface.rect((float)line20.getX1(), (float)line20.getY1(),30,(float)1.90);
 		}
 
 		if (cluesFound ==4)
 		{
 			surface.fill(255,0,255);
 			surface.strokeWeight(1);
-			surface.rect((float)line1.getX1(), (float)line1.getY1(),(float)1.9, 30);
+			surface.rect((float)line19.getX1(), (float)line19.getY1(),(float)1.9, 30);
 		}
 
 		if (cluesFound==5)
@@ -341,15 +341,34 @@ public class Maze extends Screen{
 		
 		if (cluesFound==6)
 		{
-			surface.stroke(176,224,230);
-			surface.fill(176,224,230);
-			surface.rect((float)line17.getX2()+1, (float)line17.getY2()-1, 30, (float)2);
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line4.getX1(), (float)line4.getY1(),(float)1.9,30);
+		}
+		
+		if (cluesFound==7)
+		{
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line14.getX1(), (float)line14.getY1(),(float)1.9,30);
+		}
+		if (cluesFound==8)
+		{
+			surface.fill(255,0,255);
+			surface.strokeWeight(1);
+			surface.rect((float)line21.getX1(), (float)line21.getY1(),(float)1.9,30);
 		}
 
+		if (cluesFound==9)
+		{
+			surface.stroke(176,224,230);
+			surface.fill(176,224,230);
+			surface.rect((float)bottome.getX2()+1, (float)bottome.getY2()-1, 30, (float)2);
+		}
+		
 		if (surface.isPressed(KeyEvent.VK_LEFT))
 		{
 			z-=speedX;
-			//			z = z-speedX;
 
 		}
 		if (surface.isPressed(KeyEvent.VK_RIGHT))
@@ -359,90 +378,64 @@ public class Maze extends Screen{
 		}
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
-
 			m -=speedY;
-
 		}
 
 		if (surface.isPressed(KeyEvent.VK_DOWN))
 		{
-
 			m +=speedY;
-
-
 		}
 
 		if (surface.isPressed(KeyEvent.VK_W)) //up
 		{
-
 			b -=catY;
-
 		}
 		if (surface.isPressed(KeyEvent.VK_A)) //left
 		{
-
 			a-=catX;;
-
 		}
 		if (surface.isPressed(KeyEvent.VK_S))//down
 		{
-
 			b+=catY;
-
 		}
 
 		if (surface.isPressed(KeyEvent.VK_D))//right
 		{
-
 			a +=catX;
-
 		}
-
-
 
 		if (mouse.intersectsLine(bottome) && cluesFound==9)
 		{
 			surface.switchScreen(ScreenSwitcher.THANKYOU); // replace screen1 with the end screen
-
 		}
 		else if (mouse.intersectsLine(top))
 		{
-			//System.out.println("here");
-
 			m= (int) (m+3);		
 		}
-
 		else if (mouse.intersectsLine(line1))
 		{
-			if (clue4Found == false && clue3Found==true)
+			if (clue1Found == false)
 			{
-				surface.switchScreen(ScreenSwitcher.CLUE4);
-				cluesFound=5;
-				clue4Found=true;
-			};
+				surface.switchScreen(ScreenSwitcher.CLUE1);
+				cluesFound=2;
+				clue1Found=true;
+			}
 			z= (int) (z-3);
-			
 		}
-
-
+		
 		else if (mouse.intersectsLine(line2))
 		{
-
 			m-=3;	
 		}
 
 		else if (mouse.intersectsLine(left))
 		{
-
 			z= z+3;	
-
 		}
 
 		else if (mouse.intersectsLine(right))
 		{
-
 			z= z-3;	
-			
 		}
 
 		else if (mouse.intersectsLine(bottom))
@@ -451,20 +444,18 @@ public class Maze extends Screen{
 			m= m-3;		
 		}
 
-
 		else if (mouse.intersectsLine(line3))
 		{
-
 			m+=3;		
 		}
 
 		else if (mouse.intersectsLine(line4))
 		{
-			if (clue3Found == false && clue2Found==true)
+			if (clue6Found == false && clue5Found==true)
 			{
-				surface.switchScreen(ScreenSwitcher.CLUE3);
-				cluesFound=4;
-				clue3Found=true;
+				surface.switchScreen(ScreenSwitcher.CLUE6);
+				cluesFound=7;
+				clue6Found=true;
 			}
 			z+=3;		
 		}
@@ -474,27 +465,29 @@ public class Maze extends Screen{
 			z-=3;	
 		}
 
-
-
 		else if (mouse.intersectsLine(line8))
 		{
-
+			if (clue2Found == false && clue1Found==true)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE2);
+				cluesFound=3;
+				clue2Found=true;
+			}
 			m+=2;	
 		}
 
 		else if (mouse.intersectsLine(line7))
 		{
-
 			m+=3;	
 		}
 
 		else if (mouse.intersectsLine(line20))
 		{
-			if (clue1Found == false)
+			if (clue3Found == false && clue2Found==true)
 			{
-				surface.switchScreen(ScreenSwitcher.CLUE1);
-				cluesFound=2;
-				clue1Found=true;
+				surface.switchScreen(ScreenSwitcher.CLUE3);
+				cluesFound=4;
+				clue3Found=true;
 			}
 
 			m= m-3;		
@@ -502,13 +495,11 @@ public class Maze extends Screen{
 
 		else if (mouse.intersectsLine(line16))
 		{
-
 			z-=3;	
 		}
 
 		else if (mouse.intersectsLine(line9))
 		{
-
 			m-=2;	
 		}
 
@@ -526,13 +517,18 @@ public class Maze extends Screen{
 
 		else if (mouse.intersectsLine(line10))
 		{
-
 			z+=2;	
-
 		}
 
 		else if (mouse.intersectsLine(line21))
 		{
+			if (clue8Found == false && clue7Found==true)
+			{
+				
+				surface.switchScreen(ScreenSwitcher.CLUE8);
+				cluesFound=9;
+				clue8Found=true;
+			}
 			z-=3;		
 		}
 
@@ -544,23 +540,21 @@ public class Maze extends Screen{
 
 		else if (mouse.intersectsLine(line23))
 		{
-
 			z+=2;	
 		}
 
 		else if (mouse.intersectsLine(line24))
 		{
-
 			z-=2;	
 		}
 
 		else if (mouse.intersectsLine(line19))
 		{
-			if (clue2Found == false && clue1Found==true)
+			if (clue4Found == false && clue3Found==true)
 			{
-				surface.switchScreen(ScreenSwitcher.CLUE2);
-				cluesFound=3;
-				clue2Found=true;
+				surface.switchScreen(ScreenSwitcher.CLUE4);
+				cluesFound=5;
+				clue4Found=true;
 			}
 
 			z+=2;		
@@ -611,7 +605,12 @@ public class Maze extends Screen{
 
 		else if (mouse.intersectsLine(line14))
 		{
-
+			if (clue7Found == false && clue6Found==true)
+			{
+				surface.switchScreen(ScreenSwitcher.CLUE7);
+				cluesFound=8;
+				clue7Found=true;
+			}
 			z+=2;	
 		}
 

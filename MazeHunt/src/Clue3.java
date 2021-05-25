@@ -39,7 +39,7 @@ public class Clue3 extends Screen {
 		surface.pushStyle();
 
 
-		surface.background(255);   // Clear the screen with a white background
+		surface.background(204,255,255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 
@@ -49,9 +49,9 @@ public class Clue3 extends Screen {
 
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("Yay, you found me! You forgot your galsses, but I love your hair. "
-				+ "\nLet me help you see a little clearer, "
-				+ "\nwalk around the square to try to find a mirror.",10,30);
+		surface.text("Yay, you found me! You forgot your glasses, but I love your hair. "
+				+ "\n                 Let me help you see a little clearer, "
+				+ "\n       walk around the square to try to find a mirror.",60,30);
 
 		surface.textSize(10);
 		surface.fill(75,0,130);

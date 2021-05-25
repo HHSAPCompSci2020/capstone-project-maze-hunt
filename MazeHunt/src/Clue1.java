@@ -42,7 +42,7 @@ public class Clue1 extends Screen {
 		surface.pushStyle();
 		
 		
-		surface.background(255);   // Clear the screen with a white background
+		surface.background(255,255,204);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
@@ -53,8 +53,8 @@ public class Clue1 extends Screen {
 		surface.fill(0);
 		surface.textSize(9);
 		surface.text("Aha! You want to enter, I don't even know if you'll make it to the center. "
-				+ "\nWatch out for the cat, as he likes to eat rats. "
-				+ "\nBefore I let you enter the maze, what's a dessert that may contain glaze?",10,30);
+				+ "\n                 Watch out for the cat, as he likes to eat rats. "
+				+ "\nBefore I let you enter the maze, what's a dessert that may contain glaze?",30,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);

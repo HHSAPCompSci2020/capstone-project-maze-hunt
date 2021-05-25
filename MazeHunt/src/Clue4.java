@@ -41,7 +41,7 @@ public class Clue4 extends Screen {
 		surface.pushStyle();
 		
 		
-		surface.background(255);   // Clear the screen with a white background
+		surface.background(255,204,204);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
@@ -52,11 +52,11 @@ public class Clue4 extends Screen {
 	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("Well hello again! "
-				+ "\nIt sure has been fun watching you run around a ton."
-				+ "\nThe next one sits upon an island. "
-				+ "\nBut don't be frightened, "
-				+ "\nit's not one you can get stranded on.", 10,30);
+		surface.text("                         Well hello again! "
+				+ "\n  It sure has been fun watching you run around a ton."
+				+ "\n             The next one sits upon an island. "
+				+ "\n                   But don't be frightened, "
+				+ "\n          it's not one you can get stranded on.", 70,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);

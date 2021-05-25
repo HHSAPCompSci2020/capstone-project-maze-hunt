@@ -38,7 +38,7 @@ public class Clue2 extends Screen {
 		surface.pushStyle();
 		
 		
-		surface.background(255);   // Clear the screen with a white background
+		surface.background(255,204,255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
@@ -47,11 +47,11 @@ public class Clue2 extends Screen {
 		
 	
 		surface.fill(0);
-		surface.textSize(9);
+		surface.textSize(11);
 		surface.text("Oh no! You've hit a wall, that's okay stand up tall. "
-				+ "\nTo measure your height, walk down a hall."
-				+ "\nLet me tell you something that I already knew,"
-				+ "\nNow be aware of the lines as you might move and go through.",10,30);
+				+ "\n     To measure your height, walk down a hall."
+				+ "\n    Let me tell you something that I already knew,"
+				+ "\nNow be aware of the lines as you might move and go through.",60,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);

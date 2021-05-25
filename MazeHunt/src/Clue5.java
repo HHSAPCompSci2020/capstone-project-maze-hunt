@@ -43,7 +43,7 @@ public class Clue5 extends Screen {
 		surface.pushStyle();
 		
 		
-		surface.background(255);   // Clear the screen with a white background
+		surface.background(204,229,255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
@@ -56,8 +56,8 @@ public class Clue5 extends Screen {
 	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("The maze has just begun, soon we will end your time of fun! "
-				+ "\nIt's going to get harder, but first tell us who wears an armour.",10,30);
+		surface.text("     The maze has just begun, soon we will end your time of fun! "
+				+ "\n     It's going to get harder, but first tell us who wears an armour.",60,30);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);

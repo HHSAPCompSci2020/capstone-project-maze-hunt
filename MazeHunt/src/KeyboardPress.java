@@ -67,18 +67,12 @@
 			
 			surface.popStyle();
 
-			
-			
-			// Change stuff
 
-		
-
-			
 		}
 		public void mousePressed() {
 			Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 			if (pinkButton.contains(p))
-				surface.switchScreen(ScreenSwitcher.THANKYOU);//switch to welcome screen
+				surface.switchScreen(ScreenSwitcher.SCREEN3);//switch to maze screen
 			if (blackButton.contains(p))
 				surface.switchScreen(ScreenSwitcher.WRONGANSWER4);
 			if (blueButton.contains(p))
