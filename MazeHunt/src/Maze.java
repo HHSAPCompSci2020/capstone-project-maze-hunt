@@ -21,7 +21,7 @@ public class Maze extends Screen{
 	private boolean speedUp=false;
 	private boolean slowDown=false;
 	private PImage rat;
-	private PImage cat;
+	private PImage kitten;
 
 
 	protected double speedX= 0, speedY= 0;
@@ -33,10 +33,11 @@ public class Maze extends Screen{
 
 	//	private Clues clue;
 	private Rectangle mouse;
-	private Rectangle player2;
+	private Rectangle cat;
 	private Rectangle diamond;
 	private Rectangle diamond2;
 	private Mouse Mouse;
+	private Cat Cat;
 	int savedTime;
 	int totalTime = 15000;
 
@@ -52,8 +53,8 @@ public class Maze extends Screen{
 		super(345,255);
 		this.surface = surface;
 		Mouse = new Mouse(25,30,15,15);
+		Cat = new Cat(300,35,17,17);
 		
-
 		mazeLines = new ArrayList<Line2D>();
 
 	}
@@ -72,15 +73,9 @@ public class Maze extends Screen{
 		surface.fill(0);
 		surface.textSize(5);
 		surface.text("Maze Hunt Reminder: \nMove the mouse around to run from the cat and find the clues. "
-				+ "Remember you can only leave \n the maze once you have found all the clues. Good luck!", 5, 15);
-		//		surface.background(176,224,230);
-
-		//Rectangle(x,y,angle,length)
-		//System.out.println("here");
-		// marker.background(255);
-
-		// circle.draw(marker);
-		// marker.rect(20, 10, 20, 10);
+				+ "Remember you can only leave the maze once you have found all the clues."
+				+ "\nSuperboosts are yellow (increase mouse's speed for 15 secs) and diamonds are blue (decreases cat's speed for 15 secs). Good luck!", 1, 0);
+		
 
 		int x, y, w, h, gap;
 		x = 15;
@@ -267,7 +262,7 @@ public class Maze extends Screen{
 
 		mouse = new Rectangle((int)z,(int)m,16,15);
 		//surface.rect((float)z, (float)m, 16, 16);
-		player2 = new Rectangle((int)a,(int)b,17,17);
+		cat = new Rectangle((int)a,(int)b,17,17);
 		diamond = new Rectangle(297, 130, 14, 10);
 		diamond2 = new Rectangle(270, 45, 14, 10);
 		superBoost1 = new Rectangle (140, 130, 10, 10);
@@ -281,15 +276,15 @@ public class Maze extends Screen{
 
 		surface.noFill();
 		surface.noStroke();
-		surface.rect(player2.x, player2.y, player2.width, player2.height);
+		surface.rect(cat.x, cat.y, cat.width, cat.height);
 
 
 
 
 
 
-		cat= surface.loadImage("cat.png");
-		surface.image(cat, (float)a, (float)b,19,19);
+		kitten= surface.loadImage("cat.png");
+		surface.image(kitten, (float)a, (float)b,19,19);
 
 		surface.fill(0); //fill 
 
@@ -306,7 +301,7 @@ public class Maze extends Screen{
 
 		if (cluesFound ==1)
 		{
-			surface.fill(255,0,255);
+			surface.fill(10,153,153);
 			surface.strokeWeight(1);
 			surface.rect((float)line1.getX1(), (float)line1.getY1(), (float)1.7, 30);
 		}
@@ -625,217 +620,194 @@ public class Maze extends Screen{
 			speedY=1;
 		}
 
-		if (mouse.intersects(player2))
+		if (mouse.intersects(cat))
 		{
 			surface.switchScreen(ScreenSwitcher.YOULOSE);//change to lose screen
 
 		}
 
-		if (player2.intersectsLine(top))
+		if (cat.intersectsLine(top))
 		{
 			System.out.println("test");
 			b = (int) (b+2);
 			//a = (int) (a+1);		
 		}
 
-		else if (player2.intersectsLine(line1))
+		else if (cat.intersectsLine(line1))
 		{
 			//b= (int) (b-2);
 			a-=2;		
 		}
 
 
-		else if (player2.intersectsLine(line2))
+		else if (cat.intersectsLine(line2))
 		{
 
 			b = (int) (b-2);
-			//a = (int) (a+1);		
 		}
 
-		else if (player2.intersectsLine(left))
+		else if (cat.intersectsLine(left))
 		{
 
-			//b = (int) (b+1.5);
 			a = (int) (a+2);	
 
 		}
 
-		else if (player2.intersectsLine(right))
+		else if (cat.intersectsLine(right))
 		{
 
-			//b = (int) (b+1);
 			a = (int) (a-2);	
 		}
 
-		else if (player2.intersectsLine(bottom))
+		else if (cat.intersectsLine(bottom))
+		{
+
+			b = (int) (b-2);
+		}
+
+
+		else if (cat.intersectsLine(line3))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-
-		else if (player2.intersectsLine(line3))
-		{
-
-			b = (int) (b-2);
-			//a = (int) (a-1);		
-		}
-
-		else if (player2.intersectsLine(line4))
+		else if (cat.intersectsLine(line4))
 		{
 
 			//b = (int) (b-2);
 			a = (int) (a-2);		
 		}
 
-		else if (player2.intersectsLine(line5))
+		else if (cat.intersectsLine(line5))
 		{
 
 			a-=2;		
 		}
 
-
-		//		if (player2.intersectsLine(line6))
-		//		{
-		//
-		//			//b = (int) (b+2);
-		//			a = (int) (a-1);		
-		//		}
-
-
-		else if (player2.intersectsLine(line8))
+		else if (cat.intersectsLine(line8))
 		{
 
 			b-=2;;
-			//a = (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line7))
+		else if (cat.intersectsLine(line7))
 		{
 
 			b = (int) (b-2);
-			//a = (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line20))
+		else if (cat.intersectsLine(line20))
 		{
 
 			b-=2;		
 		}
 
-		else if (player2.intersectsLine(line16))
+		else if (cat.intersectsLine(line16))
 		{
 
 			a = (int) (a-2);		
 		}
 
-		else if (player2.intersectsLine(line9))
+		else if (cat.intersectsLine(line9))
 		{
 
 			b = (int) (b-2);
-			//a= (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line17))
+		else if (cat.intersectsLine(line17))
 		{
 
 			b = (int) (b-2);
-			//a = (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line10))
+		else if (cat.intersectsLine(line10))
 		{
 
-			//b = (int) (b-1);
-			a+=2;;		
+			a+=2;		
 		}
 
-		else if (player2.intersectsLine(line21))
+		else if (cat.intersectsLine(line21))
 		{
 
-			//b = (int) (b-1);
 			a = (int) (a-2);		
 		}
 
-		else if (player2.intersectsLine(line22))
+		else if (cat.intersectsLine(line22))
 		{
 
 			b = (int) (b-2);
-			//a= (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line23))
+		else if (cat.intersectsLine(line23))
 		{
 
-			//b = (int) (b-1);
 			a = (int) (a+2);		
 		}
 
-		else if (player2.intersectsLine(line24))
+		else if (cat.intersectsLine(line24))
 		{
 
-			//b = (int) (b-1);
 			a = (int) (a-2);		
 		}
 
-		else if (player2.intersectsLine(line19))
+		else if (cat.intersectsLine(line19))
 		{
 
-			//b = (int) (b-1);
 			a = (int) (a-2);		
 		}
 
-		else if (player2.intersectsLine(line18))
+		else if (cat.intersectsLine(line18))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line11))
+		else if (cat.intersectsLine(line11))
 		{
 
 			b = (int) (b+2);
 			//a = (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line12))
+		else if (cat.intersectsLine(line12))
 		{
 
 			b = (int) (b-2);
 			//a = (int) (a-1);		
 		}
 
-		else if (player2.intersectsLine(line13))
+		else if (cat.intersectsLine(line13))
 		{
 
 			//b= (int) (b+1);
 			a = (int) (a+2);		
 		}
 
-		else if (player2.intersectsLine(line25))
+		else if (cat.intersectsLine(line25))
 		{
 
 			b = (int) (b-2);
 			//a= (int) (a+1);		
 		}
 
-		else if (player2.intersectsLine(lastline))
+		else if (cat.intersectsLine(lastline))
 		{
 
 			//b = (int) (b-1);
 			a = (int) (a+1);		
 		}
 
-		else if (player2.intersectsLine(line14))
+		else if (cat.intersectsLine(line14))
 		{
 
 			//b = (int) (b-1);
 			a= (int) (a+1);		
 		}
 
-		else if (player2.intersectsLine(line15))
+		else if (cat.intersectsLine(line15))
 		{
 
 			b = (int) (b+2);
