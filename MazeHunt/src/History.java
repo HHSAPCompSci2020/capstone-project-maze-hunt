@@ -32,13 +32,13 @@ public class History extends Screen{
 		surface.image(backgroundInfo, 0, 0, 400 , 300);
 		
 		//surface.fill(255);
-		surface.rect(continueButton.x, continueButton.y, continueButton.width, continueButton.height, 10, 10, 10, 10);
+		surface.rect(continueButton.x+continueButton.width/2, continueButton.y, continueButton.width, continueButton.height, 10, 10, 10, 10);
 		
 		surface.textSize(10);
 		surface.fill(75,0,130);
 		String cont = "Continue";
 		float w = surface.textWidth(cont); //start button
-		surface.text(cont, continueButton.x+continueButton.width/2-w/2, continueButton.y+continueButton.height/2);
+		surface.text(cont, continueButton.x+continueButton.width/2+w*7/2, continueButton.y+continueButton.height*3/2);
 
 		
 		surface.popStyle();
