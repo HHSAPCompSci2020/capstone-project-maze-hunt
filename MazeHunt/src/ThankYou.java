@@ -22,8 +22,8 @@ public class ThankYou extends Screen {
 		super(400,300);
 		this.surface = surface;
 		exitButton = new Rectangle(150,200,50,40);
-
 	}
+	
 	/**
 	 * Displays the thank you text and exit button
 	 */

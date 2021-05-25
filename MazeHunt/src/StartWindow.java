@@ -43,9 +43,6 @@ public class StartWindow extends Screen{
 		surface.fill(204,229,255);
 		surface.rect(helpButton.x, helpButton.y, helpButton.width, helpButton.height, 10, 10, 10, 10);
 		surface.rect(startButton.x, startButton.y, startButton.width, startButton.height, 10, 10, 10, 10);
-
-		
-		
 		
 		surface.textSize(15);
 		surface.fill(139,78,59);
@@ -54,19 +51,13 @@ public class StartWindow extends Screen{
 		surface.fill(139,0,139);
 		surface.textSize(15);
 		String help = "Help";
-
-		
-		
-		
 		
 		float w = surface.textWidth(start); //start button
 		float y = surface.textWidth(help); //help button
-
 		
 		surface.text(start, startButton.x+startButton.width/2-w/2, startButton.y+startButton.height/2);
 		surface.text(help, helpButton.x+helpButton.width/2-y/2, helpButton.y+helpButton.height/2);
 		surface.popStyle();
-
 		
 	}
 	

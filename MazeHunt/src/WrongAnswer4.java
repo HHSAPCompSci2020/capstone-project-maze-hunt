@@ -44,7 +44,6 @@ public class WrongAnswer4 extends Screen {
 		surface.text(start, startButton.x+startButton.width/2-w/2, startButton.y+startButton.height/2);
 
 		surface.popStyle();
-
 	}
 
 	/**

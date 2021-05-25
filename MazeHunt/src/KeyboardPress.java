@@ -59,7 +59,6 @@ public class KeyboardPress extends Screen {
 				+ "\nClick on the pink button to really exit the maze.",10,30);
 		surface.popStyle();
 
-
 	}
 	
 	/**

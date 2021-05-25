@@ -18,19 +18,15 @@ public class YouLose extends Screen {
 	 * @param surface, the PApplet screen in which the you lose text and the exit button will be displayed.
 	 */
 	public YouLose(DrawingSurface surface) {
-
 		super(400,300);
 		this.surface = surface;
 		exitButton = new Rectangle(150,200,50,40);
-
 	}
 	
 	/**
 	 * Displays the you lose text and exit button
 	 */
 	public void draw() {
-
-		// Draw stuff
 
 		surface.pushStyle();
 
@@ -51,7 +47,6 @@ public class YouLose extends Screen {
 		surface.text(exit, exitButton.x+exitButton.width/2-w/2, exitButton.y+exitButton.height/2);
 
 		surface.popStyle();
-
 	}
 	
 	/**
