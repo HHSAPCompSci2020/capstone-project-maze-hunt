@@ -7,14 +7,12 @@ import java.awt.event.*;
 import javax.swing.JOptionPane;
 
 /**
- * This class holds and contains the first clue
+ * This class holds and contains the last clue
  * Users are prompted with a question and are asked to select the correct answer.
- * @author Anika 
+ * @author Saloni and Faith
  *
  */
 public class Clue8 extends Screen {
-	
-
 	
 	private DrawingSurface surface;
 	private Rectangle keyBoard;
@@ -22,7 +20,7 @@ public class Clue8 extends Screen {
 	private Rectangle castle;
 
 	/**
-	 * Constructs the first clue to be shown onto the screen
+	 * Constructs the last clue to be shown onto the screen
 	 * @param surface, the PApplet screen in which the clues and answer choices are displayed onto the screen
 	 */
 	public Clue8(DrawingSurface surface) {
@@ -37,8 +35,6 @@ public class Clue8 extends Screen {
 	 * Displays the clues and answers onto the screen with answer choices
 	 */
 	public void draw() {
-		
-
 		
 		surface.pushStyle();
 		

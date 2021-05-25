@@ -1,6 +1,11 @@
 import java.awt.Point;
 import java.awt.Rectangle;
-
+/**
+ * This class holds and contains the 5th clue
+ * Users are prompted with a question and are asked to select the correct answer.
+ * @author Saloni and Faith
+ *
+ */
 public class Clue6 extends Screen{
 	
 	private DrawingSurface surface;
@@ -8,6 +13,10 @@ public class Clue6 extends Screen{
 	private Rectangle orangeButton;
 	private Rectangle brownButton;
 	
+	/**
+	 * Constructs the sixth clue to be shown onto the screen
+	 * @param surface, the PApplet screen in which the clues and answer choices are displayed onto the screen
+	 */
 	public Clue6(DrawingSurface surface) {
 		super(400,300);
 		this.surface = surface;
@@ -17,6 +26,9 @@ public class Clue6 extends Screen{
 		brownButton = new Rectangle(175,125,50,40);
 	}
 	
+	/**
+	 * Displays the clues and answers onto the screen with answer choices
+	 */
 	public void draw() {
 		
 		surface.pushStyle();
@@ -55,6 +67,10 @@ public class Clue6 extends Screen{
 		
 	}
 	
+	/**
+	 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
+	 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (beigeButton.contains(p))

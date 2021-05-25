@@ -13,9 +13,6 @@ import javax.swing.JOptionPane;
  *
  */
 public class Clue3 extends Screen {
-
-
-
 	private DrawingSurface surface;
 	private Rectangle back;
 
@@ -34,7 +31,6 @@ public class Clue3 extends Screen {
 	 */
 	public void draw() {
 
-		// Draw stuff
 
 		surface.pushStyle();
 
@@ -43,7 +39,6 @@ public class Clue3 extends Screen {
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 
-		//surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 
 
@@ -60,16 +55,10 @@ public class Clue3 extends Screen {
 		surface.text(Back, back.x+back.width/2-w/2, back.y+back.height/2);
 
 
-		// Change stuff
-
-
-
-
 	}
 	
 	/**
-	 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
-	 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
+	 * Checks for whether the mouse has been pressed and different action will be taken depending on where the mouse is pressed
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));

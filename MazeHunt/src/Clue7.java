@@ -7,9 +7,9 @@ import java.awt.event.*;
 import javax.swing.JOptionPane;
 
 /**
- * This class holds and contains the first clue
+ * This class holds and contains the 7th clue
  * Users are prompted with a question and are asked to select the correct answer.
- * @author Anika
+ * @author Anika and Saloni
  *
  */
 public class Clue7 extends Screen {
@@ -19,7 +19,7 @@ public class Clue7 extends Screen {
 	private DrawingSurface surface;
 	private Rectangle backbutton;
 	/**
-	 * Constructs the first clue to be shown onto the screen
+	 * Constructs the 7th clue to be shown onto the screen
 	 * @param surface, the PApplet screen in which the clues and answer choices are displayed onto the screen
 	 */
 	public Clue7(DrawingSurface surface) {
@@ -32,9 +32,6 @@ public class Clue7 extends Screen {
 	 * Displays the clues and answers onto the screen with answer choices
 	 */
 	public void draw() {
-		
-
-		
 		surface.pushStyle();
 		
 		surface.background(204,229,255);   // Clear the screen with a white background
@@ -57,6 +54,10 @@ public class Clue7 extends Screen {
 
 	}
 	
+	/**
+	 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
+	 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (backbutton.contains(p))

@@ -36,10 +36,7 @@ public class Clue4 extends Screen {
 	 */
 	public void draw() {
 		
-		// Draw stuff
-		
 		surface.pushStyle();
-		
 		
 		surface.background(255,204,204);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white

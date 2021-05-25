@@ -7,14 +7,12 @@ import java.awt.event.*;
 import javax.swing.JOptionPane;
 
 /**
- * This class holds and contains the first clue
+ * This class holds and contains the 5th clue
  * Users are prompted with a question and are asked to select the correct answer.
- * @author Anika
+ * @author Anika and Faith
  *
  */
 public class Clue5 extends Screen {
-	
-
 	
 	private DrawingSurface surface;
 	private Rectangle knightButton;
@@ -22,7 +20,7 @@ public class Clue5 extends Screen {
 	private Rectangle queenButton;
 
 	/**
-	 * Constructs the first clue to be shown onto the screen
+	 * Constructs the 5th clue to be shown onto the screen
 	 * @param surface, the PApplet screen in which the clues and answer choices are displayed onto the screen
 	 */
 	public Clue5(DrawingSurface surface) {
@@ -37,8 +35,6 @@ public class Clue5 extends Screen {
 	 * Displays the clues and answers onto the screen with answer choices
 	 */
 	public void draw() {
-		
-
 		
 		surface.pushStyle();
 		

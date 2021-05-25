@@ -11,47 +11,70 @@ public class Mouse extends PApplet{
 	int width=19;
 	int height=19;
 
+	/**
+	 * Constructs the mouse to be drawn on the PApplet surface
+	 * @param x1, the starting x coordinate of the mouse
+	 * @param y1, the starting y coordinate of the mouse
+	 * @param width, the width of the mouse
+	 * @param height, the height of the mouse
+	 */
 	public Mouse(double x1, double y1, double width, double height) {
 		x=x1;
 		y=y1;
 		
 	}
 	
+	/**
+	 * This method moves the mouse around in the x direction 
+	 * @param dir, the x direction in which the mouse should move
+	 */
 	public void walk(int dir) {
 		x = x+dir;	
 		
 	}
 	
+	/**
+	 * This method moves the mouse around in the y direction
+	 * @param dir, the y direction in which the mouse should move
+	 */
 	public void walkUp(int dir) {
 		y = y+dir;	
 		
 	}
+	
+	/**
+	 * Draws the mouse onto the PApplet surface
+	 * @param surface, the PApplet surface for which the car is to be drawn onto
+	 */
 	public void draw(PApplet surface)
 	{
-		//making the house
 		surface.fill(0,0,50);
 		surface.rect(25,30,19,19);
 	}
-	public void keyPressed() // method call for when a key is pressed
+	
+	/**
+	 * This method checks for when a key is pressed and which key is pressed
+	 */
+	public void keyPressed() 
 	{
-		if (keyCode==LEFT) // if the left key is pressed translate the house to the left
+		if (keyCode==LEFT) 
 		{
-			this.walk(-2); // when the house moves left, the ref. line also moves left
+			this.walk(-2); 
 		}
 		
-		if (keyCode==RIGHT) // if the left key is pressed translate the house to the left
+		if (keyCode==RIGHT)
 		{
-			this.walk(2); // when the house moves left, the ref. line also moves left
+			this.walk(2); 
 		}
 		
-		if (keyCode==UP) // if the left key is pressed translate the house to the left
+		if (keyCode==UP) 
 		{
-			this.walk(-2); // when the house moves left, the ref. line also moves left
+			this.walkUp(-2); 
 		}
 		
-		if (keyCode==DOWN) // if the left key is pressed translate the house to the left
+		if (keyCode==DOWN) 
 		{
-			this.walk(2); // when the house moves left, the ref. line also moves left
+			this.walkUp(2); 
 		}
 	}
 	

@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
  */
 public class Clue2 extends Screen {
 	
-
-	
 	private DrawingSurface surface;
 	private Rectangle back;
 
@@ -42,9 +40,7 @@ public class Clue2 extends Screen {
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		
-		//surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
-		
 	
 		surface.fill(0);
 		surface.textSize(11);
@@ -58,14 +54,13 @@ public class Clue2 extends Screen {
 		String Back = "back";
 		float w = surface.textWidth(Back); //start button
 		surface.text(Back, back.x+back.width/2-w/2, back.y+back.height/2);
-		
-		
-		// Change stuff
-
-	
 
 		
 	}
+	
+	/**
+	 * Checks for whether the mouse has been pressed and different action will be taken depending on where the mouse is pressed
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))
