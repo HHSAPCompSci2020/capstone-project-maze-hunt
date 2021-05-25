@@ -15,7 +15,7 @@
 
 		/**
 		 * Constructs the wrong answer screen to be shown onto the screen
-		 * @param surface, , the PApplet screen in which the you wrong answer text and the back button will be displayed.
+		 * @param surface, the PApplet screen in which the you wrong answer text and the back button will be displayed.
 		 */
 		public WrongAnswer6(DrawingSurface surface) {
 			super(400,300);

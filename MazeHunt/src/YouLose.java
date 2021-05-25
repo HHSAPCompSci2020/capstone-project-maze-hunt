@@ -4,7 +4,7 @@ import processing.core.PImage;
 
 /**
  * This class holds the screen that pops up after the cat and mouse intersect each other.
- * @author Anika and Faith
+ * @author Anika
  *
  */
 public class YouLose extends Screen {
