@@ -4,6 +4,11 @@ import java.awt.event.KeyEvent;
 import processing.core.PApplet;
 import processing.core.PImage;
 
+/**
+ * This class contrusts the mouse
+ * @author anika, Faith, Saloni
+ *
+ */
 public class Mouse extends PApplet{
 	private Rectangle bounding;
 	private PImage rat;

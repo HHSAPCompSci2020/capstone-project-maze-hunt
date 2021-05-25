@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import processing.core.PImage;
 import java.awt.geom.Line2D;
 import java.util.concurrent.TimeUnit;
+
+/**
+ * This class constructs the maze and places the players on the screen
+ * @author anika, Faith, Saloni
+ *
+ */
 public class Maze extends Screen{
 
 	private DrawingSurface surface;
