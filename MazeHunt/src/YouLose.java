@@ -43,7 +43,6 @@ import processing.core.PImage;
 			String exit = "Exit";
 			float w = surface.textWidth(exit); //start button
 			surface.text(exit, exitButton.x+exitButton.width/2-w/2, exitButton.y+exitButton.height/2);
-
 			
 			surface.popStyle();
 
