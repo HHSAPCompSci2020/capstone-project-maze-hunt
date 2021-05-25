@@ -52,9 +52,9 @@ public class Clue4 extends Screen {
 	
 		surface.fill(0);
 		surface.textSize(9);
-		surface.text("Well hello again!"
-				+ "It sure has been fun watching you run around a ton."
-				+ "The next one sits upon an island. "
+		surface.text("Well hello again! "
+				+ "\nIt sure has been fun watching you run around a ton."
+				+ "\nThe next one sits upon an island. "
 				+ "\nBut don't be frightened, "
 				+ "\nit's not one you can get stranded on.", 10,30);
 		
