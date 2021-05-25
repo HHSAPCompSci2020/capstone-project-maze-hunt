@@ -3,10 +3,12 @@ import java.awt.Rectangle;
 
 import processing.core.PImage;
 
-//import javax.swing.JButton;
-
-//import processing.core.PApplet;
-
+/**
+ * This class contains the welcome screen of the game
+ * @author Faith
+ * @version May 24,2021
+ *
+ */
 public class StartWindow extends Screen{
 
 	private DrawingSurface surface;
@@ -14,8 +16,6 @@ public class StartWindow extends Screen{
 	private Rectangle startButton;
 	private PImage welcome;
 
-
-//	private Maze maze;
 
 
 	/**
@@ -33,6 +33,9 @@ public class StartWindow extends Screen{
 
 	}
 
+	/**
+	 * Draws the welcome screen onto the PApplet surface and buttons for users to press to start the game
+	 */
 	public void draw() { 
 
 		surface.pushStyle();
@@ -59,7 +62,6 @@ public class StartWindow extends Screen{
 		
 		
 		
-		//surface.text(start, 80, 70);
 		
 		float w = surface.textWidth(start); //start button
 		float y = surface.textWidth(help); //help button
@@ -69,35 +71,13 @@ public class StartWindow extends Screen{
 		surface.text(help, helpButton.x+helpButton.width/2-y/2, helpButton.y+helpButton.height/2);
 		surface.popStyle();
 
-		//stroke(0);
 		
 	}
+	
 	/**
-	 * Checks when a button on the help screen is pressed and redirects the user accordingly
+	 * Checks whether the mouse has pressed the correct answer choices and returns to the maze if the 
+	 * correct answer is chosen else a try again screen appears to let the use know that they got the answer wrong
 	 */
-	public void keyPressed()
-	{
-
-	}
-
-	/**
-	 * This method displays the instructions and rules of the game onto the screen 
-	 * for the players to read and understand
-	 */
-	public void instructions()
-	{
-
-	}
-
-	/**
-	 * This method indicates for the startup window to pop up again once the user clicks a button
-	 * to exit the help screen
-	 */
-	public void backToStart()
-	{
-
-	}
-
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (helpButton.contains(p))
