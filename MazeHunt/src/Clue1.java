@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 /**
  * This class holds and contains the first clue
  * Users are prompted with a question and are asked to select the correct answer.
- * @author Anika
- *
+ * @author Anika and Faith
+ *@version May 24, 2021
  */
 public class Clue1 extends Screen {
 	

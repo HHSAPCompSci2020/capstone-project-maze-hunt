@@ -8,6 +8,7 @@ import java.awt.Rectangle;
  * This class holds and contains the fourth clue
  * Users are prompted with a question and are asked to select the correct answer.
  * @author Anika and Saloni
+ * @version May 24, 2021
  *
  */
 public class Clue4 extends Screen {

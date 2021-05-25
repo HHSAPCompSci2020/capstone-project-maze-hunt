@@ -4,6 +4,7 @@ import java.awt.Rectangle;
  * This class holds and contains the 5th clue
  * Users are prompted with a question and are asked to select the correct answer.
  * @author Saloni and Faith
+ * @version May 24, 2021
  *
  */
 public class Clue6 extends Screen{

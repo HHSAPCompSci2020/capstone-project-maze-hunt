@@ -1,11 +1,14 @@
 import java.awt.Point;
-//import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-
 import processing.core.PApplet;
-//import processing.event.MouseEvent;
 
-
+/**
+ * This class sets up the screens and players and allows for windows to be switched between depending
+ * on different actions takem
+ * @author Anika, Saloni, Faith
+ * @version May 24, 2021
+ *
+ */
 public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	public float ratioX, ratioY;
 
@@ -14,11 +17,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 
-//	private StartWindow helpWindow;
-//	
-//	private Maze maze;
-	
-	
 
 	/**
 	 * Constructs the maze and sets up the different screens to be switched
@@ -98,8 +96,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher{
 
 	}
 
+	/**
+	 * Formats the screens and sets it up
+	 */
 	public void settings() {
-		// size(DRAWING_WIDTH, DRAWING_HEIGHT, P2D);
 		size(activeScreen.DRAWING_WIDTH, activeScreen.DRAWING_HEIGHT);
 	}
 

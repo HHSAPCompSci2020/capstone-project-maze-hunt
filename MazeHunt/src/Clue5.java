@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
  * This class holds and contains the 5th clue
  * Users are prompted with a question and are asked to select the correct answer.
  * @author Anika and Faith
+ * @version May 24, 2021
  *
  */
 public class Clue5 extends Screen {

@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
  * This class holds and contains the last clue
  * Users are prompted with a question and are asked to select the correct answer.
  * @author Saloni and Faith
+ * @version May 24, 2021
  *
  */
 public class Clue8 extends Screen {
