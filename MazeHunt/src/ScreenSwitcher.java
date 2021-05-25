@@ -1,6 +1,6 @@
 /**
  * This interface contains all the screens 
- * @author Faith and Anika
+ * @author Faith and Anika, with code borrowed from Mr. Shelby
  *
  */
 public interface ScreenSwitcher {
