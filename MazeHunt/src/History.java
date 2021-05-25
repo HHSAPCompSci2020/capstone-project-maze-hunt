@@ -27,6 +27,9 @@ public class History extends Screen{
 	
 	}
 	
+	/**
+	 * Draws the background information and continue button on the screen
+	 */
 	public void draw() {
 		
 		// Draw stuff
