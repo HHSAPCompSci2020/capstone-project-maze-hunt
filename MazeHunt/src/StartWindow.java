@@ -1,6 +1,8 @@
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import processing.core.PImage;
+
 //import javax.swing.JButton;
 
 //import processing.core.PApplet;
@@ -10,6 +12,8 @@ public class StartWindow extends Screen{
 	private DrawingSurface surface;
 	private Rectangle helpButton;
 	private Rectangle startButton;
+	private PImage welcome;
+
 
 //	private Maze maze;
 
@@ -22,8 +26,8 @@ public class StartWindow extends Screen{
 	{
 		super(400,300);
 		this.surface = surface;
-		helpButton = new Rectangle(250,160,90,60);
-		startButton = new Rectangle(65,160,90,60);
+		helpButton = new Rectangle(250,190,90,60);
+		startButton = new Rectangle(65,190,90,60);
 
 		//maze = new Maze();
 
@@ -34,18 +38,15 @@ public class StartWindow extends Screen{
 		surface.pushStyle();
 
 		surface.background(255,255,255);
-		
+		welcome= surface.loadImage("WelcomeScreen.png");
+		surface.image(welcome,0,0,400,300);
 		//button
-		surface.fill(255);
+		surface.fill(204,229,255);
 		surface.rect(helpButton.x, helpButton.y, helpButton.width, helpButton.height, 10, 10, 10, 10);
 		surface.rect(startButton.x, startButton.y, startButton.width, startButton.height, 10, 10, 10, 10);
 
 		
-		//welcome text
-		surface.fill(139,28,59);
-		String str = "Welcome to the \n  Maze Hunt!";
-		surface.textSize(30);
-		surface.text(str, 80, 70);
+		
 		
 		surface.textSize(15);
 		surface.fill(139,78,59);
@@ -103,6 +104,6 @@ public class StartWindow extends Screen{
 			surface.switchScreen(ScreenSwitcher.SCREEN2); //switch to help screen
 		
 		if (startButton.contains(p))
-			surface.switchScreen(ScreenSwitcher.THANKYOU); //switch to start screen
+			surface.switchScreen(ScreenSwitcher.HISTORY); //switch to start screen
 	}
 }
